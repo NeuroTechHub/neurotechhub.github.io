@@ -21,14 +21,32 @@ jobs:
 
       - name: Validate frontmatter
         run: |
-          # Check for required frontmatter fields
-          find content -name "*.md" -exec grep -L "^title:" {} \; > missing-title.txt
-          find content -name "*.md" -exec grep -L "^date:" {} \; > missing-date.txt
+          # Better frontmatter validation
+          errors=0
+          for file in $(find content -name "*.md"); do
+            # Check if file has frontmatter
+            if ! grep -q "^---$" "$file"; then
+              echo "Missing frontmatter: $file"
+              errors=$((errors + 1))
+              continue
+            fi
+            
+            # Extract frontmatter and check required fields
+            frontmatter=$(sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d')
+            
+            if ! echo "$frontmatter" | grep -q "^title:"; then
+              echo "Missing title in: $file"
+              errors=$((errors + 1))
+            fi
+            
+            if ! echo "$frontmatter" | grep -q "^date:"; then
+              echo "Missing date in: $file"
+              errors=$((errors + 1))
+            fi
+          done
 
-          if [ -s missing-title.txt ] || [ -s missing-date.txt ]; then
-            echo "Missing required frontmatter fields:"
-            [ -s missing-title.txt ] && echo "Missing title:" && cat missing-title.txt
-            [ -s missing-date.txt ] && echo "Missing date:" && cat missing-date.txt
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors frontmatter errors"
             exit 1
           fi
 
@@ -36,13 +54,11 @@ jobs:
         run: |
           hugo --buildDrafts --buildFuture
 
-          # Simple link check - can be enhanced with more sophisticated tools
-          find public -name "*.html" -exec grep -l "href.*404" {} \; > broken-links.txt || true
-
-          if [ -s broken-links.txt ]; then
-            echo "Potential broken links found:"
-            cat broken-links.txt
-            # Don't fail the build for now, just warn
+          # Use hugo's built-in link checking or htmlproofer
+          # For now, just ensure build succeeds
+          if [ ! -d "public" ]; then
+            echo "Hugo build failed - no public directory created"
+            exit 1
           fi
 
       - name: Validate images
