@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Neurotech Hub"
+title: "Welcome to NeuroTechHub"
 date: 2025-01-01
 draft: false
 ---
@@ -15,6 +15,6 @@ We're building an open community where breakthrough neurotech innovations can fl
 ## What We Do
 
 - **Open Source Projects**: Contributing to the future of neurotech through collaborative development
-- **Knowledge Sharing**: Blog posts, tutorials, and insights from experts in the field  
+- **Knowledge Sharing**: Blog posts, tutorials, and insights from experts in the field
 - **Community Events**: Regular talks, workshops, and discussions with industry leaders
 - **Research Collaboration**: Connecting researchers and practitioners worldwide

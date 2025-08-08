@@ -1,11 +1,11 @@
 baseURL = 'https://neurotechhub.github.io'
 languageCode = 'en-us'
-title = 'Neurotech Hub'
+title = 'NeuroTechHub'
 theme = 'neurotech-theme'
 
 [params]
   description = "Building the future of neurotech together"
-  author = "Neurotech Hub Team"
+  author = "NeuroTechHub Team"
   
 [menu]
   [[menu.main]]

@@ -2,14 +2,14 @@
 title: "About"
 date: 2025-01-01
 draft: false
-description: "Learn about the Neurotech Hub community and our mission"
+description: "Learn about the NeuroTechHub community and our mission"
 ---
 
-# About Neurotech Hub
+# About NeuroTechHub
 
 ## Our Story
 
-Neurotech Hub was founded with a simple belief: the future of brain-computer interfaces will be built through open collaboration. We're a community of passionate researchers, engineers, and innovators who are committed to advancing neurotechnology through shared knowledge and collective effort.
+NeuroTechHub was founded with a simple belief: the future of brain-computer interfaces will be built through open collaboration. We're a community of passionate researchers, engineers, and innovators who are committed to advancing neurotechnology through shared knowledge and collective effort.
 
 ## Our Mission
 
@@ -41,10 +41,10 @@ Whether you're a seasoned researcher or just getting started with neurotechnolog
 
 ## Contact Us
 
-Ready to join the future of neurotechnology? 
+Ready to join the future of neurotechnology?
 
 - **GitHub**: [github.com/neurotechhub](https://github.com/neurotechhub)
 - **Discord**: Join our community discussions
 - **Email**: hello@neurotechhub.org
 
-*Together, we're building the neural interfaces of tomorrow.*
+_Together, we're building the neural interfaces of tomorrow._

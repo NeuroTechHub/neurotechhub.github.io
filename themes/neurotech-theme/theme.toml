@@ -1,7 +1,7 @@
 name = "Neurotech Theme"
 license = "MIT"
 licenselink = "https://github.com/neurotechhub/website/blob/main/LICENSE"
-description = "A modern theme for the Neurotech Hub website"
+description = "A modern theme for the NeuroTechHub website"
 homepage = "https://neurotechhub.github.io"
 demosite = "https://neurotechhub.github.io"
 tags = ["blog", "minimal", "modern", "responsive"]
@@ -9,5 +9,5 @@ features = ["blog", "responsive", "dark-theme"]
 min_version = "0.100.0"
 
 [author]
-  name = "Neurotech Hub Team"
+  name = "NeuroTechHub Team"
   homepage = "https://neurotechhub.github.io"
