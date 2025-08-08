@@ -6,6 +6,8 @@ theme = 'neurotech-theme'
 [params]
   description = "Building the future of neurotech together"
   author = "NeuroTechHub Team"
+  [[params.meta]]
+  favicon = false
   
 [menu]
   [[menu.main]]

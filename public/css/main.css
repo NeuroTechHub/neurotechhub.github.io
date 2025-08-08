@@ -80,9 +80,8 @@ body {
 .header {
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: var(--spacing-lg) 0;
+  padding: 20px 0;
   position: sticky;
-  top: 0;
   z-index: 1001;
   transition: background-color 0.3s ease;
 }
@@ -110,8 +109,8 @@ body {
 }
 
 .nav-logo-img {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: var(--logo-cutout-radius);
   object-fit: cover;
 }
@@ -431,7 +430,6 @@ main {
 }
 
 .content a {
-  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -786,49 +784,31 @@ select:focus {
   }
   .nav-menu {
     position: fixed;
-    top: 70px;
-    left: -100%;
+    top: 107px;
+    left: 0;
     width: 100%;
     background-color: var(--bg-primary);
     flex-direction: column;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
   }
 
   .nav-menu.active {
-    left: 0;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
     animation: fadeInRight 0.3s ease-out;
   }
 
   .nav-toggle {
     display: flex;
-  }
-
-  .search-input {
-    min-width: 200px;
-    max-width: 100%;
-  }
-
-  .filter-select {
-    min-width: 120px;
-  }
-
-  /* Add more spacing around text on mobile */
-  .container {
-    padding: 0 var(--spacing-lg);
-  }
-
-  .card {
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .section {
-    padding: var(--spacing-xl) 0;
   }
 
   .hero-title {
@@ -860,6 +840,18 @@ select:focus {
 
   .card:hover {
     transform: translateY(-4px) scale(1.01);
+  }
+
+  /* Add spacing for bullet points on mobile */
+  .content ul,
+  .content ol {
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-xs);
   }
 }
 

@@ -131,4 +131,4 @@ _Together, we're not just building better neural interfaces—we're building the
 
 ---
 
-_Have questions or want to contribute? Reach out to us at hello@neurotechhub.org or join the conversation in our Discord community._
+_Have questions or want to contribute? Reach out to us at contact@neurotechhub.org or join the conversation in our Discord community._

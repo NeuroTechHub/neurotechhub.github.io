@@ -165,7 +165,7 @@ The site is automatically deployed to GitHub Pages using GitHub Actions when cha
 - **Website**: [neurotechhub.github.io](https://neurotechhub.github.io)
 - **GitHub**: [github.com/neurotechhub](https://github.com/neurotechhub)
 - **Discord**: [Join our community](https://discord.gg/neurotech)
-- **Email**: hello@neurotechhub.org
+- **Email**: contact@neurotechhub.org
 
 ### Code of Conduct
 

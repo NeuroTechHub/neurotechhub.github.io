@@ -3,8 +3,8 @@ name: Validate Content
 on:
   pull_request:
     paths:
-      - 'content/**'
-      - 'static/**'
+      - "content/**"
+      - "static/**"
 
 jobs:
   validate:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Validate frontmatter
@@ -24,7 +24,7 @@ jobs:
           # Check for required frontmatter fields
           find content -name "*.md" -exec grep -L "^title:" {} \; > missing-title.txt
           find content -name "*.md" -exec grep -L "^date:" {} \; > missing-date.txt
-          
+
           if [ -s missing-title.txt ] || [ -s missing-date.txt ]; then
             echo "Missing required frontmatter fields:"
             [ -s missing-title.txt ] && echo "Missing title:" && cat missing-title.txt
@@ -35,10 +35,10 @@ jobs:
       - name: Check for broken internal links
         run: |
           hugo --buildDrafts --buildFuture
-          
+
           # Simple link check - can be enhanced with more sophisticated tools
           find public -name "*.html" -exec grep -l "href.*404" {} \; > broken-links.txt || true
-          
+
           if [ -s broken-links.txt ]; then
             echo "Potential broken links found:"
             cat broken-links.txt
@@ -49,14 +49,14 @@ jobs:
         run: |
           # Check if referenced images exist
           find content -name "*.md" -exec grep -oP '(?<=featured_image: ")[^"]*' {} \; > image-refs.txt
-          
+
           missing_images=""
           while IFS= read -r image; do
             if [ ! -f "static/$image" ] && [ ! -f "themes/neurotech-theme/static/$image" ]; then
               missing_images="$missing_images\n$image"
             fi
           done < image-refs.txt
-          
+
           if [ ! -z "$missing_images" ]; then
             echo "Missing image files:"
             echo -e "$missing_images"

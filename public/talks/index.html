@@ -3,9 +3,10 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talks &amp; Events - NeuroTechHub</title>
+    <title>NTH - Talks &amp; Events</title>
     <meta name="description" content="Community talks, workshops, and events featuring neurotech experts">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
@@ -45,304 +46,477 @@
     
     <main>
         
-<section class="section" style="padding: var(--spacing-lg) 0;">
-    <div class="container">
-        
-        <div style="margin-bottom: 2rem;">
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
-                <input type="text" id="searchInput" placeholder="Search talks..." class="search-input">
-                
-                <select id="typeFilter" class="filter-select">
-                    <option value="">All Talks</option>
-                    <option value="upcoming">Upcoming Only</option>
-                    <option value="past">Past Only</option>
-                </select>
-                
-                <select id="tagFilter" class="filter-select">
-                    <option value="">All Topics</option>
-                    
-                    <option value="BCI">BCI (1)</option>
-                    
-                    <option value="Beginner">Beginner (1)</option>
-                    
-                    <option value="Community">Community (1)</option>
-                    
-                    <option value="Future-Tech">Future-Tech (1)</option>
-                    
-                    <option value="Hardware">Hardware (1)</option>
-                    
-                    <option value="Keynote">Keynote (1)</option>
-                    
-                    <option value="Neurotech">Neurotech (1)</option>
-                    
-                    <option value="Open-Source">Open-Source (1)</option>
-                    
-                    <option value="Research">Research (1)</option>
-                    
-                    <option value="Signal-Processing">Signal-Processing (1)</option>
-                    
-                    <option value="Tutorial">Tutorial (2)</option>
-                    
-                    <option value="Workshop">Workshop (1)</option>
-                    
-                </select>
-                
-                <button id="clearFilters" style="padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 0.25rem; cursor: pointer;">
-                    Clear Filters
-                </button>
-            </div>
-        </div>
+<section class="section" style="padding: var(--spacing-lg) 0">
+  <div class="container">
+    
+    <div style="margin-bottom: 2rem">
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search talks..."
+          class="search-input"
+        />
 
-        
-        
-        
-        <div class="upcoming-section">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-white); text-align: center;">
-                🚀 Upcoming Talks
-            </h2>
-            
-            <div class="grid grid-2" id="upcomingGrid">
-                
-                <article class="card talk-card" 
-                         data-title="neural signal processing workshop: from raw data to insights"
-                         data-summary="learn practical techniques for processing neural signals, from preprocessing to feature extraction and classification."
-                         data-speaker="dr. maria rodriguez"
-                         data-tags="workshop signal-processing tutorial "
-                         data-type="upcoming"
-                         data-date="2025-02-15"
-                         onclick="window.location.href='\/talks\/events\/neural-signal-processing-workshop\/'">
-                    
-                    
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                        <span class="tag" style="background-color: var(--color-accent); color: white; font-weight: 600;">
-                            🔴 UPCOMING
-                        </span>
-                        <span style="color: var(--color-gray); font-size: 0.9rem;">
-                            Feb 15, 2025
-                        </span>
-                    </div>
-                    
-                    <h3 class="card-title">
-                        <a href="/talks/events/neural-signal-processing-workshop/">Neural Signal Processing Workshop: From Raw Data to Insights</a>
-                    </h3>
-                    
-                    
-                    <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">
-                        🎤 Dr. Maria Rodriguez
-                    </p>
-                    
-                    
-                    
-                    <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">
-                        📍 Online (Zoom)
-                    </p>
-                    
-                    
-                    <p class="card-summary">Learn practical techniques for processing neural signals, from preprocessing to feature extraction and classification.</p>
-                    
-                    
-                    <div class="card-tags" style="margin: 1rem 0;">
-                        
-                        <span class="tag">workshop</span>
-                        
-                        <span class="tag">signal-processing</span>
-                        
-                        <span class="tag">tutorial</span>
-                        
-                    </div>
-                    
-                    
-                    
-                    <div style="margin-top: 1rem;">
-                        <a href="https://zoom.us/webinar/register/neural-signal-workshop" target="_blank" rel="noopener" 
-                           style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
-                           🎫 Register Now
-                        </a>
-                    </div>
-                    
-                </article>
-                
-            </div>
-        </div>
-        
+        <select id="typeFilter" class="filter-select">
+          <option value="">All Talks</option>
+          <option value="upcoming">Upcoming Only</option>
+          <option value="past">Past Only</option>
+        </select>
 
-        
-        
-        
-        <div class="past-section" style="margin-top: 4rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-white); text-align: center;">
-                📚 Past Talks
-            </h2>
-            
-            <div class="grid grid-2" id="pastGrid">
-                
-                <article class="card talk-card" 
-                         data-title="the future of neural interfaces: beyond brain-computer"
-                         data-summary="a visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement."
-                         data-speaker="prof. alex chen"
-                         data-tags="keynote future-tech research "
-                         data-type="past"
-                         data-date="2025-01-10"
-                         onclick="window.location.href='\/talks\/events\/future-of-neural-interfaces\/'">
-                    
-                    
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                        <span class="tag" style="background-color: #666; color: white; font-weight: 600;">
-                            ✅ PAST
-                        </span>
-                        <span style="color: var(--color-gray); font-size: 0.9rem;">
-                            Jan 10, 2025
-                        </span>
-                    </div>
-                    
-                    <h3 class="card-title">
-                        <a href="/talks/events/future-of-neural-interfaces/">The Future of Neural Interfaces: Beyond Brain-Computer</a>
-                    </h3>
-                    
-                    
-                    <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">
-                        🎤 Prof. Alex Chen
-                    </p>
-                    
-                    
-                    
-                    <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">
-                        📍 MIT Media Lab (recorded)
-                    </p>
-                    
-                    
-                    <p class="card-summary">A visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement.</p>
-                    
-                    
-                    <div class="card-tags" style="margin: 1rem 0;">
-                        
-                        <span class="tag">keynote</span>
-                        
-                        <span class="tag">future-tech</span>
-                        
-                        <span class="tag">research</span>
-                        
-                    </div>
-                    
-                    
-                    
-                    <div style="margin-top: 1rem;">
-                        <a href="https://youtube.com/watch?v=future-neural-interfaces" target="_blank" rel="noopener"
-                           style="display: inline-block; background-color: #666; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
-                           📺 Watch Recording
-                        </a>
-                    </div>
-                    
-                </article>
-                
-            </div>
-        </div>
-        
-        
-        
-        <div id="noResults" style="display: none; text-align: center; padding: 2rem; color: var(--color-gray);">
-            <h3>No talks found</h3>
-            <p>Try adjusting your search or filter criteria.</p>
-        </div>
-        
-        
-        <div class="theme-box" style="margin-top: 4rem; text-align: center; padding: 3rem; border-radius: 1rem;">
-            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Want to Give a Talk?</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                We're always looking for speakers to share their knowledge and insights with our community. 
-                Whether you're a researcher, engineer, or industry professional, we'd love to hear from you.
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md" 
-                   target="_blank" rel="noopener" class="hero-cta">
-                   Propose a Talk
-                </a>
-                <a href="/about/" class="hero-cta">Learn More</a>
-            </div>
-        </div>
+        <select id="tagFilter" class="filter-select">
+          <option value="">All Topics</option>
+          
+          <option value="BCI">
+            BCI (1)
+          </option>
+          
+          <option value="Beginner">
+            Beginner (1)
+          </option>
+          
+          <option value="Community">
+            Community (1)
+          </option>
+          
+          <option value="Future-Tech">
+            Future-Tech (1)
+          </option>
+          
+          <option value="Hardware">
+            Hardware (1)
+          </option>
+          
+          <option value="Keynote">
+            Keynote (1)
+          </option>
+          
+          <option value="Neurotech">
+            Neurotech (1)
+          </option>
+          
+          <option value="Open-Source">
+            Open-Source (1)
+          </option>
+          
+          <option value="Research">
+            Research (1)
+          </option>
+          
+          <option value="Signal-Processing">
+            Signal-Processing (1)
+          </option>
+          
+          <option value="Tutorial">
+            Tutorial (2)
+          </option>
+          
+          <option value="Workshop">
+            Workshop (1)
+          </option>
+          
+        </select>
+
+        <button
+          id="clearFilters"
+          style="
+            padding: 0.5rem 1rem;
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+          "
+        >
+          Clear Filters
+        </button>
+      </div>
     </div>
+
+    
+     
+    <div class="upcoming-section">
+      <h2
+        style="
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          color: var(--color-white);
+          text-align: center;
+        "
+      >
+        🚀 Upcoming Talks
+      </h2>
+
+      <div class="grid grid-2" id="upcomingGrid">
+        
+        <article
+          class="card talk-card"
+          data-title="neural signal processing workshop: from raw data to insights"
+          data-summary="learn practical techniques for processing neural signals, from preprocessing to feature extraction and classification."
+          data-speaker="dr. maria rodriguez"
+          data-tags="workshop signal-processing tutorial "
+          data-type="upcoming"
+          data-date="2025-02-15"
+          onclick="window.location.href='\/talks\/events\/neural-signal-processing-workshop\/'"
+        >
+          
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 1rem;
+            "
+          >
+            <span
+              class="tag"
+              style="
+                background-color: var(--color-accent);
+                color: white;
+                font-weight: 600;
+              "
+            >
+              🔴 UPCOMING
+            </span>
+            <span style="color: var(--color-gray); font-size: 0.9rem">
+              Feb 15, 2025
+            </span>
+          </div>
+
+          <h3 class="card-title">
+            <a href="/talks/events/neural-signal-processing-workshop/">Neural Signal Processing Workshop: From Raw Data to Insights</a>
+          </h3>
+
+          
+          <p
+            style="
+              color: var(--color-accent);
+              font-weight: 500;
+              margin-bottom: 0.5rem;
+            "
+          >
+            🎤 Dr. Maria Rodriguez
+          </p>
+           
+          <p
+            style="
+              color: var(--color-gray);
+              font-size: 0.9rem;
+              margin-bottom: 1rem;
+            "
+          >
+            📍 Online (Zoom)
+          </p>
+          
+
+          <p class="card-summary">Learn practical techniques for processing neural signals, from preprocessing to feature extraction and classification.</p>
+
+          
+          <div class="card-tags" style="margin: 1rem 0">
+            
+            <span class="tag">workshop</span>
+            
+            <span class="tag">signal-processing</span>
+            
+            <span class="tag">tutorial</span>
+            
+          </div>
+           
+          <div style="margin-top: 1rem">
+            <a
+              href="https://zoom.us/webinar/register/neural-signal-workshop"
+              target="_blank"
+              rel="noopener"
+              style="
+                display: inline-block;
+                background-color: var(--color-accent);
+                color: white;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                text-decoration: none;
+                font-weight: 600;
+              "
+            >
+              🎫 Register Now
+            </a>
+          </div>
+          
+        </article>
+        
+      </div>
+    </div>
+    
+
+    
+     
+    <div class="past-section" style="margin-top: 4rem">
+      <h2
+        style="
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          color: var(--color-white);
+          text-align: center;
+        "
+      >
+        📚 Past Talks
+      </h2>
+
+      <div class="grid grid-2" id="pastGrid">
+        
+        <article
+          class="card talk-card"
+          data-title="the future of neural interfaces: beyond brain-computer"
+          data-summary="a visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement."
+          data-speaker="prof. alex chen"
+          data-tags="keynote future-tech research "
+          data-type="past"
+          data-date="2025-01-10"
+          onclick="window.location.href='\/talks\/events\/future-of-neural-interfaces\/'"
+        >
+          
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 1rem;
+            "
+          >
+            <span
+              class="tag"
+              style="background-color: #666; color: white; font-weight: 600"
+            >
+              ✅ PAST
+            </span>
+            <span style="color: var(--color-gray); font-size: 0.9rem">
+              Jan 10, 2025
+            </span>
+          </div>
+
+          <h3 class="card-title">
+            <a href="/talks/events/future-of-neural-interfaces/">The Future of Neural Interfaces: Beyond Brain-Computer</a>
+          </h3>
+
+          
+          <p
+            style="
+              color: var(--color-accent);
+              font-weight: 500;
+              margin-bottom: 0.5rem;
+            "
+          >
+            🎤 Prof. Alex Chen
+          </p>
+           
+          <p
+            style="
+              color: var(--color-gray);
+              font-size: 0.9rem;
+              margin-bottom: 1rem;
+            "
+          >
+            📍 MIT Media Lab (recorded)
+          </p>
+          
+
+          <p class="card-summary">A visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement.</p>
+
+          
+          <div class="card-tags" style="margin: 1rem 0">
+            
+            <span class="tag">keynote</span>
+            
+            <span class="tag">future-tech</span>
+            
+            <span class="tag">research</span>
+            
+          </div>
+           
+          <div style="margin-top: 1rem">
+            <a
+              href="https://youtube.com/watch?v=future-neural-interfaces"
+              target="_blank"
+              rel="noopener"
+              style="
+                display: inline-block;
+                background-color: #666;
+                color: white;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                text-decoration: none;
+                font-weight: 600;
+              "
+            >
+              📺 Watch Recording
+            </a>
+          </div>
+          
+        </article>
+        
+      </div>
+    </div>
+    
+
+    
+    <div
+      id="noResults"
+      style="
+        display: none;
+        text-align: center;
+        padding: 2rem;
+        color: var(--color-gray);
+      "
+    >
+      <h3>No talks found</h3>
+      <p>Try adjusting your search or filter criteria.</p>
+    </div>
+
+    
+    <div
+      class="theme-box"
+      style="
+        margin-top: 4rem;
+        text-align: center;
+        padding: 3rem;
+        border-radius: 1rem;
+      "
+    >
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem">
+        Want to Give a Talk?
+      </h3>
+      <p
+        style="
+          color: var(--text-secondary);
+          margin-bottom: 2rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        We're always looking for speakers to share their knowledge and insights
+        with our community. Whether you're a researcher, engineer, or industry
+        professional, we'd love to hear from you.
+      </p>
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+          target="_blank"
+          rel="noopener"
+          class="hero-cta"
+        >
+          Propose a Talk
+        </a>
+        <a
+          href="https://discord.gg/neurotech"
+          target="_blank"
+          rel="noopener"
+          class="hero-cta"
+        >
+          Discuss on Discord
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const typeFilter = document.getElementById('typeFilter');
-    const tagFilter = document.getElementById('tagFilter');
-    const clearFilters = document.getElementById('clearFilters');
-    const upcomingGrid = document.getElementById('upcomingGrid');
-    const pastGrid = document.getElementById('pastGrid');
-    const upcomingSection = document.querySelector('.upcoming-section');
-    const pastSection = document.querySelector('.past-section');
-    const noResults = document.getElementById('noResults');
-    const talkCards = document.querySelectorAll('.talk-card');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const tagFilter = document.getElementById("tagFilter");
+    const clearFilters = document.getElementById("clearFilters");
+    const upcomingGrid = document.getElementById("upcomingGrid");
+    const pastGrid = document.getElementById("pastGrid");
+    const upcomingSection = document.querySelector(".upcoming-section");
+    const pastSection = document.querySelector(".past-section");
+    const noResults = document.getElementById("noResults");
+    const talkCards = document.querySelectorAll(".talk-card");
+
     function filterTalks() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedType = typeFilter.value;
-        const selectedTag = tagFilter.value.toLowerCase();
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedType = typeFilter.value;
+      const selectedTag = tagFilter.value.toLowerCase();
+
+      let upcomingVisible = 0;
+      let pastVisible = 0;
+
+      talkCards.forEach((card) => {
+        const title = card.dataset.title;
+        const summary = card.dataset.summary;
+        const speaker = card.dataset.speaker;
+        const tags = card.dataset.tags;
+        const type = card.dataset.type;
+
         
-        let upcomingVisible = 0;
-        let pastVisible = 0;
+        const matchesSearch =
+          !searchTerm ||
+          title.includes(searchTerm) ||
+          summary.includes(searchTerm) ||
+          speaker.includes(searchTerm);
+
         
-        talkCards.forEach(card => {
-            const title = card.dataset.title;
-            const summary = card.dataset.summary;
-            const speaker = card.dataset.speaker;
-            const tags = card.dataset.tags;
-            const type = card.dataset.type;
-            
-            
-            const matchesSearch = !searchTerm || 
-                title.includes(searchTerm) || 
-                summary.includes(searchTerm) || 
-                speaker.includes(searchTerm);
-            
-            
-            const matchesType = !selectedType || type === selectedType;
-            
-            
-            const matchesTag = !selectedTag || tags.includes(selectedTag);
-            
-            if (matchesSearch && matchesType && matchesTag) {
-                card.style.display = 'block';
-                if (type === 'upcoming') upcomingVisible++;
-                else if (type === 'past') pastVisible++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
+        const matchesType = !selectedType || type === selectedType;
+
         
-        
-        if (upcomingSection) {
-            upcomingSection.style.display = (selectedType === 'past' || upcomingVisible === 0) ? 'none' : 'block';
-        }
-        
-        if (pastSection) {
-            pastSection.style.display = (selectedType === 'upcoming' || pastVisible === 0) ? 'none' : 'block';
-        }
-        
-        
-        const totalVisible = upcomingVisible + pastVisible;
-        if (totalVisible === 0 && (searchTerm || selectedType || selectedTag)) {
-            noResults.style.display = 'block';
+        const matchesTag = !selectedTag || tags.includes(selectedTag);
+
+        if (matchesSearch && matchesType && matchesTag) {
+          card.style.display = "block";
+          if (type === "upcoming") upcomingVisible++;
+          else if (type === "past") pastVisible++;
         } else {
-            noResults.style.display = 'none';
+          card.style.display = "none";
         }
+      });
+
+      
+      if (upcomingSection) {
+        upcomingSection.style.display =
+          selectedType === "past" || upcomingVisible === 0 ? "none" : "block";
+      }
+
+      if (pastSection) {
+        pastSection.style.display =
+          selectedType === "upcoming" || pastVisible === 0 ? "none" : "block";
+      }
+
+      
+      const totalVisible = upcomingVisible + pastVisible;
+      if (totalVisible === 0 && (searchTerm || selectedType || selectedTag)) {
+        noResults.style.display = "block";
+      } else {
+        noResults.style.display = "none";
+      }
     }
-    
+
     function clearAllFilters() {
-        searchInput.value = '';
-        typeFilter.value = '';
-        tagFilter.value = '';
-        filterTalks();
+      searchInput.value = "";
+      typeFilter.value = "";
+      tagFilter.value = "";
+      filterTalks();
     }
+
     
-    
-    searchInput.addEventListener('input', filterTalks);
-    typeFilter.addEventListener('change', filterTalks);
-    tagFilter.addEventListener('change', filterTalks);
-    clearFilters.addEventListener('click', clearAllFilters);
-});
+    searchInput.addEventListener("input", filterTalks);
+    typeFilter.addEventListener("change", filterTalks);
+    tagFilter.addEventListener("change", filterTalks);
+    clearFilters.addEventListener("click", clearAllFilters);
+  });
 </script>
 
     </main>

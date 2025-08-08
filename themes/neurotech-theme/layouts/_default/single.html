@@ -1,10 +1,10 @@
 {{ define "main" }}
 <article class="content">
-    <header style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+    <header style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color);">
         <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">{{ .Title }}</h1>
         
         {{ if .Params.summary }}
-        <p style="font-size: 1.2rem; color: var(--color-light); max-width: 800px; margin: 0 auto 2rem;">
+        <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 2rem;">
             {{ .Params.summary }}
         </p>
         {{ end }}
@@ -93,7 +93,7 @@
     
     <!-- Author bio for blog posts -->
     {{ if and .Params.author (eq .Type "blog") }}
-    <div style="margin-top: 3rem; padding: 2rem; background-color: #2a2a2a; border-radius: 1rem; border: 1px solid var(--color-border);">
+    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: 1rem; border: 1px solid var(--border-color);">
         <h3 style="margin-top: 0; color: var(--color-white);">About the Author</h3>
         <div style="display: flex; align-items: center; gap: 1rem;">
             <div style="width: 60px; height: 60px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: white;">
@@ -112,7 +112,7 @@
     {{ end }}
     
     <!-- Navigation -->
-    <nav style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+    <nav style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             {{ if .PrevInSection }}
             <a href="{{ .PrevInSection.RelPermalink }}" 
