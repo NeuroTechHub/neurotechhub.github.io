@@ -5,7 +5,7 @@ author: "NeuroTechHub Team"
 tags: ["community", "neurotech", "open-source"]
 categories: ["announcement"]
 summary: "Introducing NeuroTechHub - an open community for advancing brain-computer interface technology through collaboration and shared knowledge."
-featured_image: "/images/posts/welcome-hero.jpg"
+featured_image: "/images/posts/welcome-hero.svg"
 draft: false
 ---
 

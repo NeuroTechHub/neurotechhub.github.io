@@ -5,7 +5,7 @@ author: "Dr. Sarah Chen"
 tags: ["BCI", "tutorial", "beginner", "hardware"]
 categories: ["tutorial"]
 summary: "A comprehensive guide for newcomers to brain-computer interface technology, covering basic concepts, hardware requirements, and your first BCI project."
-featured_image: "/images/posts/bci-basics.jpg"
+featured_image: "/images/posts/bci-basics.svg"
 draft: false
 ---
 
