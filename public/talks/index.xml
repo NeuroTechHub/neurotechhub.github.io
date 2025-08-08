@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks &amp; Events on NeuroTechHub</title>
-    <link>https://neurotechhub.github.io/talks/</link>
+    <link>http://localhost:1313/talks/</link>
     <description>Recent content in Talks &amp; Events on NeuroTechHub</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://neurotechhub.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neural Signal Processing Workshop: From Raw Data to Insights</title>
-      <link>https://neurotechhub.github.io/talks/events/neural-signal-processing-workshop/</link>
+      <link>http://localhost:1313/talks/events/neural-signal-processing-workshop/</link>
       <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/talks/events/neural-signal-processing-workshop/</guid>
+      <guid>http://localhost:1313/talks/events/neural-signal-processing-workshop/</guid>
       <description>Learn practical techniques for processing neural signals, from preprocessing to feature extraction and classification.</description>
     </item>
     <item>
       <title>The Future of Neural Interfaces: Beyond Brain-Computer</title>
-      <link>https://neurotechhub.github.io/talks/events/future-of-neural-interfaces/</link>
+      <link>http://localhost:1313/talks/events/future-of-neural-interfaces/</link>
       <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/talks/events/future-of-neural-interfaces/</guid>
+      <guid>http://localhost:1313/talks/events/future-of-neural-interfaces/</guid>
       <description>A visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement.</description>
     </item>
   </channel>
