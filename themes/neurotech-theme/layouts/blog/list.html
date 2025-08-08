@@ -1,10 +1,5 @@
 {{ define "main" }}
-<div class="content">
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Content }}</p>
-</div>
-
-<section class="section">
+<section class="section" style="padding: var(--spacing-lg) 0;">
     <div class="container">
         <!-- Filter/Search Section -->
         <div style="margin-bottom: 2rem;">
@@ -37,11 +32,15 @@
                      data-categories="{{ range .Params.categories }}{{ . | lower }} {{ end }}"
                      data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
                      data-author="{{ .Params.author | lower }}"
-                     data-date="{{ .Date.Format "2006-01-02" }}">
+                     data-date="{{ .Date.Format "2006-01-02" }}"
+                     data-url="{{ .RelPermalink }}"
+                     onclick="window.location.href='{{ .RelPermalink }}'">
                 
                 {{ if .Params.featured_image }}
                 <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
                 {{ end }}
+                
+                <h2 class="card-title">{{ .Title }}</h2>
                 
                 <div class="card-meta">
                     {{ .Date.Format "January 2, 2006" }}
@@ -49,28 +48,12 @@
                     {{ if .ReadingTime }} • {{ .ReadingTime }} min read{{ end }}
                 </div>
                 
-                <h2 class="card-title">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h2>
-                
                 <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
                 
-                <!-- Categories -->
-                {{ if .Params.categories }}
-                <div style="margin: 1rem 0 0.5rem;">
-                    {{ range .Params.categories }}
-                    <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="tag" style="background-color: var(--color-accent);">
-                        {{ . | title }}
-                    </a>
-                    {{ end }}
-                </div>
-                {{ end }}
-                
-                <!-- Tags -->
                 {{ if .Params.tags }}
                 <div class="card-tags">
                     {{ range .Params.tags }}
-                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+                    <span class="tag">{{ . }}</span>
                     {{ end }}
                 </div>
                 {{ end }}

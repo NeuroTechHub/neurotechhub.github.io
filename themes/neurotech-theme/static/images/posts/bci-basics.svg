@@ -1,0 +1,59 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9f5f4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="url(#bg2)"/>
+  
+  <!-- EEG electrode grid -->
+  <g transform="translate(50, 50)">
+    <!-- Head outline -->
+    <ellipse cx="200" cy="180" rx="120" ry="140" fill="none" stroke="#467265" stroke-width="3" opacity="0.6"/>
+    
+    <!-- EEG electrodes -->
+    <circle cx="200" cy="80" r="4" fill="#467265"/>
+    <circle cx="170" cy="100" r="4" fill="#467265"/>
+    <circle cx="230" cy="100" r="4" fill="#467265"/>
+    <circle cx="140" cy="130" r="4" fill="#467265"/>
+    <circle cx="200" cy="130" r="4" fill="#467265"/>
+    <circle cx="260" cy="130" r="4" fill="#467265"/>
+    <circle cx="170" cy="160" r="4" fill="#467265"/>
+    <circle cx="230" cy="160" r="4" fill="#467265"/>
+    <circle cx="140" cy="190" r="4" fill="#467265"/>
+    <circle cx="200" cy="190" r="4" fill="#467265"/>
+    <circle cx="260" cy="190" r="4" fill="#467265"/>
+    <circle cx="170" cy="220" r="4" fill="#467265"/>
+    <circle cx="230" cy="220" r="4" fill="#467265"/>
+    <circle cx="200" cy="250" r="4" fill="#467265"/>
+  </g>
+  
+  <!-- Signal waves -->
+  <g transform="translate(450, 100)">
+    <path d="M 0 50 Q 20 30 40 50 Q 60 70 80 50 Q 100 30 120 50" 
+          fill="none" stroke="#467265" stroke-width="2"/>
+    <path d="M 0 100 Q 15 80 30 100 Q 45 120 60 100 Q 75 80 90 100 Q 105 120 120 100" 
+          fill="none" stroke="#467265" stroke-width="2"/>
+    <path d="M 0 150 Q 25 120 50 150 Q 75 180 100 150 Q 125 120 150 150" 
+          fill="none" stroke="#467265" stroke-width="2"/>
+    
+    <!-- Labels -->
+    <text x="60" y="20" font-family="Inter, sans-serif" font-size="14" fill="#467265" text-anchor="middle">
+      EEG Signals
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 400 200 L 440 200 L 435 195 M 440 200 L 435 205" 
+        stroke="#467265" stroke-width="2" fill="none"/>
+  
+  <!-- Title -->
+  <text x="400" y="320" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#467265" text-anchor="middle">
+    Getting Started with BCIs
+  </text>
+  <text x="400" y="350" font-family="Inter, sans-serif" font-size="14" fill="#666" text-anchor="middle">
+    A beginner's guide to brain-computer interfaces
+  </text>
+</svg>

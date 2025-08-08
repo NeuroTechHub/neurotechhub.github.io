@@ -1,10 +1,5 @@
 {{ define "main" }}
-<div class="content">
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Content }}</p>
-</div>
-
-<section class="section">
+<section class="section" style="padding: var(--spacing-lg) 0;">
     <div class="container">
         <!-- Filter Section -->
         <div style="margin-bottom: 2rem;">
@@ -47,7 +42,8 @@
                          data-speaker="{{ .Params.speaker | lower }}"
                          data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
                          data-type="upcoming"
-                         data-date="{{ .Params.event_date }}">
+                         data-date="{{ .Params.event_date }}"
+                         onclick="window.location.href='{{ .RelPermalink }}'">
                     
                     <!-- Status badge -->
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
@@ -120,7 +116,8 @@
                          data-speaker="{{ .Params.speaker | lower }}"
                          data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
                          data-type="past"
-                         data-date="{{ .Params.event_date }}">
+                         data-date="{{ .Params.event_date }}"
+                         onclick="window.location.href='{{ .RelPermalink }}'">
                     
                     <!-- Status badge -->
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
