@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    <p>Browse content by {{ .Data.Plural | lower }}:</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="grid grid-3">
+            {{ range .Data.Terms.ByCount }}
+            <div class="card">
+                <h3 class="card-title">
+                    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+                </h3>
+                <p style="color: var(--color-gray);">
+                    {{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}
+                </p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

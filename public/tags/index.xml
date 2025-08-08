@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Neurotech Hub</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Neurotech Hub</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Signal-Processing</title>
+      <link>http://localhost:1313/tags/signal-processing/</link>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/signal-processing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/tags/tutorial/</link>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Workshop</title>
+      <link>http://localhost:1313/tags/workshop/</link>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/workshop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BCI</title>
+      <link>http://localhost:1313/tags/bci/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Beginner</title>
+      <link>http://localhost:1313/tags/beginner/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/beginner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:1313/tags/hardware/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Community</title>
+      <link>http://localhost:1313/tags/community/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/community/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neurotech</title>
+      <link>http://localhost:1313/tags/neurotech/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/neurotech/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Source</title>
+      <link>http://localhost:1313/tags/open-source/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Future-Tech</title>
+      <link>http://localhost:1313/tags/future-tech/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/future-tech/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Keynote</title>
+      <link>http://localhost:1313/tags/keynote/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/keynote/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:1313/tags/research/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/research/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

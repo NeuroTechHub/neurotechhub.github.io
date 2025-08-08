@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="{{ "/" | relURL }}" class="nav-logo">
+                    <span class="nav-title">{{ .Site.Title }}</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relURL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+                    {{ .Name }}
+                </a>
+                {{ end }}
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+</header>

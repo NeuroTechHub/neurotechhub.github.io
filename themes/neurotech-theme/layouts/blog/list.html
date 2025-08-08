@@ -1,0 +1,186 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <!-- Filter/Search Section -->
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
+                <input type="text" id="searchInput" placeholder="Search posts..." 
+                       style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem; min-width: 300px;">
+                
+                <select id="categoryFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                    <option value="">All Categories</option>
+                    {{ range .Site.Taxonomies.categories }}
+                    <option value="{{ .Page.Title }}">{{ .Page.Title | title }} ({{ .Count }})</option>
+                    {{ end }}
+                </select>
+                
+                <select id="tagFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                    <option value="">All Tags</option>
+                    {{ range .Site.Taxonomies.tags }}
+                    <option value="{{ .Page.Title }}">{{ .Page.Title | title }} ({{ .Count }})</option>
+                    {{ end }}
+                </select>
+            </div>
+        </div>
+        
+        <!-- Posts Grid -->
+        <div class="grid grid-2" id="postsGrid">
+            {{ range .Paginator.Pages }}
+            <article class="card post-card" 
+                     data-title="{{ .Title | lower }}"
+                     data-summary="{{ .Params.summary | default .Summary | lower }}"
+                     data-categories="{{ range .Params.categories }}{{ . | lower }} {{ end }}"
+                     data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
+                     data-author="{{ .Params.author | lower }}"
+                     data-date="{{ .Date.Format "2006-01-02" }}">
+                
+                {{ if .Params.featured_image }}
+                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
+                {{ end }}
+                
+                <div class="card-meta">
+                    {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.author }} • {{ .Params.author }}{{ end }}
+                    {{ if .ReadingTime }} • {{ .ReadingTime }} min read{{ end }}
+                </div>
+                
+                <h2 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                
+                <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                
+                <!-- Categories -->
+                {{ if .Params.categories }}
+                <div style="margin: 1rem 0 0.5rem;">
+                    {{ range .Params.categories }}
+                    <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="tag" style="background-color: var(--color-accent);">
+                        {{ . | title }}
+                    </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                <!-- Tags -->
+                {{ if .Params.tags }}
+                <div class="card-tags">
+                    {{ range .Params.tags }}
+                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        
+        <!-- No results message -->
+        <div id="noResults" style="display: none; text-align: center; padding: 2rem; color: var(--color-gray);">
+            <h3>No posts found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+        </div>
+        
+        <!-- Pagination -->
+        {{ if .Paginator.HasPrev }}
+        <div style="text-align: center; margin: 3rem 0;">
+            <div style="display: inline-flex; gap: 1rem; align-items: center;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" class="hero-cta">← Previous</a>
+                {{ end }}
+                
+                <span style="color: var(--color-light);">
+                    Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+                </span>
+                
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" class="hero-cta">Next →</a>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const tagFilter = document.getElementById('tagFilter');
+    const postsGrid = document.getElementById('postsGrid');
+    const noResults = document.getElementById('noResults');
+    const postCards = document.querySelectorAll('.post-card');
+    
+    function filterPosts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategory = categoryFilter.value.toLowerCase();
+        const selectedTag = tagFilter.value.toLowerCase();
+        
+        let visibleCount = 0;
+        
+        postCards.forEach(card => {
+            const title = card.dataset.title;
+            const summary = card.dataset.summary;
+            const categories = card.dataset.categories;
+            const tags = card.dataset.tags;
+            const author = card.dataset.author;
+            
+            // Search filter
+            const matchesSearch = !searchTerm || 
+                title.includes(searchTerm) || 
+                summary.includes(searchTerm) || 
+                author.includes(searchTerm);
+            
+            // Category filter
+            const matchesCategory = !selectedCategory || 
+                categories.includes(selectedCategory);
+            
+            // Tag filter
+            const matchesTag = !selectedTag || 
+                tags.includes(selectedTag);
+            
+            if (matchesSearch && matchesCategory && matchesTag) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Show/hide no results message
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+            postsGrid.style.display = 'none';
+        } else {
+            noResults.style.display = 'none';
+            postsGrid.style.display = 'grid';
+        }
+    }
+    
+    // Add event listeners
+    searchInput.addEventListener('input', filterPosts);
+    categoryFilter.addEventListener('change', filterPosts);
+    tagFilter.addEventListener('change', filterPosts);
+    
+    // Clear filters function
+    function clearFilters() {
+        searchInput.value = '';
+        categoryFilter.value = '';
+        tagFilter.value = '';
+        filterPosts();
+    }
+    
+    // Add clear button
+    const clearButton = document.createElement('button');
+    clearButton.textContent = 'Clear Filters';
+    clearButton.style.cssText = 'padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 0.25rem; cursor: pointer;';
+    clearButton.addEventListener('click', clearFilters);
+    
+    // Insert clear button after filters
+    categoryFilter.parentNode.appendChild(clearButton);
+});
+</script>
+{{ end }}

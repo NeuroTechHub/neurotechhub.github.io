@@ -1,0 +1,64 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</p>
+    
+    {{ if .Data.Terms }}
+    <p style="color: var(--color-gray); margin-bottom: 2rem;">
+        {{ .Data.Terms.Len }} {{ if eq .Data.Terms.Len 1 }}entry{{ else }}entries{{ end }} tagged with "{{ .Title }}"
+    </p>
+    {{ end }}
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="grid grid-2">
+            {{ range .Paginator.Pages }}
+            <article class="card">
+                {{ if .Params.featured_image }}
+                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
+                {{ end }}
+                
+                <div class="card-meta">
+                    {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.author }} • {{ .Params.author }}{{ end }}
+                </div>
+                
+                <h2 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                
+                <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                
+                {{ if .Params.tags }}
+                <div class="card-tags">
+                    {{ range .Params.tags }}
+                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        
+        <!-- Pagination -->
+        {{ if or .Paginator.HasPrev .Paginator.HasNext }}
+        <div style="text-align: center; margin: 3rem 0;">
+            <div style="display: inline-flex; gap: 1rem; align-items: center;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" class="hero-cta">← Previous</a>
+                {{ end }}
+                
+                <span style="color: var(--color-light);">
+                    Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+                </span>
+                
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" class="hero-cta">Next →</a>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,280 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</p>
+</div>
+
+<section class="section">
+    <div class="container">
+        <!-- Filter Section -->
+        <div style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
+                <input type="text" id="searchInput" placeholder="Search talks..." 
+                       style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem; min-width: 300px;">
+                
+                <select id="typeFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                    <option value="">All Talks</option>
+                    <option value="upcoming">Upcoming Only</option>
+                    <option value="past">Past Only</option>
+                </select>
+                
+                <select id="tagFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                    <option value="">All Topics</option>
+                    {{ range .Site.Taxonomies.tags }}
+                    <option value="{{ .Page.Title }}">{{ .Page.Title | title }} ({{ .Count }})</option>
+                    {{ end }}
+                </select>
+                
+                <button id="clearFilters" style="padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 0.25rem; cursor: pointer;">
+                    Clear Filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Upcoming Talks Section -->
+        {{ $upcomingTalks := where .Pages ".Params.talk_type" "eq" "upcoming" }}
+        {{ if $upcomingTalks }}
+        <div class="upcoming-section">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-white); text-align: center;">
+                🚀 Upcoming Talks
+            </h2>
+            
+            <div class="grid grid-2" id="upcomingGrid">
+                {{ range $upcomingTalks.ByParam "event_date" }}
+                <article class="card talk-card" 
+                         data-title="{{ .Title | lower }}"
+                         data-summary="{{ .Params.summary | default .Summary | lower }}"
+                         data-speaker="{{ .Params.speaker | lower }}"
+                         data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
+                         data-type="upcoming"
+                         data-date="{{ .Params.event_date }}">
+                    
+                    <!-- Status badge -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                        <span class="tag" style="background-color: var(--color-accent); color: white; font-weight: 600;">
+                            🔴 UPCOMING
+                        </span>
+                        <span style="color: var(--color-gray); font-size: 0.9rem;">
+                            {{ .Params.event_date | dateFormat "Jan 2, 2006" }}
+                        </span>
+                    </div>
+                    
+                    <h3 class="card-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    
+                    {{ if .Params.speaker }}
+                    <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">
+                        🎤 {{ .Params.speaker }}
+                    </p>
+                    {{ end }}
+                    
+                    {{ if .Params.location }}
+                    <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                        📍 {{ .Params.location }}
+                    </p>
+                    {{ end }}
+                    
+                    <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                    
+                    {{ if .Params.tags }}
+                    <div class="card-tags" style="margin: 1rem 0;">
+                        {{ range .Params.tags }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Params.registration_link }}
+                    <div style="margin-top: 1rem;">
+                        <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener" 
+                           style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+                           🎫 Register Now
+                        </a>
+                    </div>
+                    {{ end }}
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ else }}
+        <div class="upcoming-section" style="text-align: center; padding: 2rem; background-color: #2a2a2a; border-radius: 1rem; margin-bottom: 3rem;">
+            <h3 style="color: var(--color-white); margin-bottom: 1rem;">No Upcoming Talks</h3>
+            <p style="color: var(--color-gray);">Check back soon for new events, or suggest a topic in our Discord!</p>
+        </div>
+        {{ end }}
+
+        <!-- Past Talks Section -->
+        {{ $pastTalks := where .Pages ".Params.talk_type" "eq" "past" }}
+        {{ if $pastTalks }}
+        <div class="past-section" style="margin-top: 4rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-white); text-align: center;">
+                📚 Past Talks
+            </h2>
+            
+            <div class="grid grid-2" id="pastGrid">
+                {{ range $pastTalks.ByParam "event_date" }}
+                <article class="card talk-card" 
+                         data-title="{{ .Title | lower }}"
+                         data-summary="{{ .Params.summary | default .Summary | lower }}"
+                         data-speaker="{{ .Params.speaker | lower }}"
+                         data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
+                         data-type="past"
+                         data-date="{{ .Params.event_date }}">
+                    
+                    <!-- Status badge -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                        <span class="tag" style="background-color: #666; color: white; font-weight: 600;">
+                            ✅ PAST
+                        </span>
+                        <span style="color: var(--color-gray); font-size: 0.9rem;">
+                            {{ .Params.event_date | dateFormat "Jan 2, 2006" }}
+                        </span>
+                    </div>
+                    
+                    <h3 class="card-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    
+                    {{ if .Params.speaker }}
+                    <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">
+                        🎤 {{ .Params.speaker }}
+                    </p>
+                    {{ end }}
+                    
+                    {{ if .Params.location }}
+                    <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">
+                        📍 {{ .Params.location }}
+                    </p>
+                    {{ end }}
+                    
+                    <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                    
+                    {{ if .Params.tags }}
+                    <div class="card-tags" style="margin: 1rem 0;">
+                        {{ range .Params.tags }}
+                        <span class="tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    {{ if .Params.recording_link }}
+                    <div style="margin-top: 1rem;">
+                        <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
+                           style="display: inline-block; background-color: #666; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+                           📺 Watch Recording
+                        </a>
+                    </div>
+                    {{ end }}
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+        
+        <!-- No results message -->
+        <div id="noResults" style="display: none; text-align: center; padding: 2rem; color: var(--color-gray);">
+            <h3>No talks found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+        </div>
+        
+        <!-- Call to action -->
+        <div style="margin-top: 4rem; text-align: center; padding: 3rem; background-color: #2a2a2a; border-radius: 1rem;">
+            <h3 style="color: var(--color-white); margin-bottom: 1rem;">Want to Give a Talk?</h3>
+            <p style="color: var(--color-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                We're always looking for speakers to share their knowledge and insights with our community. 
+                Whether you're a researcher, engineer, or industry professional, we'd love to hear from you.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md" 
+                   target="_blank" rel="noopener" class="hero-cta">
+                   Propose a Talk
+                </a>
+                <a href="/about/" class="hero-cta">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter = document.getElementById('typeFilter');
+    const tagFilter = document.getElementById('tagFilter');
+    const clearFilters = document.getElementById('clearFilters');
+    const upcomingGrid = document.getElementById('upcomingGrid');
+    const pastGrid = document.getElementById('pastGrid');
+    const upcomingSection = document.querySelector('.upcoming-section');
+    const pastSection = document.querySelector('.past-section');
+    const noResults = document.getElementById('noResults');
+    const talkCards = document.querySelectorAll('.talk-card');
+    
+    function filterTalks() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedType = typeFilter.value;
+        const selectedTag = tagFilter.value.toLowerCase();
+        
+        let upcomingVisible = 0;
+        let pastVisible = 0;
+        
+        talkCards.forEach(card => {
+            const title = card.dataset.title;
+            const summary = card.dataset.summary;
+            const speaker = card.dataset.speaker;
+            const tags = card.dataset.tags;
+            const type = card.dataset.type;
+            
+            // Search filter
+            const matchesSearch = !searchTerm || 
+                title.includes(searchTerm) || 
+                summary.includes(searchTerm) || 
+                speaker.includes(searchTerm);
+            
+            // Type filter
+            const matchesType = !selectedType || type === selectedType;
+            
+            // Tag filter
+            const matchesTag = !selectedTag || tags.includes(selectedTag);
+            
+            if (matchesSearch && matchesType && matchesTag) {
+                card.style.display = 'block';
+                if (type === 'upcoming') upcomingVisible++;
+                else if (type === 'past') pastVisible++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Show/hide sections based on filter results
+        if (upcomingSection) {
+            upcomingSection.style.display = (selectedType === 'past' || upcomingVisible === 0) ? 'none' : 'block';
+        }
+        
+        if (pastSection) {
+            pastSection.style.display = (selectedType === 'upcoming' || pastVisible === 0) ? 'none' : 'block';
+        }
+        
+        // Show/hide no results message
+        const totalVisible = upcomingVisible + pastVisible;
+        if (totalVisible === 0 && (searchTerm || selectedType || selectedTag)) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    }
+    
+    function clearAllFilters() {
+        searchInput.value = '';
+        typeFilter.value = '';
+        tagFilter.value = '';
+        filterTalks();
+    }
+    
+    // Add event listeners
+    searchInput.addEventListener('input', filterTalks);
+    typeFilter.addEventListener('change', filterTalks);
+    tagFilter.addEventListener('change', filterTalks);
+    clearFilters.addEventListener('click', clearAllFilters);
+});
+</script>
+{{ end }}

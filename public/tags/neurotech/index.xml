@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neurotech on Neurotech Hub</title>
+    <link>http://localhost:1313/tags/neurotech/</link>
+    <description>Recent content in Neurotech on Neurotech Hub</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/neurotech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to Neurotech Hub: Building the Future Together</title>
+      <link>http://localhost:1313/blog/posts/welcome-to-neurotech-hub/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/welcome-to-neurotech-hub/</guid>
+      <description>Introducing Neurotech Hub - an open community for advancing brain-computer interface technology through collaboration and shared knowledge.</description>
+    </item>
+  </channel>
+</rss>

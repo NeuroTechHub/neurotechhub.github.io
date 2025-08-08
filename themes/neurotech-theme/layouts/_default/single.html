@@ -1,0 +1,164 @@
+{{ define "main" }}
+<article class="content">
+    <header style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">{{ .Title }}</h1>
+        
+        {{ if .Params.summary }}
+        <p style="font-size: 1.2rem; color: var(--color-light); max-width: 800px; margin: 0 auto 2rem;">
+            {{ .Params.summary }}
+        </p>
+        {{ end }}
+        
+        <div style="display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; color: var(--color-gray);">
+            {{ if .Date }}
+            <span>📅 {{ .Date.Format "January 2, 2006" }}</span>
+            {{ end }}
+            
+            {{ if .Params.author }}
+            <span>👤 {{ .Params.author }}</span>
+            {{ end }}
+            
+            {{ if .ReadingTime }}
+            <span>⏱️ {{ .ReadingTime }} min read</span>
+            {{ end }}
+            
+            {{ if .Params.speaker }}
+            <span>🎤 {{ .Params.speaker }}</span>
+            {{ end }}
+            
+            {{ if .Params.location }}
+            <span>📍 {{ .Params.location }}</span>
+            {{ end }}
+            
+            {{ if .Params.event_date }}
+            <span>🗓️ {{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span>
+            {{ end }}
+        </div>
+        
+        <!-- Categories and Tags -->
+        <div style="margin-top: 1.5rem;">
+            {{ if .Params.categories }}
+            <div style="margin-bottom: 0.5rem;">
+                {{ range .Params.categories }}
+                <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="tag" style="background-color: var(--color-accent); margin: 0.25rem;">
+                    {{ . | title }}
+                </a>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            {{ if .Params.tags }}
+            <div>
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag" style="margin: 0.25rem;">
+                    {{ . }}
+                </a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        
+        <!-- Talk-specific elements -->
+        {{ if eq .Type "talks" }}
+        <div style="margin-top: 2rem;">
+            {{ if .Params.registration_link }}
+            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener" 
+               style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+               🎫 Register for this Talk
+            </a>
+            {{ end }}
+            
+            {{ if .Params.recording_link }}
+            <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
+               style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+               📺 Watch Recording
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </header>
+    
+    <!-- Featured Image -->
+    {{ if .Params.featured_image }}
+    <div style="text-align: center; margin-bottom: 3rem;">
+        <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" 
+             style="max-width: 100%; height: auto; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+    </div>
+    {{ end }}
+    
+    <!-- Content -->
+    <div class="prose">
+        {{ .Content }}
+    </div>
+    
+    <!-- Author bio for blog posts -->
+    {{ if and .Params.author (eq .Type "blog") }}
+    <div style="margin-top: 3rem; padding: 2rem; background-color: #2a2a2a; border-radius: 1rem; border: 1px solid var(--color-border);">
+        <h3 style="margin-top: 0; color: var(--color-white);">About the Author</h3>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 60px; height: 60px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: white;">
+                {{ substr .Params.author 0 1 | upper }}
+            </div>
+            <div>
+                <p style="margin: 0; font-weight: 600; color: var(--color-white);">{{ .Params.author }}</p>
+                {{ if .Params.author_bio }}
+                <p style="margin: 0.5rem 0 0; color: var(--color-light);">{{ .Params.author_bio }}</p>
+                {{ else }}
+                <p style="margin: 0.5rem 0 0; color: var(--color-light);">Contributor to Neurotech Hub</p>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    {{ end }}
+    
+    <!-- Navigation -->
+    <nav style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            {{ if .PrevInSection }}
+            <a href="{{ .PrevInSection.RelPermalink }}" 
+               style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); text-decoration: none; font-weight: 500;">
+               ← {{ .PrevInSection.Title | truncate 50 }}
+            </a>
+            {{ else }}
+            <div></div>
+            {{ end }}
+            
+            <a href="{{ if eq .Type "blog" }}/blog/{{ else if eq .Type "talks" }}/talks/{{ else }}/{{ end }}" 
+               style="background-color: var(--color-accent); color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+               Back to {{ .Type | title }}
+            </a>
+            
+            {{ if .NextInSection }}
+            <a href="{{ .NextInSection.RelPermalink }}" 
+               style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); text-decoration: none; font-weight: 500; text-align: right;">
+               {{ .NextInSection.Title | truncate 50 }} →
+            </a>
+            {{ else }}
+            <div></div>
+            {{ end }}
+        </div>
+    </nav>
+    
+    <!-- Share buttons -->
+    <div style="margin-top: 2rem; text-align: center;">
+        <p style="color: var(--color-gray); margin-bottom: 1rem;">Share this {{ .Type | singularize }}:</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" 
+               target="_blank" rel="noopener"
+               style="background-color: #1da1f2; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+               Twitter
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}" 
+               target="_blank" rel="noopener"
+               style="background-color: #0077b5; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+               LinkedIn
+            </a>
+            <a href="https://reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}" 
+               target="_blank" rel="noopener"
+               style="background-color: #ff4500; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+               Reddit
+            </a>
+        </div>
+    </div>
+</article>
+{{ end }}

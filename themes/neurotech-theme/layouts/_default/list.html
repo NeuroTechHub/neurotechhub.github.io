@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="grid grid-2">
+            {{ range .Paginator.Pages }}
+            <article class="card">
+                <h2 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                <div class="card-meta">
+                    {{ .Date.Format "January 2, 2006" }}
+                </div>
+                <p class="card-summary">{{ .Summary }}</p>
+            </article>
+            {{ end }}
+        </div>
+        
+        <!-- Pagination -->
+        {{ if or .Paginator.HasPrev .Paginator.HasNext }}
+        <div style="text-align: center; margin: 3rem 0;">
+            <div style="display: inline-flex; gap: 1rem; align-items: center;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" class="hero-cta">← Previous</a>
+                {{ end }}
+                
+                <span style="color: var(--color-light);">
+                    Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+                </span>
+                
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" class="hero-cta">Next →</a>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}
