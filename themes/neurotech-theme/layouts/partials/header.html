@@ -1,24 +1,30 @@
 <header class="header">
     <div class="container">
         <nav class="nav">
-            <div class="nav-brand">
+            <div class="nav-left">
+                <a href="/about/" class="nav-link">ABOUT</a>
+            </div>
+            
+            <div class="nav-center">
                 <a href="{{ "/" | relURL }}" class="nav-logo">
-                    <img src="{{ "logo_text.png" | relURL }}" alt="{{ .Site.Title }}" class="nav-logo-img">
+                    <img src="{{ "logo_icon.png" | relURL }}" alt="{{ .Site.Title }}" class="nav-logo-img">
                 </a>
             </div>
             
-            <div class="nav-menu" id="nav-menu">
-                {{ range .Site.Menus.main }}
-                <a href="{{ .URL | relURL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
-                    {{ .Name }}
-                </a>
-                {{ end }}
-            </div>
-            
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-right">
+                <div class="nav-menu" id="nav-menu">
+                    <a href="/blog/" class="nav-link">BLOG</a>
+                    <a href="/talks/" class="nav-link">EVENTS</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-toggle-icon">🌓</span>
+                    </button>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </div>

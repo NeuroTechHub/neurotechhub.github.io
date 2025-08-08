@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    if (themeToggle) {
+        // Check for saved theme preference or default to light theme
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+        }
+        
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            body.classList.toggle('dark-theme');
+            
+            // Save theme preference
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                console.log('Switched to dark theme');
+            } else {
+                localStorage.setItem('theme', 'light');
+                console.log('Switched to light theme');
+            }
+        });
+    } else {
+        console.error('Theme toggle button not found');
+    }
     // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -34,19 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add scroll effect to header
-    const header = document.querySelector('.header');
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(31, 31, 31, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.backgroundColor = '#1f1f1f';
-                header.style.backdropFilter = 'none';
-            }
-        });
-    }
     
     // Card hover animations
     const cards = document.querySelectorAll('.card');
