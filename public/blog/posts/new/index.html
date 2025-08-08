@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Started with Brain-Computer Interfaces: A Beginner&#39;s Guide - NeuroTechHub</title>
+    <title>new post - NeuroTechHub</title>
     <meta name="description" content="Building the future of neurotech together">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,11 +53,11 @@
         
 <article class="content">
     <header style="text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
-        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Getting Started with Brain-Computer Interfaces: A Beginner&#39;s Guide</h1>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">new post</h1>
         
         
         <p style="font-size: 1.2rem; color: var(--color-light); max-width: 800px; margin: 0 auto 2rem;">
-            A comprehensive guide for newcomers to brain-computer interface technology, covering basic concepts, hardware requirements, and your first BCI project.
+            A  BCI project.
         </p>
         
         
@@ -71,7 +71,7 @@
             
             
             
-            <span>⏱️ 6 min read</span>
+            <span>⏱️ 5 min read</span>
             
             
             
@@ -100,14 +100,6 @@
                     BCI
                 </a>
                 
-                <a href="/tags/tutorial/" class="tag" style="margin: 0.25rem;">
-                    tutorial
-                </a>
-                
-                <a href="/tags/beginner/" class="tag" style="margin: 0.25rem;">
-                    beginner
-                </a>
-                
                 <a href="/tags/hardware/" class="tag" style="margin: 0.25rem;">
                     hardware
                 </a>
@@ -123,14 +115,14 @@
     
     
     <div style="text-align: center; margin-bottom: 3rem;">
-        <img src="/images/posts/bci-basics.jpg" alt="Getting Started with Brain-Computer Interfaces: A Beginner&#39;s Guide" 
+        <img src="/images/posts/bci-basics.jpg" alt="new post" 
              style="max-width: 100%; height: auto; border-radius: 1rem; box-shadow: var(--shadow-lg);">
     </div>
     
     
     
     <div class="prose">
-        <h1 id="getting-started-with-brain-computer-interfaces">Getting Started with Brain-Computer Interfaces</h1>
+        <p>FART</p>
 <p>Brain-Computer Interfaces (BCIs) might sound like science fiction, but they&rsquo;re very much a reality today. If you&rsquo;re new to this exciting field, this guide will help you understand the basics and get started with your first BCI project.</p>
 <h2 id="what-is-a-brain-computer-interface">What is a Brain-Computer Interface?</h2>
 <p>A Brain-Computer Interface is a direct communication pathway between the brain and an external device. BCIs can:</p>
@@ -235,26 +227,26 @@
 </span></span></code></pre></div><h3 id="step-3-signal-processing">Step 3: Signal Processing</h3>
 <div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Filter the data (bandpass 1-50 Hz)</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> channel <span style="color:#ff7b72;font-weight:bold">in</span> eeg_channels:
-</span></span><span style="display:flex;"><span>    DataFilter<span style="color:#ff7b72;font-weight:bold">.</span>perform_bandpass(data[channel], sampling_rate, 
+</span></span><span style="display:flex;"><span>    DataFilter<span style="color:#ff7b72;font-weight:bold">.</span>perform_bandpass(data[channel], sampling_rate,
 </span></span><span style="display:flex;"><span>                               <span style="color:#a5d6ff">1.0</span>, <span style="color:#a5d6ff">50.0</span>, <span style="color:#a5d6ff">4</span>, FilterTypes<span style="color:#ff7b72;font-weight:bold">.</span>BUTTERWORTH<span style="color:#ff7b72;font-weight:bold">.</span>value, <span style="color:#a5d6ff">0</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Focus on alpha band (8-13 Hz)</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">extract_alpha_power</span>(eeg_data, fs, window_size<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">2</span>):
 </span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;Extract alpha band power using short-time FFT&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    alpha_power <span style="color:#ff7b72;font-weight:bold">=</span> []
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> i <span style="color:#ff7b72;font-weight:bold">in</span> range(<span style="color:#a5d6ff">0</span>, len(eeg_data) <span style="color:#ff7b72;font-weight:bold">-</span> int(window_size <span style="color:#ff7b72;font-weight:bold">*</span> fs), int(fs<span style="color:#ff7b72;font-weight:bold">/</span><span style="color:#a5d6ff">2</span>)):
 </span></span><span style="display:flex;"><span>        window <span style="color:#ff7b72;font-weight:bold">=</span> eeg_data[i:i <span style="color:#ff7b72;font-weight:bold">+</span> int(window_size <span style="color:#ff7b72;font-weight:bold">*</span> fs)]
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Compute power spectral density</span>
 </span></span><span style="display:flex;"><span>        freqs, psd <span style="color:#ff7b72;font-weight:bold">=</span> signal<span style="color:#ff7b72;font-weight:bold">.</span>welch(window, fs, nperseg<span style="color:#ff7b72;font-weight:bold">=</span>int(fs))
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Find alpha band indices</span>
 </span></span><span style="display:flex;"><span>        alpha_idx <span style="color:#ff7b72;font-weight:bold">=</span> np<span style="color:#ff7b72;font-weight:bold">.</span>where((freqs <span style="color:#ff7b72;font-weight:bold">&gt;=</span> <span style="color:#a5d6ff">8</span>) <span style="color:#ff7b72;font-weight:bold">&amp;</span> (freqs <span style="color:#ff7b72;font-weight:bold">&lt;=</span> <span style="color:#a5d6ff">13</span>))[<span style="color:#a5d6ff">0</span>]
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Calculate alpha power</span>
 </span></span><span style="display:flex;"><span>        alpha_power<span style="color:#ff7b72;font-weight:bold">.</span>append(np<span style="color:#ff7b72;font-weight:bold">.</span>mean(psd[alpha_idx]))
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> np<span style="color:#ff7b72;font-weight:bold">.</span>array(alpha_power)
 </span></span></code></pre></div><h3 id="step-4-real-time-classification">Step 4: Real-time Classification</h3>
 <div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">is_relaxed</span>(alpha_power, threshold<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">None</span>):
@@ -262,38 +254,38 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> threshold <span style="color:#ff7b72;font-weight:bold">is</span> <span style="color:#79c0ff">None</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic"># Use median as baseline</span>
 </span></span><span style="display:flex;"><span>        threshold <span style="color:#ff7b72;font-weight:bold">=</span> np<span style="color:#ff7b72;font-weight:bold">.</span>median(alpha_power) <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">1.5</span>
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> alpha_power <span style="color:#ff7b72;font-weight:bold">&gt;</span> threshold
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Real-time loop</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">real_time_alpha_monitor</span>():
 </span></span><span style="display:flex;"><span>    board<span style="color:#ff7b72;font-weight:bold">.</span>prepare_session()
 </span></span><span style="display:flex;"><span>    board<span style="color:#ff7b72;font-weight:bold">.</span>start_stream()
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span> <span style="color:#79c0ff">True</span>:
 </span></span><span style="display:flex;"><span>            time<span style="color:#ff7b72;font-weight:bold">.</span>sleep(<span style="color:#a5d6ff">1</span>)  <span style="color:#8b949e;font-style:italic"># Update every second</span>
-</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic"># Get recent data</span>
 </span></span><span style="display:flex;"><span>            data <span style="color:#ff7b72;font-weight:bold">=</span> board<span style="color:#ff7b72;font-weight:bold">.</span>get_current_board_data(sampling_rate)  <span style="color:#8b949e;font-style:italic"># 1 second</span>
-</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> data<span style="color:#ff7b72;font-weight:bold">.</span>shape[<span style="color:#a5d6ff">1</span>] <span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#a5d6ff">0</span>:
 </span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># Process primary channel (e.g., Oz for alpha detection)</span>
 </span></span><span style="display:flex;"><span>                primary_channel <span style="color:#ff7b72;font-weight:bold">=</span> eeg_channels[<span style="color:#a5d6ff">0</span>]  <span style="color:#8b949e;font-style:italic"># Adjust as needed</span>
-</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># Filter</span>
 </span></span><span style="display:flex;"><span>                DataFilter<span style="color:#ff7b72;font-weight:bold">.</span>perform_bandpass(data[primary_channel], sampling_rate,
 </span></span><span style="display:flex;"><span>                                          <span style="color:#a5d6ff">8.0</span>, <span style="color:#a5d6ff">13.0</span>, <span style="color:#a5d6ff">4</span>, FilterTypes<span style="color:#ff7b72;font-weight:bold">.</span>BUTTERWORTH<span style="color:#ff7b72;font-weight:bold">.</span>value, <span style="color:#a5d6ff">0</span>)
-</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># Calculate alpha power</span>
 </span></span><span style="display:flex;"><span>                alpha_power <span style="color:#ff7b72;font-weight:bold">=</span> np<span style="color:#ff7b72;font-weight:bold">.</span>mean(data[primary_channel] <span style="color:#ff7b72;font-weight:bold">**</span> <span style="color:#a5d6ff">2</span>)
-</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic"># Simple feedback</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span> alpha_power <span style="color:#ff7b72;font-weight:bold">&gt;</span> relaxation_threshold:
 </span></span><span style="display:flex;"><span>                    print(<span style="color:#a5d6ff">&#34;😌 Relaxed state detected!&#34;</span>)
 </span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">else</span>:
 </span></span><span style="display:flex;"><span>                    print(<span style="color:#a5d6ff">&#34;🤔 Active state&#34;</span>)
-</span></span><span style="display:flex;"><span>                    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> <span style="color:#f0883e;font-weight:bold">KeyboardInterrupt</span>:
 </span></span><span style="display:flex;"><span>        board<span style="color:#ff7b72;font-weight:bold">.</span>stop_stream()
 </span></span><span style="display:flex;"><span>        board<span style="color:#ff7b72;font-weight:bold">.</span>release_session()
@@ -410,7 +402,10 @@
             </a>
             
             
-            <div></div>
+            <a href="/blog/posts/getting-started-with-bcis/" 
+               style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); text-decoration: none; font-weight: 500; text-align: right;">
+               Getting Started with Brain-Computer Interfaces: A … →
+            </a>
             
         </div>
     </nav>
@@ -419,17 +414,17 @@
     <div style="margin-top: 2rem; text-align: center;">
         <p style="color: var(--color-gray); margin-bottom: 1rem;">Share this blog:</p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fgetting-started-with-bcis%2f&text=Getting%20Started%20with%20Brain-Computer%20Interfaces%3a%20A%20Beginner%27s%20Guide" 
+            <a href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fnew%2f&text=new%20post" 
                target="_blank" rel="noopener"
                style="background-color: #1da1f2; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
                Twitter
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fgetting-started-with-bcis%2f" 
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fnew%2f" 
                target="_blank" rel="noopener"
                style="background-color: #0077b5; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
                LinkedIn
             </a>
-            <a href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fgetting-started-with-bcis%2f&title=Getting%20Started%20with%20Brain-Computer%20Interfaces%3a%20A%20Beginner%27s%20Guide" 
+            <a href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fblog%2fposts%2fnew%2f&title=new%20post" 
                target="_blank" rel="noopener"
                style="background-color: #ff4500; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
                Reddit
