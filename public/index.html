@@ -27,8 +27,11 @@
                 <div class="nav-menu" id="nav-menu">
                     <a href="/blog/" class="nav-link">BLOG</a>
                     <a href="/talks/" class="nav-link">EVENTS</a>
-                    <div class="theme-toggle-switch" id="theme-toggle" aria-label="Toggle theme">
-                        <div class="theme-toggle-slider">
+                    <div class="theme-toggle-wrapper">
+                        <div class="theme-toggle-switch" id="theme-toggle" aria-label="Toggle theme">
+                            <div class="theme-toggle-slider"></div>
+                        </div>
+                        <div class="theme-icons">
                             <span class="theme-icon sun-icon">☀️</span>
                             <span class="theme-icon moon-icon">🌙</span>
                         </div>
@@ -62,8 +65,8 @@
     );
   "
 >
-  <div class="container">
-    <div style="text-align: left; max-width: 600px; margin-left: -2rem; padding-left: 2rem;">
+  <div class="hero-content-wrapper">
+    <div class="hero-content">
       <h1
         class="hero-title"
         style="font-size: 4rem; margin-bottom: 2rem; line-height: 1.1"
@@ -380,7 +383,6 @@
           class="hero-cta"
           >Discord</a
         >
-        <a href="/about/" class="hero-cta">Learn More</a>
       </div>
     </div>
   </div>
