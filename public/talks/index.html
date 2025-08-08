@@ -50,16 +50,15 @@
         
         <div style="margin-bottom: 2rem;">
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
-                <input type="text" id="searchInput" placeholder="Search talks..." 
-                       style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem; min-width: 300px;">
+                <input type="text" id="searchInput" placeholder="Search talks..." class="search-input">
                 
-                <select id="typeFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                <select id="typeFilter" class="filter-select">
                     <option value="">All Talks</option>
                     <option value="upcoming">Upcoming Only</option>
                     <option value="past">Past Only</option>
                 </select>
                 
-                <select id="tagFilter" style="padding: 0.5rem; border: 1px solid var(--color-border); background: #2a2a2a; color: var(--color-light); border-radius: 0.25rem;">
+                <select id="tagFilter" class="filter-select">
                     <option value="">All Topics</option>
                     
                     <option value="BCI">BCI (1)</option>
@@ -247,9 +246,9 @@
         </div>
         
         
-        <div style="margin-top: 4rem; text-align: center; padding: 3rem; background-color: #2a2a2a; border-radius: 1rem;">
-            <h3 style="color: var(--color-white); margin-bottom: 1rem;">Want to Give a Talk?</h3>
-            <p style="color: var(--color-light); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <div class="theme-box" style="margin-top: 4rem; text-align: center; padding: 3rem; border-radius: 1rem;">
+            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Want to Give a Talk?</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 We're always looking for speakers to share their knowledge and insights with our community. 
                 Whether you're a researcher, engineer, or industry professional, we'd love to hear from you.
             </p>

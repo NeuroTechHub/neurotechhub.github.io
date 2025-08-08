@@ -489,7 +489,7 @@ body.dark-theme .footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-sm);
 }
 
 .footer-section h3,
@@ -747,6 +747,33 @@ select:focus {
 .loading {
   opacity: 0.6;
   animation: pulse 1.5s infinite;
+}
+
+/* Form elements */
+.search-input, .filter-select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 0.25rem;
+  transition: var(--transition);
+}
+
+.search-input {
+  min-width: 300px;
+}
+
+.search-input:focus, .filter-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(70, 114, 101, 0.2);
+}
+
+/* Dark boxes that need to be theme-dependent */
+.theme-box {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 /* Responsive design */
