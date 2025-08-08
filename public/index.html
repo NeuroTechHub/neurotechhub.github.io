@@ -27,9 +27,12 @@
                 <div class="nav-menu" id="nav-menu">
                     <a href="/blog/" class="nav-link">BLOG</a>
                     <a href="/talks/" class="nav-link">EVENTS</a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <span class="theme-toggle-icon">🌓</span>
-                    </button>
+                    <div class="theme-toggle-switch" id="theme-toggle" aria-label="Toggle theme">
+                        <div class="theme-toggle-slider">
+                            <span class="theme-icon sun-icon">☀️</span>
+                            <span class="theme-icon moon-icon">🌙</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="nav-toggle" id="nav-toggle">
@@ -60,7 +63,7 @@
   "
 >
   <div class="container">
-    <div style="text-align: left; max-width: 600px; margin-left: 0">
+    <div style="text-align: left; max-width: 600px; margin-left: -2rem; padding-left: 2rem;">
       <h1
         class="hero-title"
         style="font-size: 4rem; margin-bottom: 2rem; line-height: 1.1"
@@ -72,7 +75,7 @@
   </div>
 </section>
 
-<section class="section" id="mission" class="section-alt">
+<section id="mission" class="section section-alt">
   <div class="container">
     <h2 class="section-title">Our Mission</h2>
     <p class="section-subtitle">
@@ -111,7 +114,7 @@
   </div>
 </section>
 
-<section id="blog" class="section">
+<section id="blog" class="section section-alt2">
   <div class="container">
     <h2 class="section-title">Latest Blog Posts</h2>
     <div class="grid grid-2">
@@ -183,7 +186,7 @@
   </div>
 </section>
 
-<section id="talks" class="section">
+<section id="talks" class="section section-alt">
   <div class="container">
     <h2 class="section-title">Upcoming Talks</h2>
     <div class="grid grid-2">
@@ -325,7 +328,7 @@
   </div>
 </section>
 
-<section id="get-involved" class="section section-alt">
+<section id="get-involved" class="section section-alt2">
   <div class="container">
     <h2 class="section-title">Get Involved</h2>
     <div class="grid grid-3">
@@ -388,12 +391,9 @@
     <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <div class="footer-section" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3>NeuroTechHub</h3>
-                    <p>Building the future of neurotech together</p>
-                </div>
-                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: auto;">&copy; 2025 NeuroTechHub. Building the future of neurotech together.</p>
+            <div class="footer-section">
+                <h3>NeuroTechHub</h3>
+                <p>Building the future of neurotech together</p>
             </div>
             
             <div class="footer-section">
@@ -425,6 +425,10 @@
         
     </div>
 </footer>
+    
+    <div class="copyright">
+        <p>&copy; 2025 NeuroTechHub. Building the future of neurotech together.</p>
+    </div>
     
     <script src="/js/main.js"></script>
 </body>

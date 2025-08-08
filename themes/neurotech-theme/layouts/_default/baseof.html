@@ -17,6 +17,10 @@
     
     {{ partial "footer.html" . }}
     
+    <div class="copyright">
+        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. Building the future of neurotech together.</p>
+    </div>
+    
     <script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 </html>
