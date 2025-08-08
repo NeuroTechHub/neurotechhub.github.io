@@ -44,7 +44,8 @@ Whether you're a seasoned researcher or just getting started with neurotechnolog
 Ready to join the future of neurotechnology?
 
 - **GitHub**: [github.com/neurotechhub](https://github.com/neurotechhub)
-- **Discord**: Join our community discussions
-- **Email**: hello@neurotechhub.org
+- **Discord**: [discord.gg/neurotech](https://discord.gg/neurotech)
+  </li>
+- **Email**: contact@neurotechhub.org
 
 _Together, we're building the neural interfaces of tomorrow._
