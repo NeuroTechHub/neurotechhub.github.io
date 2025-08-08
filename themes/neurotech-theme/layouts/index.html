@@ -1,0 +1,178 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">{{ .Site.Title }}</h1>
+        <p class="hero-subtitle">{{ .Site.Params.description }}</p>
+        <a href="/about/" class="hero-cta">Join Our Community</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Our Mission</h2>
+        <p class="section-subtitle">
+            Building an open community where breakthrough neurotech innovations can flourish. 
+            We connect researchers, engineers, and innovators to advance brain-computer interface technology together.
+        </p>
+        
+        <div class="grid grid-3" style="margin-top: 3rem;">
+            <div class="card">
+                <h3 class="card-title">Open Source</h3>
+                <p class="card-summary">
+                    Contributing to the future of neurotech through collaborative development of tools, 
+                    libraries, and hardware designs that everyone can use and improve.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Knowledge Sharing</h3>
+                <p class="card-summary">
+                    Publishing insights, tutorials, and research findings openly to help the entire 
+                    community learn, grow, and push the boundaries of what's possible.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Community Events</h3>
+                <p class="card-summary">
+                    Regular talks, workshops, and discussions with industry leaders and researchers 
+                    to foster collaboration and accelerate innovation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background-color: #1a1a1a;">
+    <div class="container">
+        <h2 class="section-title">Latest Blog Posts</h2>
+        <div class="grid grid-2">
+            {{ range first 4 (where .Site.RegularPages "Type" "eq" "blog") }}
+            <article class="card">
+                {{ if .Params.featured_image }}
+                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
+                {{ end }}
+                <div class="card-meta">
+                    {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.author }} • {{ .Params.author }}{{ end }}
+                </div>
+                <h3 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+                <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                {{ if .Params.tags }}
+                <div class="card-tags">
+                    {{ range .Params.tags }}
+                    <span class="tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="/blog/" class="hero-cta">View All Posts</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Upcoming Talks</h2>
+        <div class="grid grid-2">
+            {{ range first 2 (where (where .Site.RegularPages "Type" "eq" "talks") ".Params.talk_type" "eq" "upcoming") }}
+            <article class="card">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                    <span class="tag" style="background-color: #467265;">{{ .Params.talk_type | title }}</span>
+                    <span class="card-meta" style="margin: 0;">{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span>
+                </div>
+                <h3 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+                {{ if .Params.speaker }}
+                <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">{{ .Params.speaker }}</p>
+                {{ end }}
+                {{ if .Params.location }}
+                <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">📍 {{ .Params.location }}</p>
+                {{ end }}
+                <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                {{ if .Params.registration_link }}
+                <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener" 
+                   style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; font-size: 0.9rem; margin-top: 1rem;">
+                   Register Now
+                </a>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        
+        <h3 style="font-size: 1.5rem; margin: 3rem 0 1.5rem; color: var(--color-white);">Recent Talks</h3>
+        <div class="grid grid-2">
+            {{ range first 2 (where (where .Site.RegularPages "Type" "eq" "talks") ".Params.talk_type" "eq" "past") }}
+            <article class="card">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                    <span class="tag" style="background-color: #666;">{{ .Params.talk_type | title }}</span>
+                    <span class="card-meta" style="margin: 0;">{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span>
+                </div>
+                <h3 class="card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+                {{ if .Params.speaker }}
+                <p style="color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem;">{{ .Params.speaker }}</p>
+                {{ end }}
+                <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+                {{ if .Params.recording_link }}
+                <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
+                   style="display: inline-block; background-color: #666; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; font-size: 0.9rem; margin-top: 1rem;">
+                   Watch Recording
+                </a>
+                {{ end }}
+            </article>
+            {{ end }}
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="/talks/" class="hero-cta">View All Talks</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background-color: #1a1a1a;">
+    <div class="container">
+        <h2 class="section-title">Get Involved</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">🚀 Contribute</h3>
+                <p class="card-summary">
+                    Share your projects, insights, and expertise with the community. 
+                    From blog posts to code contributions, every contribution matters.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">🎓 Learn</h3>
+                <p class="card-summary">
+                    Access our tutorials, attend workshops, and learn from leading experts 
+                    in neurotechnology and brain-computer interfaces.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">🤝 Connect</h3>
+                <p class="card-summary">
+                    Join discussions, attend talks, collaborate on projects, and be part 
+                    of a global community building the future of neurotech.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/neurotechhub" target="_blank" rel="noopener" class="hero-cta">GitHub</a>
+                <a href="https://discord.gg/neurotech" target="_blank" rel="noopener" class="hero-cta">Discord</a>
+                <a href="/about/" class="hero-cta">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

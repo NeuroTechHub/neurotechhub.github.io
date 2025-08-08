@@ -1,0 +1,32 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>{{ .Site.Title }}</h3>
+                <p>{{ .Site.Params.description }}</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://github.com/neurotechhub" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://discord.gg/neurotech" target="_blank" rel="noopener">Discord</a>
+                    <a href="https://twitter.com/neurotechhub" target="_blank" rel="noopener">Twitter</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. Building the future of neurotech together.</p>
+        </div>
+    </div>
+</footer>
