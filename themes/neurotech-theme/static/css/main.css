@@ -83,7 +83,7 @@ body {
   padding: var(--spacing-lg) 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1001;
   transition: background-color 0.3s ease;
 }
 
@@ -750,7 +750,8 @@ select:focus {
 }
 
 /* Form elements */
-.search-input, .filter-select {
+.search-input,
+.filter-select {
   padding: 0.5rem;
   border: 1px solid var(--border-color);
   background: var(--card-bg);
@@ -763,7 +764,8 @@ select:focus {
   min-width: 300px;
 }
 
-.search-input:focus, .filter-select:focus {
+.search-input:focus,
+.filter-select:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 2px rgba(70, 114, 101, 0.2);
@@ -793,6 +795,8 @@ select:focus {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
   .nav-menu.active {
