@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on NeuroTechHub</title>
-    <link>https://neurotechhub.github.io/blog/</link>
+    <link>https://neurotechhub.github.io/Website/blog/</link>
     <description>Recent content in Blog on NeuroTechHub</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://neurotechhub.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://neurotechhub.github.io/Website/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Brain-Computer Interfaces: A Beginner&#39;s Guide</title>
-      <link>https://neurotechhub.github.io/blog/posts/getting-started-with-bcis/</link>
+      <link>https://neurotechhub.github.io/Website/blog/posts/getting-started-with-bcis/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/blog/posts/getting-started-with-bcis/</guid>
+      <guid>https://neurotechhub.github.io/Website/blog/posts/getting-started-with-bcis/</guid>
       <description>A comprehensive guide for newcomers to brain-computer interface technology, covering basic concepts, hardware requirements, and your first BCI project.</description>
     </item>
     <item>
       <title>Welcome to NeuroTechHub: Building the Future Together</title>
-      <link>https://neurotechhub.github.io/blog/posts/welcome-to-neurotech-hub/</link>
+      <link>https://neurotechhub.github.io/Website/blog/posts/welcome-to-neurotech-hub/</link>
       <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/blog/posts/welcome-to-neurotech-hub/</guid>
+      <guid>https://neurotechhub.github.io/Website/blog/posts/welcome-to-neurotech-hub/</guid>
       <description>Introducing NeuroTechHub - an open community for advancing brain-computer interface technology through collaboration and shared knowledge.</description>
     </item>
   </channel>
