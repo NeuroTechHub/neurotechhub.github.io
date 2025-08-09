@@ -306,6 +306,16 @@ main {
   cursor: pointer;
 }
 
+.card.non-clickable {
+  cursor: default !important;
+}
+
+.card.non-clickable:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-color);
+}
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);

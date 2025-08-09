@@ -34,3 +34,7 @@ theme = 'neurotech-theme'
   [markup.highlight]
     style = "github-dark"
     codeFences = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
