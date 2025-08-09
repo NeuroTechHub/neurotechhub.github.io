@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorial on NeuroTechHub</title>
-    <link>http://localhost:1313/categories/tutorial/</link>
+    <link>https://neurotechhub.github.io/categories/tutorial/</link>
     <description>Recent content in Tutorial on NeuroTechHub</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://neurotechhub.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Brain-Computer Interfaces: A Beginner&#39;s Guide</title>
-      <link>http://localhost:1313/blog/posts/getting-started-with-bcis/</link>
+      <link>https://neurotechhub.github.io/blog/posts/getting-started-with-bcis/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/posts/getting-started-with-bcis/</guid>
+      <guid>https://neurotechhub.github.io/blog/posts/getting-started-with-bcis/</guid>
       <description>A comprehensive guide for newcomers to brain-computer interface technology, covering basic concepts, hardware requirements, and your first BCI project.</description>
     </item>
   </channel>
