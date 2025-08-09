@@ -37,7 +37,7 @@
     </p>
 
     <div class="grid grid-3" style="margin-top: 3rem">
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">Open Source</h3>
         <p class="card-summary">
           Contributing to the future of neurotech through collaborative
@@ -46,7 +46,7 @@
         </p>
       </div>
 
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">Knowledge Sharing</h3>
         <p class="card-summary">
           Publishing insights, tutorials, and research findings openly to help
@@ -55,7 +55,7 @@
         </p>
       </div>
 
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">Community Events</h3>
         <p class="card-summary">
           Regular talks, workshops, and discussions with industry leaders and
@@ -104,12 +104,16 @@
   </div>
 </section>
 
+{{ $upcomingTalks := where (where .Site.RegularPages "Type" "eq" "talks") ".Params.event_date" "ge" (now.Format "2006-01-02") }}
+{{ $pastTalks := where (where .Site.RegularPages "Type" "eq" "talks") ".Params.event_date" "lt" (now.Format "2006-01-02") }}
+
+{{ if or $upcomingTalks $pastTalks }}
 <section id="talks" class="section section-alt">
   <div class="container">
+    {{ if $upcomingTalks }}
     <h2 class="section-title">Upcoming Talks</h2>
     <div class="grid grid-2">
-      {{ range first 2 (where (where .Site.RegularPages "Type" "eq" "talks")
-      ".Params.talk_type" "eq" "upcoming") }}
+      {{ range first 2 $upcomingTalks }}
       <article
         class="card"
         onclick="window.location.href='{{ .RelPermalink }}'"
@@ -174,7 +178,9 @@
       </article>
       {{ end }}
     </div>
+    {{ end }}
 
+    {{ if $pastTalks }}
     <h3
       style="
         font-size: 1.5rem;
@@ -185,8 +191,7 @@
       Recent Talks
     </h3>
     <div class="grid grid-2">
-      {{ range first 2 (where (where .Site.RegularPages "Type" "eq" "talks")
-      ".Params.talk_type" "eq" "past") }}
+      {{ range first 2 $pastTalks }}
       <article
         class="card"
         onclick="window.location.href='{{ .RelPermalink }}'"
@@ -241,18 +246,20 @@
       </article>
       {{ end }}
     </div>
+    {{ end }}
 
     <div style="text-align: center; margin-top: 2rem">
       <a href="/talks/" class="hero-cta">View All Talks</a>
     </div>
   </div>
 </section>
+{{ end }}
 
 <section id="get-involved" class="section section-alt2">
   <div class="container">
     <h2 class="section-title">Get Involved</h2>
     <div class="grid grid-3">
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">🚀 Contribute</h3>
         <p class="card-summary">
           Share your projects, insights, and expertise with the community. From
@@ -260,7 +267,7 @@
         </p>
       </div>
 
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">🎓 Learn</h3>
         <p class="card-summary">
           Access our tutorials, attend workshops, and learn from leading experts
@@ -268,7 +275,7 @@
         </p>
       </div>
 
-      <div class="card">
+      <div class="card non-clickable">
         <h3 class="card-title">🤝 Connect</h3>
         <p class="card-summary">
           Join discussions, attend talks, collaborate on projects, and be part

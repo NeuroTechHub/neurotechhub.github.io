@@ -1,10 +1,9 @@
 ---
 title: "The Future of Neural Interfaces: Beyond Brain-Computer"
 speaker: "Prof. Alex Chen"
-date: 2025-01-10
 event_date: 2025-01-10
 location: "MIT Media Lab (recorded)"
-talk_type: "past"
+talk_type: "keynote"
 tags: ["keynote", "future-tech", "research"]
 summary: "A visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement."
 recording_link: "https://youtube.com/watch?v=future-neural-interfaces"
@@ -13,7 +12,7 @@ draft: false
 
 # The Future of Neural Interfaces: Beyond Brain-Computer
 
-*Recorded January 10th, 2025 at MIT Media Lab*
+_Recorded January 10th, 2025 at MIT Media Lab_
 
 ## Talk Overview
 
@@ -22,23 +21,27 @@ In this keynote presentation, Prof. Alex Chen explores the rapidly evolving land
 ## Key Topics Covered
 
 ### Current State of the Field
+
 - **Therapeutic Applications**: Progress in treating paralysis, depression, and epilepsy
 - **Technology Limitations**: Current bottlenecks in signal quality, biocompatibility, and power
 - **Regulatory Landscape**: FDA pathways and international standards
 
 ### Emerging Technologies (2025-2030)
+
 - **Wireless Implants**: Battery-free, inductively powered devices
 - **High-density Arrays**: 10,000+ electrode systems for cortical interfaces
 - **Flexible Electronics**: Conformable devices that adapt to brain tissue
 - **Optogenetics Integration**: Light-controlled neural interfaces
 
 ### Revolutionary Possibilities (2030-2035)
+
 - **Brain-to-Brain Communication**: Direct neural networking between individuals
 - **Memory Enhancement**: Augmenting natural memory formation and recall
 - **Sensory Substitution**: New pathways for artificial vision and hearing
 - **Cognitive Prosthetics**: Devices that enhance reasoning and decision-making
 
 ### Ethical Considerations
+
 - **Privacy and Security**: Protecting neural data and preventing neural hacking
 - **Enhancement vs. Treatment**: Drawing lines between medical and enhancement applications
 - **Access and Equality**: Ensuring broad access to neural interface benefits
@@ -57,16 +60,19 @@ Prof. Chen highlighted three key predictions:
 ## Technical Deep Dive
 
 ### Next-Generation Hardware
+
 - **Materials Science**: Biocompatible, long-lasting electrode materials
 - **Miniaturization**: Devices smaller than a grain of rice with full functionality
 - **Power Solutions**: Energy harvesting from body heat and motion
 
 ### Advanced Signal Processing
+
 - **AI Integration**: Real-time neural decoding using edge computing
 - **Multi-modal Interfaces**: Combining EEG, fNIRS, and ultrasound
 - **Predictive Systems**: Anticipating user intentions before conscious decision
 
 ### System Integration
+
 - **Cloud Connectivity**: Neural data processing in distributed systems
 - **Standardization**: Universal protocols for neural interface communication
 - **Ecosystem Development**: App stores for neural interface applications
@@ -84,6 +90,7 @@ Prof. Chen outlined five critical research areas:
 ## Industry Perspectives
 
 The talk included insights from leading companies:
+
 - **Neuralink**: Progress on high-bandwidth brain-computer interfaces
 - **Synchron**: Minimally invasive approaches via blood vessels
 - **Kernel**: Non-invasive neural recording and stimulation
@@ -114,11 +121,13 @@ Prof. Chen concluded with three recommendations for the community:
 ## Resources
 
 ### Follow-up Reading
+
 - Chen, A. et al. (2024). "Roadmap for Neural Interface Technology 2025-2035"
 - Neural Ethics Consortium (2024). "Guidelines for Responsible Neural Enhancement"
 - MIT Technology Review: "The Neural Interface Revolution"
 
 ### Related Projects
+
 - [Open Neural Interface Initiative](https://openneural.org)
 - [Neural Ethics Database](https://neuraletthics.org)
 - [BCI Standards Consortium](https://bcistandardsorg)
@@ -129,6 +138,6 @@ Prof. Chen concluded with three recommendations for the community:
 
 ---
 
-*This talk is part of our monthly speaker series featuring leading voices in neurotechnology. [Watch the full recording →](https://youtube.com/watch?v=future-neural-interfaces)*
+_This talk is part of our monthly speaker series featuring leading voices in neurotechnology. [Watch the full recording →](https://youtube.com/watch?v=future-neural-interfaces)_
 
-*Next up: Dr. Maria Rodriguez's workshop on neural signal processing - [Register here →](/talks/events/neural-signal-processing-workshop/)*
+_Next up: Dr. Maria Rodriguez's workshop on neural signal processing - [Register here →](/talks/events/neural-signal-processing-workshop/)_

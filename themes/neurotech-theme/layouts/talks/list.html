@@ -51,8 +51,8 @@
     </div>
 
     <!-- Upcoming Talks Section -->
-    {{ $upcomingTalks := where .Pages ".Params.talk_type" "eq" "upcoming" }} {{
-    if $upcomingTalks }}
+    {{ $upcomingTalks := where .Pages ".Params.event_date" "ge" (now.Format
+    "2006-01-02") }} {{ if $upcomingTalks }}
     <div class="upcoming-section">
       <h2
         style="
@@ -159,29 +159,11 @@
         {{ end }}
       </div>
     </div>
-    {{ else }}
-    <div
-      class="upcoming-section"
-      style="
-        text-align: center;
-        padding: 2rem;
-        background-color: #2a2a2a;
-        border-radius: 1rem;
-        margin-bottom: 3rem;
-      "
-    >
-      <h3 style="color: var(--color-white); margin-bottom: 1rem">
-        No Upcoming Talks
-      </h3>
-      <p style="color: var(--color-gray)">
-        Check back soon for new events, or suggest a topic in our Discord!
-      </p>
-    </div>
     {{ end }}
 
     <!-- Past Talks Section -->
-    {{ $pastTalks := where .Pages ".Params.talk_type" "eq" "past" }} {{ if
-    $pastTalks }}
+    {{ $pastTalks := where .Pages ".Params.event_date" "lt" (now.Format
+    "2006-01-02") }} {{ if $pastTalks }}
     <div class="past-section" style="margin-top: 4rem">
       <h2
         style="
