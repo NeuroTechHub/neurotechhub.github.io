@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on NeuroTechHub</title>
-    <link>https://neurotechhub.github.io/categories/</link>
+    <link>https://neurotechhub.github.io/Website/categories/</link>
     <description>Recent content in Categories on NeuroTechHub</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://neurotechhub.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://neurotechhub.github.io/Website/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tutorial</title>
-      <link>https://neurotechhub.github.io/categories/tutorial/</link>
+      <link>https://neurotechhub.github.io/Website/categories/tutorial/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/categories/tutorial/</guid>
+      <guid>https://neurotechhub.github.io/Website/categories/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Announcement</title>
-      <link>https://neurotechhub.github.io/categories/announcement/</link>
+      <link>https://neurotechhub.github.io/Website/categories/announcement/</link>
       <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://neurotechhub.github.io/categories/announcement/</guid>
+      <guid>https://neurotechhub.github.io/Website/categories/announcement/</guid>
       <description></description>
     </item>
   </channel>
