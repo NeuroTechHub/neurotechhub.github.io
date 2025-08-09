@@ -22,7 +22,7 @@
       >
         Let's build<br />neurotech together
       </h1>
-      <a href="/about/" class="hero-cta">Learn More</a>
+      <a href="{{ "/about/" | relURL }}" class="hero-cta">Learn More</a>
     </div>
   </div>
 </section>
@@ -98,8 +98,9 @@
       </article>
       {{ end }}
     </div>
+
     <div style="text-align: center; margin-top: 2rem">
-      <a href="/blog/" class="hero-cta">View All Posts</a>
+      <a href="{{ "/blog/" | relURL }}" class="hero-cta">View All Posts</a>
     </div>
   </div>
 </section>
@@ -249,7 +250,7 @@
     {{ end }}
 
     <div style="text-align: center; margin-top: 2rem">
-      <a href="/talks/" class="hero-cta">View All Talks</a>
+      <a href="{{ "/talks/" | relURL }}" class="hero-cta">View All Talks</a>
     </div>
   </div>
 </section>

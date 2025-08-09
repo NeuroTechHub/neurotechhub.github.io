@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="nav">
             <div class="nav-left">
-                <a href="/about/" class="nav-link">ABOUT</a>
+                <a href="{{ "/about/" | relURL }}" class="nav-link">ABOUT</a>
             </div>
             
             <div class="nav-center">
@@ -13,8 +13,8 @@
             
             <div class="nav-right">
                 <div class="nav-menu" id="nav-menu">
-                    <a href="/blog/" class="nav-link">BLOG</a>
-                    <a href="/talks/" class="nav-link">EVENTS</a>
+                    <a href="{{ "/blog/" | relURL }}" class="nav-link">BLOG</a>
+                    <a href="{{ "/talks/" | relURL }}" class="nav-link">EVENTS</a>
                     <div class="theme-toggle-switch" id="theme-toggle" aria-label="Toggle theme">
                         <div class="theme-toggle-track">
                             <div class="theme-toggle-slider"></div>
