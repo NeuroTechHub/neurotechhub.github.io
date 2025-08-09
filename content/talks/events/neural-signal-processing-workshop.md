@@ -85,7 +85,7 @@ _Limited to 100 participants to ensure quality interaction_
 
 ## Questions?
 
-Have technical questions or special accommodation needs? Contact us at workshops@neurotechhub.org
+Have technical questions or special accommodation needs? Contact us at contact@neurotechhub.org
 
 ---
 
