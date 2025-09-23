@@ -1,4 +1,4 @@
-baseURL = 'https://neurotechhub.github.io/Website'
+baseURL = 'https://neurotechhub.github.io/'
 languageCode = 'en-us'
 title = 'NeuroTechHub'
 theme = 'neurotech-theme'

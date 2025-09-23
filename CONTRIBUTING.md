@@ -11,8 +11,7 @@ There are several ways to contribute:
 
 **Step 1: Propose Your Post**
 
-- Create an issue using our [Blog Post Proposal template](https://github.com/neurotechhub/website/issues/new?template=blog-post-proposal.md)
-- Wait for initial approval from maintainers
+- Create an issue using our [Blog Post Proposal template](https://github.com/neurotechhub/website/issues/new?template=blog-post-proposal.md) to discuss your idea.
 
 **Step 2: Write Your Post**
 

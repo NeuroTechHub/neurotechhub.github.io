@@ -110,9 +110,6 @@ body {
 
 .nav-logo-img {
   height: 60px;
-  width: 60px;
-  border-radius: var(--logo-cutout-radius);
-  object-fit: cover;
 }
 
 .nav-menu {
