@@ -82,10 +82,11 @@ hugo server --buildDrafts
 
 ```bash
 # Create a new blog post
-hugo new content/blog/posts/your-post-title.md
+hugo new content/blog/posts/your-post-title/index.md
 
 # Create a new talk page
-hugo new content/talks/events/your-talk-title.md
+hugo new content/talks/events/your-talk-title/index.md
+
 
 # Preview with drafts
 hugo server --buildDrafts --buildFuture
