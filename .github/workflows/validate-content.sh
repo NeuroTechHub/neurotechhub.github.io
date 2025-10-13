@@ -142,3 +142,65 @@ if [ $warnings -gt 0 ]; then
 else
   echo "✓ No unused files found!"
 fi
+
+echo ""
+echo "=== Testing Image File Sizes ==="
+errors=0
+MAX_SIZE=512000  # 500 KB in bytes
+
+# Find all markdown files in page bundles (index.md files)
+for md_file in $(find content -name "index.md" -type f); do
+  md_dir=$(dirname "$md_file")
+
+  # Check all image files in the directory
+  for file in "$md_dir"/*; do
+    filename=$(basename "$file")
+
+    # Skip index.md
+    if [ "$filename" == "index.md" ]; then
+      continue
+    fi
+
+    # Skip directories
+    if [ -d "$file" ]; then
+      continue
+    fi
+
+    # Check if file is an image (by extension)
+    if [[ "$filename" =~ \.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF|webp|WEBP|svg|SVG)$ ]]; then
+      # Get file size in bytes
+      if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS
+        file_size=$(stat -f%z "$file")
+      else
+        # Linux
+        file_size=$(stat -c%s "$file")
+      fi
+
+      if [ $file_size -gt $MAX_SIZE ]; then
+        # Convert to KB or MB for display
+        if [ $file_size -gt 1048576 ]; then
+          size_display=$(echo "scale=2; $file_size / 1048576" | bc)"MB"
+        else
+          size_display=$(echo "scale=0; $file_size / 1024" | bc)"KB"
+        fi
+
+        echo "❌ Image too large in $md_dir: $filename ($size_display)"
+        echo "   Maximum allowed: 500KB"
+        errors=$((errors + 1))
+      fi
+    fi
+  done
+done
+
+if [ $errors -gt 0 ]; then
+  echo ""
+  echo "❌ Found $errors image(s) exceeding size limit"
+  echo "Please optimize images before committing:"
+  echo "  - Use tools like ImageOptim, TinyPNG, or squoosh.app"
+  echo "  - Resize large images to reasonable dimensions"
+  echo "  - Convert to WebP format for better compression"
+  exit 1
+else
+  echo "✓ All images are within size limits!"
+fi
