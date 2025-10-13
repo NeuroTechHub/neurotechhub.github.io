@@ -59,10 +59,19 @@ for md_file in $(find content -name "index.md" -type f); do
   featured_image=$(grep 'featured_image:' "$md_file" | sed 's/.*featured_image: *"\([^"]*\)".*/\1/' | grep -v '^featured_image:' || true)
 
   if [ ! -z "$featured_image" ]; then
+    # Check if file exists (case-insensitive on macOS, but we need exact match)
     if [ ! -f "$md_dir/$featured_image" ]; then
       echo "❌ Missing featured_image in $md_file: $featured_image"
       echo "   Expected location: $md_dir/$featured_image"
       errors=$((errors + 1))
+    else
+      # Check for exact filename match (case-sensitive)
+      actual_file=$(ls "$md_dir" | grep -x "$featured_image" || true)
+      if [ -z "$actual_file" ]; then
+        echo "❌ Case mismatch for featured_image in $md_file: $featured_image"
+        echo "   File exists but with different case. Check the exact filename."
+        errors=$((errors + 1))
+      fi
     fi
   fi
 
@@ -77,6 +86,14 @@ for md_file in $(find content -name "index.md" -type f); do
       echo "❌ Missing markdown image in $md_file: $image"
       echo "   Expected location: $md_dir/$image"
       errors=$((errors + 1))
+    else
+      # Check for exact filename match (case-sensitive)
+      actual_file=$(ls "$md_dir" | grep -x "$image" || true)
+      if [ -z "$actual_file" ]; then
+        echo "❌ Case mismatch for markdown image in $md_file: $image"
+        echo "   File exists but with different case. Check the exact filename."
+        errors=$((errors + 1))
+      fi
     fi
   done
 
@@ -91,6 +108,14 @@ for md_file in $(find content -name "index.md" -type f); do
       echo "❌ Missing HTML image in $md_file: $image"
       echo "   Expected location: $md_dir/$image"
       errors=$((errors + 1))
+    else
+      # Check for exact filename match (case-sensitive)
+      actual_file=$(ls "$md_dir" | grep -x "$image" || true)
+      if [ -z "$actual_file" ]; then
+        echo "❌ Case mismatch for HTML image in $md_file: $image"
+        echo "   File exists but with different case. Check the exact filename."
+        errors=$((errors + 1))
+      fi
     fi
   done
 done
