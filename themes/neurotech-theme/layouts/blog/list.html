@@ -36,7 +36,9 @@
                      onclick="window.location.href='{{ .RelPermalink }}'">
                 
                 {{ if .Params.featured_image }}
-                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
+                {{ with .Resources.GetMatch .Params.featured_image }}
+                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image">
+                {{ end }}
                 {{ end }}
                 
                 <h2 class="card-title">{{ .Title }}</h2>

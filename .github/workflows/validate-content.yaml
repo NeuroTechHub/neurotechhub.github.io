@@ -1,0 +1,36 @@
+name: Validate Content
+
+on:
+  pull_request:
+    paths:
+      - "content/**"
+      - "static/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Validate content
+        run: |
+          chmod +x .github/workflows/validate-content.sh
+          .github/workflows/validate-content.sh
+
+      - name: Check for broken internal links
+        run: |
+          hugo --buildFuture
+
+          # Use hugo's built-in link checking or htmlproofer
+          # For now, just ensure build succeeds
+          if [ ! -d "public" ]; then
+            echo "Hugo build failed - no public directory created"
+            exit 1
+          fi
