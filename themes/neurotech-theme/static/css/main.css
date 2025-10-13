@@ -305,12 +305,14 @@ main {
 
 .card.non-clickable {
   cursor: default !important;
+  animation: none !important;
+  transition: none !important;
 }
 
 .card.non-clickable:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--border-color);
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--border-color) !important;
 }
 
 .card:hover {
@@ -699,11 +701,7 @@ html {
 
 /* Loading animation for images */
 .card-image {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.card-image:hover {
-  transform: scale(1.05);
+  transition: opacity 0.3s ease;
 }
 
 /* Section animations */
