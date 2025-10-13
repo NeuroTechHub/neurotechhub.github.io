@@ -173,13 +173,13 @@
           text-align: center;
         "
       >
-        📚 Past Talks
+        Past Talks
       </h2>
 
       <div class="grid grid-2" id="pastGrid">
         {{ range $pastTalks.ByParam "event_date" }}
         <article
-          class="card talk-card"
+          class="card talk-card past-event"
           data-title="{{ .Title | lower }}"
           data-summary="{{ .Params.summary | default .Summary | lower }}"
           data-speaker="{{ .Params.speaker | lower }}"
@@ -201,7 +201,7 @@
               class="tag"
               style="background-color: #666; color: white; font-weight: 600"
             >
-              ✅ PAST
+              PAST
             </span>
             <span style="color: var(--color-gray); font-size: 0.9rem">
               {{ .Params.event_date | dateFormat "Jan 2, 2006" }}

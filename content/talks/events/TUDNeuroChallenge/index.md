@@ -4,6 +4,7 @@ type: "talks"
 draft: false
 
 event_date: "2025-06-18"
+featured_image: keynote-rainey_1.jpg
 
 talk_type: "challenge"
 location: "YES!Delft, Molengraaffsingel 12, 2629 JD Delft"
