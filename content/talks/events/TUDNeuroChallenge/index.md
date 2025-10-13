@@ -60,11 +60,11 @@ This NeuroTechHub initiative was led by **Francesc Varkevisser**, **Stijn Balk**
 Want to help shape the future of brain-tech? **Reach out — we’d love to hear from you.**
 
 <p>
-  <img src="keynote-vachicouras.jpg" alt="Keynote by Nicolas Vachicouras" width="49%">
-  <img src="keynote-rainey.jpg" alt="Keynote by Dr. Stephen Rainey" width="49%">
-  <img src="NeuroChallenge-1.jpg" alt="." width="49%">
-  <img src="NeuroChallenge-2.jpg" alt="." width="49%">
-  <img src="NeuroChallenge-3.jpg" alt="." width="49%">
-  <img src="NeuroChallenge-4.jpg" alt="." width="49%">
-  <img src="NeuroChallenge-5.jpg" alt="." width="100%">
+  <img src="keynote-vachicouras_1.jpg" alt="Keynote by Nicolas Vachicouras" width="49%">
+  <img src="keynote-rainey_1.jpg" alt="Keynote by Dr. Stephen Rainey" width="49%">
+  <img src="NeuroChallenge_1.jpg" alt="." width="49%">
+  <img src="NeuroChallenge_2.jpg" alt="." width="49%">
+  <img src="NeuroChallenge_3.jpg" alt="." width="49%">
+  <img src="NeuroChallenge_4.jpg" alt="." width="49%">
+  <img src="NeuroChallenge_5.jpg" alt="." width="100%">
 </p>
