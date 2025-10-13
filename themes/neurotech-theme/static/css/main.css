@@ -110,6 +110,9 @@ body {
 
 .nav-logo-img {
   height: 20px;
+}
+
+.logo-light {
   display: flex;
 }
 
