@@ -498,14 +498,23 @@ body.dark-theme .footer {
 .copyright {
   text-align: center;
   padding: var(--spacing-sm) 0;
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
+  background-color: #1a1a1a;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+body.dark-theme .copyright {
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border-bright);
 }
 
 .copyright p {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--color-gray-bright);
   margin: 0;
+}
+
+body.dark-theme .copyright p {
+  color: var(--color-gray-dark);
 }
 
 .footer-content {
