@@ -524,6 +524,10 @@ body.dark-theme .copyright p {
   margin-bottom: var(--spacing-sm);
 }
 
+.footer-section p {
+  color: var(--color-gray-bright);
+}
+
 .footer-section h3,
 .footer-section h4 {
   color: var(--text-primary);
@@ -532,10 +536,7 @@ body.dark-theme .copyright p {
 
 .footer-section ul {
   list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: var(--spacing-xs);
+  font-size: 14px;
 }
 
 .footer-section ul li a {
