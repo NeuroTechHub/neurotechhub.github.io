@@ -1,8 +1,7 @@
 ---
-title : "Mind-Reading Technology — NTH Webinar #1 (Online)"
+title : "Mind-Reading Technology - NTH Webinar #1 (Online)"
 type : "talks"
 draft : false
-
 
 event_date : "2025-03-12"
 
