@@ -1,16 +1,16 @@
 ---
-title : "Mind-Reading Technology - NTH Webinar #1 (Online)"
-type : "talks"
-draft : false
+title: "Mind-Reading Technology - NTH Webinar #1 (Online)"
+type: "talks"
+draft: false
 
-event_date : "2025-03-12"
+event_date: "2025-03-12"
 
-talk_type : "webinar"
-location : "Online"
-summary : "Our first online webinar: Thirza Dado & Bouke van Balen on mind-reading technology, neural decoding, and whether BCIs can read minds — with live Q&A."
+talk_type: "webinar"
+location: "Online"
+summary: "Our first online webinar: Thirza Dado & Bouke van Balen on mind-reading technology, neural decoding, and whether BCIs can read minds — with live Q&A."
 
-tags : ["neurotech","webinar","BCI","online"]
-featured : false
+tags: ["neurotech","webinar","BCI","online"]
+featured: false
 ---
 
 # Mind-Reading Technology
