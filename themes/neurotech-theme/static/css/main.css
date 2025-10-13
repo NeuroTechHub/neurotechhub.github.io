@@ -80,7 +80,7 @@ body {
 .header {
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: 20px 0;
+  padding: 15px 0;
   position: sticky;
   z-index: 1001;
   transition: background-color 0.3s ease;
@@ -109,7 +109,20 @@ body {
 }
 
 .nav-logo-img {
-  height: 60px;
+  height: 20px;
+  display: flex;
+}
+
+.logo-dark {
+  display: none;
+}
+
+body.dark-theme .logo-light {
+  display: none;
+}
+
+body.dark-theme .logo-dark {
+  display: flex;
 }
 
 .nav-menu {
