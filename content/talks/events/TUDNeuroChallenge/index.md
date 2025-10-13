@@ -62,9 +62,9 @@ Want to help shape the future of brain-tech? **Reach out — we’d love to hear
 <p>
   <img src="keynote-vachicouras.jpg" alt="Keynote by Nicolas Vachicouras" width="49%">
   <img src="keynote-rainey.jpg" alt="Keynote by Dr. Stephen Rainey" width="49%">
-  <img src="NeuroChallenge-1.jpg" width="49%">
-  <img src="NeuroChallenge-2.jpg" width="49%">
-  <img src="NeuroChallenge-3.jpg" width="49%">
-  <img src="NeuroChallenge-4.jpg" width="49%">
-  <img src="NeuroChallenge-5.jpg" width="100%">
+  <img src="NeuroChallenge-1.jpg" alt="." width="49%">
+  <img src="NeuroChallenge-2.jpg" alt="." width="49%">
+  <img src="NeuroChallenge-3.jpg" alt="." width="49%">
+  <img src="NeuroChallenge-4.jpg" alt="." width="49%">
+  <img src="NeuroChallenge-5.jpg" alt="." width="100%">
 </p>
