@@ -25,6 +25,7 @@ content/blog/posts/my-post/
 ```
 
 Create using Hugo CLI:
+
 ```bash
 hugo new blog/posts/my-post/index.md
 ```
@@ -46,7 +47,21 @@ draft: true
 Write your post content in Markdown. Reference images: ![Alt](diagram.png)
 ```
 
-**Important:** Place all images in the same folder as `index.md`, not in `static/`
+**Important:**
+
+- Place all images in the same folder as `index.md`, not in `static/`
+- **Images must be under 500KB** - optimize before uploading:
+
+  **Option 1: Use our optimization script** (recommended)
+  ```bash
+  .github/workflows/optimize-images.sh
+  ```
+  This automatically resizes/compresses all oversized images in your content.
+
+  **Option 2: Use online tools**
+  - [TinyPNG](https://tinypng.com/), [Squoosh](https://squoosh.app/), or ImageOptim
+  - Resize to reasonable dimensions (max 2000px width)
+  - Convert to WebP or AVIF format for better compression
 
 ## Propose a talk
 
@@ -112,9 +127,19 @@ Before submitting, test that your content passes validation:
 ```
 
 This checks:
+
 - Required frontmatter fields
 - All images exist in page bundle
+- All images are under 500KB
 - No unused files in folders
+
+**If validation fails due to image sizes**, run the optimization script:
+
+```bash
+.github/workflows/optimize-images.sh
+```
+
+Then run validation again to confirm all checks pass.
 
 ## Troubleshooting
 
