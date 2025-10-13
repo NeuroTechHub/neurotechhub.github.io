@@ -16,7 +16,9 @@
             {{ range .Paginator.Pages }}
             <article class="card">
                 {{ if .Params.featured_image }}
-                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="card-image">
+                {{ with .Resources.GetMatch .Params.featured_image }}
+                <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image">
+                {{ end }}
                 {{ end }}
                 
                 <div class="card-meta">

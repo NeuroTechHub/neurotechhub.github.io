@@ -57,17 +57,27 @@
             </div>
             {{ end }}
         </div>
-        
+
+        <!-- Featured Image -->
+        {{ if .Params.featured_image }}
+        <div style="margin-top: 2rem;">
+            {{ with .Resources.GetMatch .Params.featured_image }}
+            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}"
+                 style="max-width: 100%; height: auto; border-radius: 1rem; box-shadow: var(--shadow-lg);">
+            {{ end }}
+        </div>
+        {{ end }}
+
         <!-- Talk-specific elements -->
         {{ if eq .Type "talks" }}
         <div style="margin-top: 2rem;">
             {{ if .Params.registration_link }}
-            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener" 
+            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
                style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
                🎫 Register for this Talk
             </a>
             {{ end }}
-            
+
             {{ if .Params.recording_link }}
             <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
                style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
@@ -77,14 +87,6 @@
         </div>
         {{ end }}
     </header>
-    
-    <!-- Featured Image -->
-    {{ if .Params.featured_image }}
-    <div style="text-align: center; margin-bottom: 3rem;">
-        <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" 
-             style="max-width: 100%; height: auto; border-radius: 1rem; box-shadow: var(--shadow-lg);">
-    </div>
-    {{ end }}
     
     <!-- Content -->
     <div class="prose">
