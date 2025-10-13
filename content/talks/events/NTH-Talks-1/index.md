@@ -1,21 +1,21 @@
-+++
-title       = "Mind-Reading Technology — NTH Webinar #1 (Online)"
-type        = "talks"
-draft       = false
+---
+title       : "Mind-Reading Technology — NTH Webinar #1 (Online)"
+type        : "talks"
+draft       : false
 
 # The talks list filters on this string date (YYYY-MM-DD)
-event_date  = "2025-03-12"
+event_date  : "2025-03-12"
 
 # Displayed on cards/sections by your theme
-talk_type   = "webinar"
-location    = "Online"
-summary     = "Our first online webinar: Thirza Dado & Bouke van Balen on mind-reading technology, neural decoding, and whether BCIs can read minds — with live Q&A."
+talk_type   : "webinar"
+location    : "Online"
+summary     : "Our first online webinar: Thirza Dado & Bouke van Balen on mind-reading technology, neural decoding, and whether BCIs can read minds — with live Q&A."
 
 # Handy custom fields (optional)
 # registration_link = ""
-tags        = ["neurotech","webinar","BCI","online"]
-featured    = false
-+++
+tags        : ["neurotech","webinar","BCI","online"]
+featured    : false
+---
 
 # Mind-Reading Technology
 
