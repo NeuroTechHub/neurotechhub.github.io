@@ -15,25 +15,38 @@ There are several ways to contribute:
 
 **Step 2: Write Your Post**
 
-- Navigate to [our GitHub page](https://github.com/NeuroTechHub/Website/tree/main/content/blog/posts) to add a new file to the posts section.
-- Click 'Add file' and start writing your post.
-- Use the following format, use [Markdown](https://www.markdownguide.org/) for the body:
+Posts use **page bundles** - each post is a folder with an `index.md` and its images:
+
+```
+content/blog/posts/my-post/
+  ├── index.md
+  ├── hero.jpg
+  └── diagram.png
+```
+
+Create using Hugo CLI:
+```bash
+hugo new blog/posts/my-post/index.md
+```
+
+Use this frontmatter format:
 
 ```yaml
 ---
 title: "Your Post Title"
-date: 2025-01-XX
+date: "2025-01-XX"
 author: "Your Name"
 tags: ["tag1", "tag2", "tag3"]
 categories: ["tutorial"] # or "research", "hardware", etc.
 summary: "Brief description for card view (150-200 characters)"
-featured_image: "/images/posts/your-post.jpg" # optional
+featured_image: "hero.jpg"  # Image in same folder
 draft: true
 ---
-# Your Content Here
 
-Write your post content in Markdown format.
+Write your post content in Markdown. Reference images: ![Alt](diagram.png)
 ```
+
+**Important:** Place all images in the same folder as `index.md`, not in `static/`
 
 ## Propose a talk
 
@@ -46,7 +59,7 @@ If you want to see what your post will look like, you can deploy the website loc
 
 ### Prerequisites
 
-- [Hugo Extended](https://gohugo.io/installation/) (latest version)
+- [Hugo](https://gohugo.io/installation/)
 - [Git](https://git-scm.com/)
 - Text editor of your choice
 
@@ -66,30 +79,42 @@ hugo server --buildDrafts
 ### Project Structure
 
 ```
-├── content/              # All content (blog posts, talks, pages)
-│   ├── blog/posts/      # Blog posts
-│   ├── talks/events/    # Talk pages
-│   └── about/           # Static pages
-├── themes/neurotech-theme/  # Custom Hugo theme
-│   ├── layouts/         # HTML templates
-│   ├── static/          # CSS, JS, images
-│   └── assets/          # Build assets
-├── static/              # Static files (images, etc.)
-└── .github/             # GitHub Actions and templates
+├── content/
+│   ├── blog/posts/my-post/     # Page bundles
+│   │   ├── index.md            # Post content
+│   │   └── images...           # Images with post
+│   └── talks/events/my-talk/   # Same structure
+│       ├── index.md
+│       └── images...
+├── themes/neurotech-theme/     # Hugo theme
+└── .github/workflows/          # CI/CD
 ```
 
-### Content Creation Commands
+### Content Creation
 
 ```bash
-# Create a new blog post
-hugo new content/blog/posts/your-post-title.md
+# Create blog post with page bundle
+hugo new blog/posts/my-post/index.md
 
-# Create a new talk page
-hugo new content/talks/events/your-talk-title.md
+# Create talk/event
+hugo new talks/events/my-talk/index.md
 
 # Preview with drafts
 hugo server --buildDrafts --buildFuture
 ```
+
+### Test Validation Locally
+
+Before submitting, test that your content passes validation:
+
+```bash
+.github/workflows/validate-content.sh
+```
+
+This checks:
+- Required frontmatter fields
+- All images exist in page bundle
+- No unused files in folders
 
 ## Troubleshooting
 

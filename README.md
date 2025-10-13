@@ -8,8 +8,26 @@ NeuroTechHub is an open community where researchers, engineers, and innovators c
 
 - **📚 Knowledge Sharing**: In-depth blog posts, tutorials, and research insights
 - **🎤 Community Events**: Regular talks, workshops, and discussions with experts
-- **🔬 Open Source Projects**: Collaborative development of tools and resources
 - **🤝 Networking**: Connecting professionals and enthusiasts worldwide
+
+## 🛠️ Tech Stack
+
+- **[Hugo](https://gohugo.io/)** - Static site generator
+- **Page Bundles** - Content + images in organized folders
+- **GitHub Actions** - Automated validation and deployment
+
+## 🚀 Quick Start
+
+```bash
+# Clone and run
+git clone https://github.com/neurotechhub/website.git
+cd website
+hugo server --buildDrafts
+
+# Visit http://localhost:1313
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full development guide.
 
 ## 📝 Contributing
 
@@ -19,7 +37,6 @@ We welcome contributions from the community! Here are several ways to get involv
 
 - **Blog Posts**: Share your knowledge, research, and tutorials
 - **Talk Proposals**: Present to our community through workshops and presentations
-- **Resource Curation**: Help build our resource library
 
 ### Technical Contributions
 
@@ -66,16 +83,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Code and Theme**: MIT License
 - **Community Contributions**: By contributing, you agree to our licensing terms
 
-## 🏆 Recognition
-
-### Contributors
-
-Thanks to all the amazing people who help make NeuroTechHub possible:
-
-- **Core Team**: Website development and maintenance
-- **Content Contributors**: Blog authors and speakers
-- **Community Members**: Feedback, testing, and promotion
-
 ---
 
 ## 📞 Support
@@ -94,7 +101,5 @@ Thanks to all the amazing people who help make NeuroTechHub possible:
 - Join our [Discord](https://discord.gg/neurotech) for real-time help
 
 ---
-
-**Ready to contribute?** [Propose a blog post](https://github.com/neurotechhub/website/issues/new?template=blog-post-proposal.md)!
 
 _Together, we're building the future of neurotechnology. 🚀_
