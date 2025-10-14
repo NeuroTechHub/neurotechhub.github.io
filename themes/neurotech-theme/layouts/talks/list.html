@@ -57,13 +57,11 @@
       <h2
         style="
           font-size: 2rem;
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
           color: var(--color-white);
           text-align: center;
         "
-      >
-        🚀 Upcoming Talks
-      </h2>
+      ></h2>
 
       <div class="grid grid-2" id="upcomingGrid">
         {{ range $upcomingTalks.ByParam "event_date" }}
@@ -94,7 +92,7 @@
                 font-weight: 600;
               "
             >
-              🔴 UPCOMING
+              UPCOMING
             </span>
             <span style="color: var(--color-gray); font-size: 0.9rem">
               {{ .Params.event_date | dateFormat "Jan 2, 2006" }}
@@ -172,9 +170,7 @@
           color: var(--color-white);
           text-align: center;
         "
-      >
-        Past Talks
-      </h2>
+      ></h2>
 
       <div class="grid grid-2" id="pastGrid">
         {{ range $pastTalks.ByParam "event_date" }}
@@ -286,7 +282,7 @@
     <div
       class="theme-box"
       style="
-        margin-top: 4rem;
+        margin-top: 5rem;
         text-align: center;
         padding: 3rem;
         border-radius: 1rem;

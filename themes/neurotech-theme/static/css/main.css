@@ -346,7 +346,6 @@ main {
   transform: translateY(-6px);
 }
 
-
 .card-title {
   font-size: var(--font-size-xl);
   font-weight: 600;
@@ -499,7 +498,7 @@ body.dark-theme .footer {
 /* Copyright section */
 .copyright {
   text-align: center;
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-xs) 0;
   background-color: #1a1a1a;
   border-top: 1px solid var(--color-border-dark);
 }
@@ -663,7 +662,6 @@ body.dark-theme .copyright p {
 html {
   scroll-behavior: smooth;
 }
-
 
 /* Focus states for accessibility */
 .nav-link:focus,
