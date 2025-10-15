@@ -5,30 +5,39 @@
         <div style="margin-bottom: 2rem;">
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
                 <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
-                
-                <select id="categoryFilter" class="filter-select">
-                    <option value="">All Categories</option>
-                    {{ range .Site.Taxonomies.categories }}
-                    <option value="{{ .Page.Title }}">{{ .Page.Title | title }} ({{ .Count }})</option>
-                    {{ end }}
-                </select>
-                
+
                 <select id="tagFilter" class="filter-select">
                     <option value="">All Tags</option>
-                    {{ range .Site.Taxonomies.tags }}
-                    <option value="{{ .Page.Title }}">{{ .Page.Title | title }} ({{ .Count }})</option>
+                    {{ $blogTags := slice }}
+                    {{ range where .Site.RegularPages "Type" "eq" "blog" }}
+                        {{ range .Params.tags }}
+                            {{ $blogTags = $blogTags | append . }}
+                        {{ end }}
+                    {{ end }}
+                    {{ range (($blogTags | uniq) | sort) }}
+                        {{ $tag := . }}
+                        {{ $count := 0 }}
+                        {{ range $blogTags }}
+                            {{ if eq . $tag }}
+                                {{ $count = add $count 1 }}
+                            {{ end }}
+                        {{ end }}
+                        <option value="{{ . }}">{{ . | title }} ({{ $count }})</option>
                     {{ end }}
                 </select>
+
+                <button id="clearFilters" style="padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 0.25rem; cursor: pointer;">
+                    Clear Filters
+                </button>
             </div>
         </div>
         
         <!-- Posts Grid -->
         <div class="grid grid-2" id="postsGrid">
             {{ range .Paginator.Pages }}
-            <article class="card post-card" 
+            <article class="card post-card"
                      data-title="{{ .Title | lower }}"
                      data-summary="{{ .Params.summary | default .Summary | lower }}"
-                     data-categories="{{ range .Params.categories }}{{ . | lower }} {{ end }}"
                      data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
                      data-author="{{ .Params.author | lower }}"
                      data-date="{{ .Date.Format "2006-01-02" }}"
@@ -107,48 +116,42 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
     const tagFilter = document.getElementById('tagFilter');
+    const clearFiltersBtn = document.getElementById('clearFilters');
     const postsGrid = document.getElementById('postsGrid');
     const noResults = document.getElementById('noResults');
     const postCards = document.querySelectorAll('.post-card');
-    
+
     function filterPosts() {
         const searchTerm = searchInput.value.toLowerCase();
-        const selectedCategory = categoryFilter.value.toLowerCase();
         const selectedTag = tagFilter.value.toLowerCase();
-        
+
         let visibleCount = 0;
-        
+
         postCards.forEach(card => {
             const title = card.dataset.title;
             const summary = card.dataset.summary;
-            const categories = card.dataset.categories;
             const tags = card.dataset.tags;
             const author = card.dataset.author;
-            
+
             // Search filter
-            const matchesSearch = !searchTerm || 
-                title.includes(searchTerm) || 
-                summary.includes(searchTerm) || 
+            const matchesSearch = !searchTerm ||
+                title.includes(searchTerm) ||
+                summary.includes(searchTerm) ||
                 author.includes(searchTerm);
-            
-            // Category filter
-            const matchesCategory = !selectedCategory || 
-                categories.includes(selectedCategory);
-            
+
             // Tag filter
-            const matchesTag = !selectedTag || 
+            const matchesTag = !selectedTag ||
                 tags.includes(selectedTag);
-            
-            if (matchesSearch && matchesCategory && matchesTag) {
+
+            if (matchesSearch && matchesTag) {
                 card.style.display = 'block';
                 visibleCount++;
             } else {
                 card.style.display = 'none';
             }
         });
-        
+
         // Show/hide no results message
         if (visibleCount === 0) {
             noResults.style.display = 'block';
@@ -158,28 +161,18 @@ document.addEventListener('DOMContentLoaded', function() {
             postsGrid.style.display = 'grid';
         }
     }
-    
-    // Add event listeners
-    searchInput.addEventListener('input', filterPosts);
-    categoryFilter.addEventListener('change', filterPosts);
-    tagFilter.addEventListener('change', filterPosts);
-    
+
     // Clear filters function
     function clearFilters() {
         searchInput.value = '';
-        categoryFilter.value = '';
         tagFilter.value = '';
         filterPosts();
     }
-    
-    // Add clear button
-    const clearButton = document.createElement('button');
-    clearButton.textContent = 'Clear Filters';
-    clearButton.style.cssText = 'padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 0.25rem; cursor: pointer;';
-    clearButton.addEventListener('click', clearFilters);
-    
-    // Insert clear button after filters
-    categoryFilter.parentNode.appendChild(clearButton);
+
+    // Add event listeners
+    searchInput.addEventListener('input', filterPosts);
+    tagFilter.addEventListener('change', filterPosts);
+    clearFiltersBtn.addEventListener('click', clearFilters);
 });
 </script>
 {{ end }}

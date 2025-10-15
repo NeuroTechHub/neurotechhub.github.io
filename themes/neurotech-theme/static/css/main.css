@@ -258,7 +258,8 @@ main {
   background-image: inherit;
   background-size: cover;
   background-position: center;
-  filter: grayscale(100%) sepia(40%) hue-rotate(110deg) saturate(1.2) brightness(0.9);
+  filter: grayscale(100%) sepia(40%) hue-rotate(110deg) saturate(1.2)
+    brightness(0.9);
   opacity: 0.5;
   z-index: 0;
 }
@@ -328,6 +329,14 @@ main {
 
 .grid-3 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Past talks grid - always maintain 3-column width */
+.grid-past-talks {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 100%;
 }
 
 /* Cards */
@@ -424,6 +433,16 @@ main {
   background-color: #a0c7c4;
 }
 
+/* Override green link color for tags */
+.content .tag {
+  color: white;
+}
+
+.content .tag:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* Sections */
 .section {
   padding: var(--spacing-2xl) 0;
@@ -473,19 +492,35 @@ main {
   margin-bottom: var(--spacing-md);
 }
 
+.content h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
 .content h1 {
   font-size: var(--font-size-3xl);
 }
 
 .content h2 {
   font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-2xl);
 }
 
 .content p {
   margin-bottom: var(--spacing-md);
 }
 
+.content ul,
+.content ol {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.content li {
+  margin-bottom: var(--spacing-xs);
+}
+
 .content a {
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -732,9 +767,34 @@ select:focus {
 
 /* Dark boxes that need to be theme-dependent */
 .theme-box {
-  background-color: var(--card-bg);
+  background-color: #e8e8e8;
   color: var(--text-primary);
   border: 1px solid var(--border-color);
+}
+
+body.dark-theme .theme-box {
+  background-color: #d0d0d0;
+  color: var(--color-dark);
+  border: 1px solid #b0b0b0;
+}
+
+body.dark-theme .theme-box h3 {
+  color: var(--color-dark) !important;
+}
+
+body.dark-theme .theme-box p {
+  color: #333333 !important;
+}
+
+/* Keep button colors consistent in theme-box across light/dark modes */
+body.dark-theme .theme-box .hero-cta {
+  color: #666666;
+  border-color: #666666;
+}
+
+body.dark-theme .theme-box .hero-cta:hover {
+  background-color: #666666;
+  color: #d0d0d0;
 }
 
 /* Responsive design */
@@ -784,6 +844,10 @@ select:focus {
   }
 
   .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-past-talks {
     grid-template-columns: 1fr;
   }
 

@@ -19,18 +19,23 @@
           class="search-input"
         />
 
-        <select id="typeFilter" class="filter-select">
-          <option value="">All Talks</option>
-          <option value="upcoming">Upcoming Only</option>
-          <option value="past">Past Only</option>
-        </select>
-
         <select id="tagFilter" class="filter-select">
           <option value="">All Topics</option>
-          {{ range .Site.Taxonomies.tags }}
-          <option value="{{ .Page.Title }}">
-            {{ .Page.Title | title }} ({{ .Count }})
-          </option>
+          {{ $talkTags := slice }}
+          {{ range .Pages }}
+            {{ range .Params.tags }}
+              {{ $talkTags = $talkTags | append . }}
+            {{ end }}
+          {{ end }}
+          {{ range (($talkTags | uniq) | sort) }}
+            {{ $tag := . }}
+            {{ $count := 0 }}
+            {{ range $talkTags }}
+              {{ if eq . $tag }}
+                {{ $count = add $count 1 }}
+              {{ end }}
+            {{ end }}
+            <option value="{{ . }}">{{ . | title }} ({{ $count }})</option>
           {{ end }}
         </select>
 
@@ -112,7 +117,7 @@
         "
       ></h2>
 
-      <div class="grid grid-3" id="pastGrid">
+      <div class="grid-past-talks" id="pastGrid">
         {{ range first 6 ($pastTalks.ByParam "event_date") }} {{ partial
         "talk-card-past.html" . }} {{ end }}
       </div>
@@ -191,30 +196,22 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
-    const typeFilter = document.getElementById("typeFilter");
     const tagFilter = document.getElementById("tagFilter");
-    const clearFilters = document.getElementById("clearFilters");
-    const upcomingGrid = document.getElementById("upcomingGrid");
-    const pastGrid = document.getElementById("pastGrid");
-    const upcomingSection = document.querySelector(".upcoming-section");
-    const pastSection = document.querySelector(".past-section");
+    const clearFiltersBtn = document.getElementById("clearFilters");
     const noResults = document.getElementById("noResults");
     const talkCards = document.querySelectorAll(".talk-card");
 
     function filterTalks() {
       const searchTerm = searchInput.value.toLowerCase();
-      const selectedType = typeFilter.value;
       const selectedTag = tagFilter.value.toLowerCase();
 
-      let upcomingVisible = 0;
-      let pastVisible = 0;
+      let visibleCount = 0;
 
       talkCards.forEach((card) => {
         const title = card.dataset.title;
         const summary = card.dataset.summary;
         const speaker = card.dataset.speaker;
         const tags = card.dataset.tags;
-        const type = card.dataset.type;
 
         // Search filter
         const matchesSearch =
@@ -223,35 +220,19 @@
           summary.includes(searchTerm) ||
           speaker.includes(searchTerm);
 
-        // Type filter
-        const matchesType = !selectedType || type === selectedType;
-
         // Tag filter
         const matchesTag = !selectedTag || tags.includes(selectedTag);
 
-        if (matchesSearch && matchesType && matchesTag) {
+        if (matchesSearch && matchesTag) {
           card.style.display = "block";
-          if (type === "upcoming") upcomingVisible++;
-          else if (type === "past") pastVisible++;
+          visibleCount++;
         } else {
           card.style.display = "none";
         }
       });
 
-      // Show/hide sections based on filter results
-      if (upcomingSection) {
-        upcomingSection.style.display =
-          selectedType === "past" || upcomingVisible === 0 ? "none" : "block";
-      }
-
-      if (pastSection) {
-        pastSection.style.display =
-          selectedType === "upcoming" || pastVisible === 0 ? "none" : "block";
-      }
-
       // Show/hide no results message
-      const totalVisible = upcomingVisible + pastVisible;
-      if (totalVisible === 0 && (searchTerm || selectedType || selectedTag)) {
+      if (visibleCount === 0 && (searchTerm || selectedTag)) {
         noResults.style.display = "block";
       } else {
         noResults.style.display = "none";
@@ -260,16 +241,14 @@
 
     function clearAllFilters() {
       searchInput.value = "";
-      typeFilter.value = "";
       tagFilter.value = "";
       filterTalks();
     }
 
     // Add event listeners
     searchInput.addEventListener("input", filterTalks);
-    typeFilter.addEventListener("change", filterTalks);
     tagFilter.addEventListener("change", filterTalks);
-    clearFilters.addEventListener("click", clearAllFilters);
+    clearFiltersBtn.addEventListener("click", clearAllFilters);
   });
 </script>
 {{ end }}

@@ -1,5 +1,9 @@
 <article
   class="card talk-card"
+  data-title="{{ .Title | lower }}"
+  data-summary="{{ .Params.summary | default .Summary | lower }}"
+  data-speaker="{{ .Params.speaker | lower }}"
+  data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
   onclick="window.location.href='{{ .RelPermalink }}'"
 >
   <h3 class="card-title">
