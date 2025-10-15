@@ -53,12 +53,15 @@ Write your post content in Markdown. Reference images: ![Alt](diagram.png)
 - **Images must be under 500KB** - optimize before uploading:
 
   **Option 1: Use our optimization script** (recommended)
+
   ```bash
   .github/workflows/optimize-images.sh
   ```
+
   This automatically resizes/compresses all oversized images in your content.
 
   **Option 2: Use online tools**
+
   - [TinyPNG](https://tinypng.com/), [Squoosh](https://squoosh.app/), or ImageOptim
   - Resize to reasonable dimensions (max 2000px width)
   - Convert to WebP or AVIF format for better compression
@@ -145,7 +148,7 @@ Then run validation again to confirm all checks pass.
 
 - **General Questions**: Open a [GitHub Discussion](https://github.com/neurotechhub/website/discussions)
 - **Bug Reports**: Create an [Issue](https://github.com/neurotechhub/website/issues)
-- **Real-time Chat**: Join our [Discord](https://discord.gg/neurotech)
+- **Real-time Chat**: Join our [Discord](https://discord.gg/FhZA5rB7Tq)
 - **Email**: Contact us at contact [at] neurotechhub [dot] org
 
 ## Resources

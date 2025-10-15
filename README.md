@@ -48,7 +48,7 @@ We welcome contributions from the community! Here are several ways to get involv
 
 1. Read our [Contributing Guide](CONTRIBUTING.md)
 2. Check out [good first issues](https://github.com/neurotechhub/website/labels/good%20first%20issue)
-3. Join our [Discord community](https://discord.gg/neurotech) for discussions
+3. Join our [Discord community](https://discord.gg/FhZA5rB7Tq) for discussions
 
 ## 📋 Content Guidelines
 
@@ -71,7 +71,7 @@ We welcome contributions from the community! Here are several ways to get involv
 
 - **Website**: [neurotechhub.github.io](https://neurotechhub.github.io)
 - **GitHub**: [github.com/neurotechhub](https://github.com/neurotechhub)
-- **Discord**: [Join our community](https://discord.gg/neurotech)
+- **Discord**: [Join our community](https://discord.gg/FhZA5rB7Tq)
 - **Email**: contact@neurotechhub.org
 
 ## 📄 License
@@ -91,14 +91,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **General**: [GitHub Discussions](https://github.com/neurotechhub/website/discussions)
 - **Bug Reports**: [GitHub Issues](https://github.com/neurotechhub/website/issues)
-- **Chat**: [Discord Community](https://discord.gg/neurotech)
+- **Chat**: [Discord Community](https://discord.gg/FhZA5rB7Tq)
 - **Email**: contact@neurotechhub.org
 
 ### Contributing Questions?
 
 - Read the [Contributing Guide](CONTRIBUTING.md)
 - Check [existing issues](https://github.com/neurotechhub/website/issues)
-- Join our [Discord](https://discord.gg/neurotech) for real-time help
+- Join our [Discord](https://discord.gg/FhZA5rB7Tq) for real-time help
 
 ---
 

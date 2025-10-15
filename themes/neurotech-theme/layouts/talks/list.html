@@ -21,21 +21,12 @@
 
         <select id="tagFilter" class="filter-select">
           <option value="">All Topics</option>
-          {{ $talkTags := slice }}
-          {{ range .Pages }}
-            {{ range .Params.tags }}
-              {{ $talkTags = $talkTags | append . }}
-            {{ end }}
-          {{ end }}
-          {{ range (($talkTags | uniq) | sort) }}
-            {{ $tag := . }}
-            {{ $count := 0 }}
-            {{ range $talkTags }}
-              {{ if eq . $tag }}
-                {{ $count = add $count 1 }}
-              {{ end }}
-            {{ end }}
-            <option value="{{ . }}">{{ . | title }} ({{ $count }})</option>
+          {{ $talkTags := slice }} {{ range .Pages }} {{ range .Params.tags }}
+          {{ $talkTags = $talkTags | append . }} {{ end }} {{ end }} {{ range
+          (($talkTags | uniq) | sort) }} {{ $tag := . }} {{ $count := 0 }} {{
+          range $talkTags }} {{ if eq . $tag }} {{ $count = add $count 1 }} {{
+          end }} {{ end }}
+          <option value="{{ . }}">{{ . | title }} ({{ $count }})</option>
           {{ end }}
         </select>
 
@@ -181,7 +172,7 @@
           Propose a Talk
         </a>
         <a
-          href="https://discord.gg/neurotech"
+          href="https://discord.gg/FhZA5rB7Tq"
           target="_blank"
           rel="noopener"
           class="hero-cta"

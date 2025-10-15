@@ -1,31 +1,65 @@
 <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>{{ .Site.Title }}</h3>
-                <p>{{ .Site.Params.description }}</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                    {{ end }}
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="https://github.com/neurotechhub" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://discord.gg/neurotech" target="_blank" rel="noopener">Discord</a></li>
-                    <li><a href="https://www.linkedin.com/company/neurotechhub" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://www.instagram.com/theneurotechhub/" target="_blank" rel="noopener">Instagram</a></li>
-                    <li><a href="https://twitter.com/neurotechhub" target="_blank" rel="noopener">Twitter</a></li>
-                </ul>
-            </div>
-        </div>
-        
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>{{ .Site.Title }}</h3>
+        <p>{{ .Site.Params.description }}</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/neurotechhub"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/FhZA5rB7Tq"
+              target="_blank"
+              rel="noopener"
+              >Discord</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/neurotechhub"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/theneurotechhub/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/neurotechhub"
+              target="_blank"
+              rel="noopener"
+              >Twitter</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </footer>
