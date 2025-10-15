@@ -1,9 +1,7 @@
 ---
 title: "TU Delft Neuro Challenge \n — Build your neuro start-up in one day"
-type: "talks"
-draft: false
-
 event_date: "2025-06-18"
+draft: false
 featured_image: keynote-rainey_1.jpg
 
 talk_type: "challenge"
@@ -11,7 +9,7 @@ location: "YES!Delft, Molengraaffsingel 12, 2629 JD Delft"
 summary: "One-day, hands-on challenge to turn neurotech ideas into startup concepts — with keynotes, team sprints, and a jury pitch."
 
 tags: ["neurotech", "startup", "workshop", "in person"]
-featured: false
+registration_link: "https://www.aanmelder.nl/166561/home"
 ---
 
 # TU Delft Neuro Challenge
@@ -27,15 +25,6 @@ Join a one-day, hands-on event where young scientists, clinicians, engineers, an
 - **Startup crash-course:** practical tools & mentoring
 - **Team sprint:** build, iterate, and validate your concept
 - **Pitch to an expert jury:** prize for the winning team 🎉
-
-### When & where
-
-- **Date:** 18 June 2025
-- **Location:** YES!Delft — Molengraaffsingel 12, 2629 JD Delft
-
-### Register
-
-👉 **Sign up here:** [aanmelder.nl/166561](https://www.aanmelder.nl/166561/home)
 
 ---
 
