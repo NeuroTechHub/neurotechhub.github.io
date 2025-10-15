@@ -346,6 +346,15 @@ main {
   transform: translateY(-6px);
 }
 
+/* Greyscale filter for past event images */
+.card.past-event .card-image {
+  filter: grayscale(100%);
+}
+
+.card.past-event:hover .card-image {
+  filter: grayscale(70%);
+}
+
 .card-title {
   font-size: var(--font-size-xl);
   font-weight: 600;
@@ -371,7 +380,6 @@ main {
 
 .card-summary {
   color: var(--color-gray-bright);
-  margin-bottom: var(--spacing-md);
 }
 
 .card-tags {
@@ -594,20 +602,13 @@ body.dark-theme .copyright p {
   color: var(--color-accent);
 }
 
-.post-card:hover .card-image,
-.talk-card:hover .card-image {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
 .card-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--border-radius);
   margin-bottom: var(--spacing-md);
-  transition: transform 0.3s ease;
-  overflow: hidden;
+  background-color: var(--card-bg);
 }
 
 /* Navigation animations */
