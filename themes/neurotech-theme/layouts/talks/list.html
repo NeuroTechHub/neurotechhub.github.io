@@ -64,9 +64,37 @@
       ></h2>
 
       <div class="grid grid-2" id="upcomingGrid">
-        {{ range first 3 ($upcomingTalks.ByParam "event_date") }}
-        {{ partial "talk-card-upcoming.html" . }}
-        {{ end }}
+        {{ range first 3 ($upcomingTalks.ByParam "event_date") }} {{ partial
+        "talk-card-upcoming.html" . }} {{ end }}
+      </div>
+    </div>
+    {{ else }}
+    <div class="upcoming-section">
+      <h2
+        style="
+          font-size: 2rem;
+          margin-bottom: 2rem;
+          color: var(--color-white);
+          text-align: center;
+        "
+      ></h2>
+      <div
+        class="theme-box"
+        style="text-align: center; padding: 3rem; border-radius: 1rem"
+      >
+        <h3 style="color: var(--text-primary); margin-bottom: 1rem">
+          No talks coming up, if you want to organise one or suggest a topic,
+          please let us know!
+        </h3>
+        <a
+          href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+          target="_blank"
+          rel="noopener"
+          class="hero-cta"
+          style="margin-top: 1rem"
+        >
+          Propose a Talk
+        </a>
       </div>
     </div>
     {{ end }}
@@ -85,9 +113,8 @@
       ></h2>
 
       <div class="grid grid-3" id="pastGrid">
-        {{ range first 6 ($pastTalks.ByParam "event_date") }}
-        {{ partial "talk-card-past.html" . }}
-        {{ end }}
+        {{ range first 6 ($pastTalks.ByParam "event_date") }} {{ partial
+        "talk-card-past.html" . }} {{ end }}
       </div>
     </div>
     {{ end }}

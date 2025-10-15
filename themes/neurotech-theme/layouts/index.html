@@ -120,6 +120,30 @@
       {{ partial "talk-card-upcoming.html" . }}
       {{ end }}
     </div>
+    {{ else }}
+    <h2 class="section-title">Talks</h2>
+    <div
+      class="theme-box"
+      style="
+        text-align: center;
+        padding: 3rem;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+      "
+    >
+      <h3 style="color: var(--text-primary); margin-bottom: 1rem">
+        No talks coming up, if you want to organise one or suggest a topic, please let us know!
+      </h3>
+      <a
+        href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+        target="_blank"
+        rel="noopener"
+        class="hero-cta"
+        style="margin-top: 1rem"
+      >
+        Propose a Talk
+      </a>
+    </div>
     {{ end }}
 
     {{ if $pastTalks }}
