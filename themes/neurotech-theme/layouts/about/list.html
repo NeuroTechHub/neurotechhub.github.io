@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <div class="content">
+            {{ .Content }}
+        </div>
+
+        <!-- Team Members Section -->
+        <h2 class="section-title" style="margin-top: var(--spacing-2xl);">Our Team</h2>
+
+        <div class="team-grid">
+            {{ range .Site.Data.team.members }}
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}" class="team-photo">
+                </div>
+                <h3 class="team-name">{{ replace .name " " "<br>" | safeHTML }}</h3>
+                <p class="team-description">{{ .description }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

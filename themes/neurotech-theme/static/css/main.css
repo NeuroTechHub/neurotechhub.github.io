@@ -80,7 +80,7 @@ body {
 .header {
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: 20px 0;
+  padding: 15px 0;
   position: sticky;
   z-index: 1001;
   transition: background-color 0.3s ease;
@@ -109,7 +109,23 @@ body {
 }
 
 .nav-logo-img {
-  height: 60px;
+  height: 20px;
+}
+
+.logo-light {
+  display: flex;
+}
+
+.logo-dark {
+  display: none;
+}
+
+body.dark-theme .logo-light {
+  display: none;
+}
+
+body.dark-theme .logo-dark {
+  display: flex;
 }
 
 .nav-menu {
@@ -226,8 +242,31 @@ main {
 
 /* Hero section */
 .hero {
-  padding: var(--spacing-2xl) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero background image with B&W + green tint matching #467265 */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) sepia(40%) hue-rotate(110deg) saturate(1.2)
+    brightness(0.9);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content-wrapper {
@@ -292,6 +331,14 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+/* Past talks grid - always maintain 3-column width */
+.grid-past-talks {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 100%;
+}
+
 /* Cards */
 .card {
   background-color: var(--card-bg);
@@ -304,7 +351,8 @@ main {
 }
 
 .card.non-clickable {
-  cursor: default !important;
+  cursor: default;
+  transition: none;
 }
 
 .card.non-clickable:hover {
@@ -319,12 +367,23 @@ main {
   border-color: var(--color-accent);
 }
 
-.card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-  margin-bottom: var(--spacing-md);
+/* Past event cards with reduced opacity */
+.card.past-event {
+  opacity: 0.5;
+}
+
+.card.past-event:hover {
+  opacity: 0.7 !important;
+  transform: translateY(-6px);
+}
+
+/* Greyscale filter for past event images */
+.card.past-event .card-image {
+  filter: grayscale(100%);
+}
+
+.card.past-event:hover .card-image {
+  filter: grayscale(70%);
 }
 
 .card-title {
@@ -352,7 +411,6 @@ main {
 
 .card-summary {
   color: var(--color-gray-bright);
-  margin-bottom: var(--spacing-md);
 }
 
 .card-tags {
@@ -373,6 +431,16 @@ main {
 
 .tag:hover {
   background-color: #a0c7c4;
+}
+
+/* Override green link color for tags */
+.content .tag {
+  color: white;
+}
+
+.content .tag:hover {
+  color: white;
+  text-decoration: none;
 }
 
 /* Sections */
@@ -424,19 +492,35 @@ main {
   margin-bottom: var(--spacing-md);
 }
 
+.content h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
 .content h1 {
   font-size: var(--font-size-3xl);
 }
 
 .content h2 {
   font-size: var(--font-size-2xl);
+  margin-top: var(--spacing-2xl);
 }
 
 .content p {
   margin-bottom: var(--spacing-md);
 }
 
+.content ul,
+.content ol {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.content li {
+  margin-bottom: var(--spacing-xs);
+}
+
 .content a {
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -479,15 +563,24 @@ body.dark-theme .footer {
 /* Copyright section */
 .copyright {
   text-align: center;
-  padding: var(--spacing-sm) 0;
-  background-color: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-xs) 0;
+  background-color: #1a1a1a;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+body.dark-theme .copyright {
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border-bright);
 }
 
 .copyright p {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--color-gray-bright);
   margin: 0;
+}
+
+body.dark-theme .copyright p {
+  color: var(--color-gray-dark);
 }
 
 .footer-content {
@@ -495,6 +588,10 @@ body.dark-theme .footer {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-sm);
+}
+
+.footer-section p {
+  color: var(--color-gray-bright);
 }
 
 .footer-section h3,
@@ -505,10 +602,7 @@ body.dark-theme .footer {
 
 .footer-section ul {
   list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: var(--spacing-xs);
+  font-size: 14px;
 }
 
 .footer-section ul li a {
@@ -543,105 +637,35 @@ body.dark-theme .footer {
   color: var(--text-secondary);
 }
 
-/* Animation keyframes */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 5px var(--color-accent);
-  }
-  50% {
-    box-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent);
-  }
-}
-
-/* Enhanced animations */
-.hero {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.hero-title {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-
-.hero-subtitle {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-.hero-cta {
-  animation: fadeInUp 0.8s ease-out 0.6s both;
-  transition: var(--transition);
-}
-
+/* Card hover effects */
 .card {
-  animation: fadeInUp 0.6s ease-out;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.15);
 }
 
-.card:nth-child(1) {
-  animation-delay: 0.1s;
+/* Enhanced hover effects for blog and event cards */
+.post-card:hover,
+.talk-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.2);
 }
-.card:nth-child(2) {
-  animation-delay: 0.2s;
+
+.post-card:hover .card-title,
+.talk-card:hover .card-title {
+  color: var(--color-accent);
 }
-.card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.card:nth-child(6) {
-  animation-delay: 0.6s;
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  background-color: var(--card-bg);
 }
 
 /* Navigation animations */
@@ -697,40 +721,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Loading animation for images */
-.card-image {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.card-image:hover {
-  transform: scale(1.05);
-}
-
-/* Section animations */
-.section {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.section:nth-of-type(odd) {
-  animation: fadeInLeft 0.6s ease-out;
-}
-
-.section:nth-of-type(even) {
-  animation: fadeInRight 0.6s ease-out;
-}
-
-/* Intersection Observer animations */
-.animate-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Focus states for accessibility */
 .nav-link:focus,
 .hero-cta:focus,
@@ -751,7 +741,6 @@ select:focus {
 /* Loading states */
 .loading {
   opacity: 0.6;
-  animation: pulse 1.5s infinite;
 }
 
 /* Form elements */
@@ -778,9 +767,34 @@ select:focus {
 
 /* Dark boxes that need to be theme-dependent */
 .theme-box {
-  background-color: var(--card-bg);
+  background-color: #e8e8e8;
   color: var(--text-primary);
   border: 1px solid var(--border-color);
+}
+
+body.dark-theme .theme-box {
+  background-color: #d0d0d0;
+  color: var(--color-dark);
+  border: 1px solid #b0b0b0;
+}
+
+body.dark-theme .theme-box h3 {
+  color: var(--color-dark) !important;
+}
+
+body.dark-theme .theme-box p {
+  color: #333333 !important;
+}
+
+/* Keep button colors consistent in theme-box across light/dark modes */
+body.dark-theme .theme-box .hero-cta {
+  color: #666666;
+  border-color: #666666;
+}
+
+body.dark-theme .theme-box .hero-cta:hover {
+  background-color: #666666;
+  color: #d0d0d0;
 }
 
 /* Responsive design */
@@ -811,7 +825,6 @@ select:focus {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
-    animation: fadeInRight 0.3s ease-out;
   }
 
   .nav-toggle {
@@ -820,12 +833,10 @@ select:focus {
 
   .hero-title {
     font-size: var(--font-size-3xl);
-    animation-duration: 0.6s;
   }
 
   .hero-subtitle {
     font-size: var(--font-size-lg);
-    animation-duration: 0.6s;
   }
 
   .section-title {
@@ -833,6 +844,10 @@ select:focus {
   }
 
   .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-past-talks {
     grid-template-columns: 1fr;
   }
 
@@ -885,13 +900,72 @@ select:focus {
   }
 }
 
+/* Team member cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  text-align: center;
+  /* transition: var(--transition); */
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 2 / 3.5;
+  overflow: hidden;
+}
+
+/* .team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+} */
+
+.team-photo-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+}
+
+.team-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.team-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-sm);
+}
+
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 

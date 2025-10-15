@@ -35,28 +35,12 @@
             {{ end }}
         </div>
         
-        <!-- Categories and Tags -->
+        <!-- Tags -->
+        {{ if .Params.tags }}
         <div style="margin-top: 1.5rem;">
-            {{ if .Params.categories }}
-            <div style="margin-bottom: 0.5rem;">
-                {{ range .Params.categories }}
-                <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="tag" style="background-color: var(--color-accent); margin: 0.25rem;">
-                    {{ . | title }}
-                </a>
-                {{ end }}
-            </div>
-            {{ end }}
-            
-            {{ if .Params.tags }}
-            <div>
-                {{ range .Params.tags }}
-                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag" style="margin: 0.25rem;">
-                    {{ . }}
-                </a>
-                {{ end }}
-            </div>
-            {{ end }}
+            {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag" style="margin: 0.25rem;">{{ . }}</a>{{ end }}
         </div>
+        {{ end }}
 
         <!-- Featured Image -->
         {{ if .Params.featured_image }}
@@ -71,18 +55,26 @@
         <!-- Talk-specific elements -->
         {{ if eq .Type "talks" }}
         <div style="margin-top: 2rem;">
-            {{ if .Params.registration_link }}
-            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
-               style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
-               🎫 Register for this Talk
-            </a>
-            {{ end }}
-
-            {{ if .Params.recording_link }}
-            <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
-               style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
-               📺 Watch Recording
-            </a>
+            {{ if .Params.event_date }}
+                {{ $eventDate := time .Params.event_date }}
+                {{ $now := now }}
+                {{ if ge $eventDate $now }}
+                    <!-- Future event: show registration link -->
+                    {{ if .Params.registration_link }}
+                    <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
+                       style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+                       🎫 Register for this Talk
+                    </a>
+                    {{ end }}
+                {{ else }}
+                    <!-- Past event: show recording link -->
+                    {{ if .Params.recording_link }}
+                    <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
+                       style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+                       📺 Watch Recording
+                    </a>
+                    {{ end }}
+                {{ end }}
             {{ end }}
         </div>
         {{ end }}
@@ -92,46 +84,21 @@
     <div class="prose">
         {{ .Content }}
     </div>
-    
-    <!-- Author bio for blog posts -->
-    {{ if and .Params.author (eq .Type "blog") }}
-    <div style="margin-top: 3rem; padding: 2rem; background-color: var(--color-light); border-radius: 1rem; border: 1px solid var(--border-color);">
-        <h3 style="margin-top: 0; color: var(--color-white);">About the Author</h3>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="width: 60px; height: 60px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: white;">
-                {{ substr .Params.author 0 1 | upper }}
-            </div>
-            <div>
-                <p style="margin: 0; font-weight: 600; color: var(--color-white);">{{ .Params.author }}</p>
-                {{ if .Params.author_bio }}
-                <p style="margin: 0.5rem 0 0; color: var(--color-light);">{{ .Params.author_bio }}</p>
-                {{ else }}
-                <p style="margin: 0.5rem 0 0; color: var(--color-light);">Contributor to NeuroTechHub</p>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-    {{ end }}
-    
+
     <!-- Navigation -->
     <nav style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             {{ if .PrevInSection }}
-            <a href="{{ .PrevInSection.RelPermalink }}" 
+            <a href="{{ .PrevInSection.RelPermalink }}"
                style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); text-decoration: none; font-weight: 500;">
                ← {{ .PrevInSection.Title | truncate 50 }}
             </a>
             {{ else }}
             <div></div>
             {{ end }}
-            
-            <a href="{{ if eq .Type "blog" }}/blog/{{ else if eq .Type "talks" }}/talks/{{ else }}/{{ end }}" 
-               style="background-color: var(--color-accent); color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
-               Back to {{ .Type | title }}
-            </a>
-            
+
             {{ if .NextInSection }}
-            <a href="{{ .NextInSection.RelPermalink }}" 
+            <a href="{{ .NextInSection.RelPermalink }}"
                style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-accent); text-decoration: none; font-weight: 500; text-align: right;">
                {{ .NextInSection.Title | truncate 50 }} →
             </a>
@@ -148,21 +115,21 @@
             <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}"
             target="_blank" rel="noopener"
             style="background-color: #000000; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
             </a>
             <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink }}"
             target="_blank" rel="noopener"
-            style="background-color: #0077b5; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            style="background-color: #000000; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
             </a>
             <a href="https://reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}"
             target="_blank" rel="noopener"
-            style="background-color: #ff4500; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            style="background-color: #000000; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
                 <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
             </svg>
             </a>

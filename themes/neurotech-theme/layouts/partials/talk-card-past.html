@@ -1,0 +1,69 @@
+<article
+  class="card talk-card past-event"
+  data-title="{{ .Title | lower }}"
+  data-summary="{{ .Params.summary | default .Summary | lower }}"
+  data-speaker="{{ .Params.speaker | lower }}"
+  data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
+  onclick="window.location.href='{{ .RelPermalink }}'"
+>
+  <h3 class="card-title">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h3>
+
+  {{ if .Params.featured_image }}
+  {{ with .Resources.GetMatch .Params.featured_image }}
+  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image">
+  {{ end }}
+  {{ end }}
+
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    "
+  >
+    <span class="tag" style="background-color: #666"
+      >{{ .Params.talk_type | title }}</span
+    >
+    <span class="card-meta" style="margin: 0"
+      >{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span
+    >
+  </div>
+
+  {{ if .Params.speaker }}
+  <p
+    style="
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    "
+  >
+    {{ .Params.speaker }}
+  </p>
+  {{ end }}
+
+  <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
+
+  {{ if .Params.recording_link }}
+  <a
+    href="{{ .Params.recording_link }}"
+    target="_blank"
+    rel="noopener"
+    style="
+      display: inline-block;
+      background-color: #666;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    "
+    onclick="event.stopPropagation()"
+  >
+    Watch Recording
+  </a>
+  {{ end }}
+</article>

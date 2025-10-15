@@ -8,9 +8,29 @@
     <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <script>
+        // Load theme immediately to prevent flash
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                // Add class to html element before body renders
+                document.documentElement.style.setProperty('display', 'none');
+            }
+        })();
+    </script>
     {{ partial "analytics.html" . }}
 </head>
 <body>
+    <script>
+        // Apply theme class to body immediately
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+            document.documentElement.style.removeProperty('display');
+        })();
+    </script>
     {{ partial "header.html" . }}
     
     <main>
