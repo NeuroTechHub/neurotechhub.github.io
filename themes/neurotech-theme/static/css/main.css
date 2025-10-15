@@ -287,7 +287,7 @@ main {
   font-size: var(--font-size-4xl);
   font-weight: 700;
   margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
+  color: var(--color-light);
 }
 
 .hero-subtitle {
@@ -302,10 +302,10 @@ main {
 .hero-cta {
   display: inline-block;
   background-color: transparent;
-  color: var(--text-secondary);
+  color: var(--color-light);
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
-  border: 2px solid var(--text-secondary);
+  border: 2px solid var(--color-light);
   border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: 600;
@@ -313,8 +313,8 @@ main {
 }
 
 .hero-cta:hover {
-  background-color: var(--text-secondary);
-  color: var(--bg-primary);
+  background-color: var(--color-light);
+  color: var(--color-dark);
 }
 
 /* Grid layouts */
