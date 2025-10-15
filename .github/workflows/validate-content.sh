@@ -1,5 +1,36 @@
 #!/bin/bash
 
+# Function to extract required fields from an archetype file
+# Excludes fields marked with "# Optional"
+get_required_fields_from_archetype() {
+  local archetype_file=$1
+  local fields=()
+  
+  # Extract frontmatter from archetype
+  local frontmatter=$(sed -n '/^---$/,/^---$/p' "$archetype_file" | sed '1d;$d')
+  
+  # Find all field names, excluding those with "# Optional" comment
+  while IFS= read -r line; do
+    # Skip empty lines and comments
+    if [[ -z "$line" ]] || [[ "$line" =~ ^[[:space:]]*# ]]; then
+      continue
+    fi
+    
+    # Check if line contains a field definition (field:)
+    if [[ "$line" =~ ^[[:space:]]*([a-z_]+):[[:space:]]* ]]; then
+      field="${BASH_REMATCH[1]}"
+      
+      # Check if line has "# Optional" comment
+      if [[ ! "$line" =~ "#"[[:space:]]*[Oo]ptional ]]; then
+        fields+=("$field")
+      fi
+    fi
+  done <<< "$frontmatter"
+  
+  # Return fields as space-separated string
+  echo "${fields[@]}"
+}
+
 echo "=== Testing Frontmatter Validation ==="
 errors=0
 for file in $(find content -name "*.md"); do
@@ -45,6 +76,71 @@ if [ $errors -gt 0 ]; then
   exit 1
 else
   echo "✓ All frontmatter valid!"
+fi
+
+echo ""
+echo "=== Testing Archetype Field Compliance ==="
+errors=0
+
+for file in $(find content -name "index.md" -type f); do
+  # Skip _index.md files
+  if [[ "$file" == *"_index.md" ]]; then
+    continue
+  fi
+
+  # Extract frontmatter
+  frontmatter=$(sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d')
+  
+  # Determine content type and archetype file
+  if [[ "$file" == *"content/blog/posts/"* ]]; then
+    content_type="blog"
+    archetype_file="archetypes/blog.md"
+    expected_type="blog"
+  elif [[ "$file" == *"content/talks/events/"* ]]; then
+    content_type="talk"
+    archetype_file="archetypes/talks.md"
+    expected_type="talk"
+  else
+    # Skip files not in blog/posts or talks/events
+    continue
+  fi
+
+  # Check if archetype file exists
+  if [ ! -f "$archetype_file" ]; then
+    echo "❌ Archetype file not found: $archetype_file"
+    errors=$((errors + 1))
+    continue
+  fi
+
+  # Get required fields from archetype (excluding Optional fields)
+  required_fields=($(get_required_fields_from_archetype "$archetype_file"))
+
+  # Check each required field exists exactly once
+  for field in "${required_fields[@]}"; do
+    count=$(echo "$frontmatter" | grep -c "^${field}:")
+    
+    if [ $count -eq 0 ]; then
+      echo "❌ Missing required field '$field' in $file"
+      echo "   Content type: $content_type (based on archetype: $archetype_file)"
+      errors=$((errors + 1))
+    elif [ $count -gt 1 ]; then
+      echo "❌ Duplicate field '$field' (found $count times) in $file"
+      echo "   Content type: $content_type"
+      errors=$((errors + 1))
+    fi
+  done
+
+done
+
+if [ $errors -gt 0 ]; then
+  echo ""
+  echo "❌ Found $errors archetype compliance error(s)"
+  echo "Ensure all required fields from the archetype are present exactly once."
+  echo "Fields marked with '# Optional' in the archetype are not required."
+  echo "Run 'hugo new blog/posts/my-post' or 'hugo new talks/events/my-event' to generate properly structured content."
+  exit 1
+else
+  echo "✓ All files comply with archetype requirements!"
 fi
 
 echo ""

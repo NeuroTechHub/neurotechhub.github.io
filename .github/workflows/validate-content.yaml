@@ -5,6 +5,7 @@ on:
     paths:
       - "content/**"
       - "static/**"
+      - "archetypes/**" # Re-validate if archetypes change
 
 jobs:
   validate:
@@ -23,6 +24,14 @@ jobs:
         run: |
           chmod +x .github/workflows/validate-content.sh
           .github/workflows/validate-content.sh
+        # This script validates:
+        # 1. Basic frontmatter presence and required fields
+        # 2. Archetype field compliance (dynamically parsed from archetype files)
+        #    - Only validates fields NOT marked with "# Optional"
+        # 3. Type field matches content type (blog/talk) if present
+        # 4. Image references are valid
+        # 5. No unused files in bundles
+        # 6. Image file sizes are within limits
 
       - name: Check for broken internal links
         run: |
