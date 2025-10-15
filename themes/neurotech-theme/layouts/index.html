@@ -3,15 +3,14 @@
   id="hero"
   class="hero"
   style="
-    height: 80vh;
+    height: calc(100vh - 56px);
     display: flex;
     align-items: center;
     position: relative;
-    background: radial-gradient(
-      circle at bottom right,
-      var(--color-accent) 0%,
-      transparent 60%
-    );
+    background-image: url('{{ "images/group.jpg" | relURL }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   "
 >
   <div class="hero-content-wrapper">
