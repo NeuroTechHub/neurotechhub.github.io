@@ -4,10 +4,10 @@ date: "{{ .Date }}"
 draft: false
 # Featured image for the talk (place file in same folder as this index.md)
 # Example: : "img.jpg" → looks for img.jpg in this folder
-featured_image: ""
+featured_image: ""         # Optional
 
 
-summary: ""                # what list pages often render
+summary: ""
 author: ""
 tags: []
 ---
