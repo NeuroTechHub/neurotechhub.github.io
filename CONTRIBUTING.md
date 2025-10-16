@@ -7,7 +7,8 @@ There are several ways to contribute:
 - Writing or contributing to blogposts
 - Organising or suggesting workshops, talks and other events
 
-[!NOTE] Before you start writing a post, discuss with us to optimise for the most efficient post writing. We're happy to help you in the process. You can do this by creating an [Issue](https://github.com/neurotechhub/website/issues/new?template=blog-post-proposal.md).
+> [!NOTE]
+> Before you start writing a post, discuss with us to optimise for the most efficient post writing. We're happy to help you in the process. You can do this by creating an [Issue](https://github.com/neurotechhub/website/issues/new?template=blog-post-proposal.md).
 
 ## Write a blog post
 
@@ -17,7 +18,8 @@ There are two ways to go about this, either you do it in the github UI (you'll n
 
 GitHub hosts our entire website. If we change files there, they change on the website. This approach lets you add a text file with some optional images in a certain structure.
 
-[!IMPORTANT] If you don't have experience with git and GitHub, the best way to approach this is to first write and finish your entire post. When that's done, continue to upload it in one go.
+> [!IMPORTANT]
+> If you don't have experience with git and GitHub, the best way to approach this is to first write and finish your entire post. When that's done, continue to upload it in one go.
 
 **Step 1: Create a GitHub account**
 
@@ -46,9 +48,11 @@ tags: []           # The topic; BCI, open source, news, opinion. Example: tags: 
 Your blog post body goes here
 ```
 
-[!IMPORTANT] The frontmatter will be checked to be correct so you need to follow the template EXACTLY, some things have double quotation marks, some don't, tags are surrounded by square brackets and the items inside have quatation marks.
+> [!IMPORTANT]
+> The frontmatter will be checked to be correct so you need to follow the template EXACTLY, some things have double quotation marks, some don't, tags are surrounded by square brackets and the items inside have quatation marks.
 
-[!IMPORTANT] Images can't be larger than 500 kB, you need to make the smaller than that, otherwise your post wont be able to be uploaded to the website.
+> [!IMPORTANT]
+> Images can't be larger than 500 kB, you need to make the smaller than that, otherwise your post wont be able to be uploaded to the website.
 
 **Step 2: Create the correct folder and file**
 
