@@ -805,7 +805,7 @@ body.dark-theme .theme-box .hero-cta:hover {
   }
   .nav-menu {
     position: fixed;
-    top: 107px;
+    top: 58px;
     left: 0;
     width: 100%;
     background-color: var(--bg-primary);
