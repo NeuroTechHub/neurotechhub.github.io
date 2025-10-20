@@ -917,7 +917,7 @@ body.dark-theme .theme-box .hero-cta:hover {
 /* Team member cards */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(129px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(114px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
@@ -935,6 +935,7 @@ body.dark-theme .theme-box .hero-cta:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  aspect-ratio: 3/4;
 }
 
 .team-photo-container {
