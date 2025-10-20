@@ -390,7 +390,6 @@ main {
 .card-title {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
 }
 
@@ -412,6 +411,7 @@ main {
 
 .card-summary {
   color: var(--color-gray-bright);
+  margin-bottom: var(--spacing-sm);
 }
 
 .card-tags {
@@ -683,7 +683,7 @@ body.dark-theme .copyright p {
   height: 200px;
   object-fit: contain;
   border-radius: var(--border-radius);
-  margin-bottom: var(--spacing-md);
+  margin: var(--spacing-md) 0;
   background-color: var(--card-bg);
 }
 

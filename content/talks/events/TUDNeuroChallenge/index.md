@@ -1,5 +1,6 @@
 ---
 title: "TU Delft Neuro Challenge \n — Build your neuro start-up in one day"
+speaker: "Nicolas Vachicouras & Dr. Stephen Rainey"
 event_date: "2025-06-18"
 draft: false
 featured_image: keynote-rainey_1.jpg

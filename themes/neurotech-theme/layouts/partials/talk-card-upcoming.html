@@ -10,32 +10,13 @@
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   </h3>
 
-  {{ if .Params.featured_image }}
-  {{ with .Resources.GetMatch .Params.featured_image }}
-  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image">
-  {{ end }}
-  {{ end }}
-
-  <div
-    style="
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    "
-  >
-    <span class="tag" style="background-color: var(--color-accent)"
-      >{{ .Params.talk_type | title }}</span
-    >
-    <span class="card-meta" style="margin: 0"
-      >{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span
-    >
-  </div>
-
-  {{ if .Params.speaker }}
+  {{ if .Params.featured_image }} {{ with .Resources.GetMatch
+  .Params.featured_image }}
+  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image" />
+  {{ end }} {{ end }} {{ if .Params.speaker }}
   <p
     style="
-      color: var(--color-accent);
+      color: var(--color-gray-dark);
       font-weight: 500;
       margin-bottom: 0.5rem;
     "
@@ -44,17 +25,30 @@
   </p>
   {{ end }}
 
-  {{ if .Params.location }}
-  <p
+  <div
     style="
-      color: var(--color-gray);
-      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     "
   >
-    📍 {{ .Params.location }}
-  </p>
-  {{ end }}
+    <div style="display: flex; align-items: center; gap: 0.5rem">
+      <span class="tag" style="background-color: var(--color-accent)"
+        >{{ .Params.talk_type | title }}</span
+      >
+      {{ if .Params.location }}
+      <p style="color: var(--color-gray); font-size: 0.9rem; margin: 0">
+        📍 {{ .Params.location }}
+      </p>
+      {{ end }}
+      <span class="card-meta" style="margin: 0"
+        >{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span
+      >
+    </div>
+  </div>
 
   <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
 
@@ -71,7 +65,6 @@
       border-radius: 0.25rem;
       text-decoration: none;
       font-size: 0.9rem;
-      margin-top: 1rem;
     "
     onclick="event.stopPropagation()"
   >

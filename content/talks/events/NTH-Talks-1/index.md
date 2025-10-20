@@ -1,5 +1,6 @@
 ---
 title: "Mind-Reading Technology - NTH Webinar #1"
+speaker: "Thirza Dado & Bouke van Balen"
 event_date: "2025-03-12"
 event_time: "19:00–20:30"
 event_timezone: "CET"

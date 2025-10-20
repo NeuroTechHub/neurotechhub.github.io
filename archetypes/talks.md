@@ -1,5 +1,6 @@
 ---
 title: '{{ replace .Name "-" " " | title }}'
+speaker: ""
 # IMPORTANT: theme compares this as a string (YYYY-MM-DD)
 event_date: '{{ now.Format "2006-01-02" }}'
 # Event time in 24-hour format (HH:MM)

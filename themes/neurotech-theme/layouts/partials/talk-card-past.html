@@ -9,20 +9,23 @@
   <h3 class="card-title">
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   </h3>
-
-  {{ if .Params.featured_image }}
-  {{ with .Resources.GetMatch .Params.featured_image }}
-  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image">
-  {{ end }}
-  {{ end }}
+  {{ if .Params.speaker }}
+  <p
+    style="
+      color: var(--color-gray-dark);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    "
+  >
+    {{ .Params.speaker }}
+  </p>
+  {{ end }} {{ if .Params.featured_image }} {{ with .Resources.GetMatch
+  .Params.featured_image }}
+  <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" class="card-image" />
+  {{ end }} {{ end }}
 
   <div
-    style="
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    "
+    style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem"
   >
     <span class="tag" style="background-color: #666"
       >{{ .Params.talk_type | title }}</span
@@ -31,18 +34,6 @@
       >{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span
     >
   </div>
-
-  {{ if .Params.speaker }}
-  <p
-    style="
-      color: var(--color-accent);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    "
-  >
-    {{ .Params.speaker }}
-  </p>
-  {{ end }}
 
   <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
 
