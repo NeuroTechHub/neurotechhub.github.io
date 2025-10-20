@@ -102,7 +102,7 @@
       {{ end }}
     </div>
 
-    <div style="text-align: center; margin-top: 2rem">
+    <div style="text-align: center; padding: 2rem 0">
       <a href="{{ "/blog/" | relURL }}" class="hero-cta">View All Posts</a>
     </div>
   </div>
@@ -148,8 +148,7 @@
     {{ end }}
 
     {{ if $pastTalks }}
-    <h2 class="section-title" style="margin-top:2rem">
-    </h2>
+    <div style="height: 4rem"></div>
     <div class="grid-past-talks">
       {{ range first 2 $pastTalks }}
       {{ partial "talk-card-past.html" . }}
@@ -157,7 +156,7 @@
     </div>
     {{ end }}
 
-    <div style="text-align: center; margin-top: 2rem">
+    <div style="text-align: center; padding: 2rem 0">
       <a href="{{ "/talks/" | relURL }}" class="hero-cta">View All Talks</a>
     </div>
   </div>
@@ -200,7 +199,7 @@
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 2rem">
+    <div style="text-align: center; padding: 2rem 0">
       <div
         style="
           display: flex;

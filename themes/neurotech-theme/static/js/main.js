@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("theme", "light");
         console.log("Switched to light theme");
       }
+
+      // Close mobile menu if open
+      const navMenu = document.getElementById("nav-menu");
+      const navToggle = document.getElementById("nav-toggle");
+      if (navMenu && navToggle) {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+      }
     });
   } else {
     console.error("Theme toggle button not found");
