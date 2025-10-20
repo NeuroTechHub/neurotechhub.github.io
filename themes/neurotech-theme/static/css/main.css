@@ -446,7 +446,7 @@ main {
 
 /* Sections */
 .section {
-  padding: 0;
+  padding-bottom: var(--spacing-2xl);
 }
 
 .section-alt {
@@ -789,6 +789,8 @@ select:focus {
   background-color: #e8e8e8;
   color: var(--text-primary);
   border: 1px solid var(--border-color);
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 body.dark-theme .theme-box {
