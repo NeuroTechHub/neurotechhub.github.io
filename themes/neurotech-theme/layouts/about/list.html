@@ -10,8 +10,13 @@
       {{ range .Site.Data.team.members }}
       <div class="team-card">
         <div class="team-photo-container">
-          <img src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}"
-          class="team-photo">
+          {{ if .linkedin }}
+          <a href="{{ .linkedin }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}" class="team-photo">
+          </a>
+          {{ else }}
+          <img src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}" class="team-photo">
+          {{ end }}
         </div>
         <h3 class="team-name">{{ replace .name " " "<br />" | safeHTML }}</h3>
         <p class="team-description">{{ .description }}</p>
