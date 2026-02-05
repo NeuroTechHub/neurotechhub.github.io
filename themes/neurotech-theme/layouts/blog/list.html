@@ -36,6 +36,7 @@
         <div class="grid grid-2" id="postsGrid">
             {{ range .Paginator.Pages }}
             <article class="card post-card"
+                     style="display: flex; flex-direction: column;"
                      data-title="{{ .Title | lower }}"
                      data-summary="{{ .Params.summary | default .Summary | lower }}"
                      data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}"
@@ -61,7 +62,7 @@
                 <p class="card-summary">{{ .Params.summary | default .Summary }}</p>
                 
                 {{ if .Params.tags }}
-                <div class="card-tags">
+                <div class="card-tags" style="margin-top: auto;">
                     {{ range .Params.tags }}
                     <span class="tag">{{ . }}</span>
                     {{ end }}
@@ -145,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tags.includes(selectedTag);
 
             if (matchesSearch && matchesTag) {
-                card.style.display = 'block';
+                card.style.display = 'flex';
                 visibleCount++;
             } else {
                 card.style.display = 'none';

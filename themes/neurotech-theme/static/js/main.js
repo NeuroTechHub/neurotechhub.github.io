@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
 
   if (themeToggle) {
-    // Check for saved theme preference or default to light theme
-    const currentTheme = localStorage.getItem("theme") || "light";
+    // Check for saved theme preference or default to dark theme
+    const currentTheme = localStorage.getItem("theme") || "dark";
     if (currentTheme === "dark") {
       body.classList.add("dark-theme");
     }

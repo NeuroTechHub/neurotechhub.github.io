@@ -12,7 +12,7 @@
         // Load theme immediately to prevent flash
         (function() {
             const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
+            if (theme !== 'light') {
                 // Add class to html element before body renders
                 document.documentElement.style.setProperty('display', 'none');
             }
@@ -25,7 +25,7 @@
         // Apply theme class to body immediately
         (function() {
             const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
+            if (theme !== 'light') {
                 document.body.classList.add('dark-theme');
             }
             document.documentElement.style.removeProperty('display');
