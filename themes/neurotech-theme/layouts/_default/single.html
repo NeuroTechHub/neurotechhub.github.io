@@ -37,8 +37,8 @@
         
         <!-- Tags -->
         {{ if .Params.tags }}
-        <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-            {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag" style="margin: 0.25rem;">{{ . }}</a>{{ end }}
+        <div style="margin-top: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+            {{ range .Params.tags }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
         </div>
         {{ end }}
 

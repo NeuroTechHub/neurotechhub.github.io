@@ -989,6 +989,24 @@ article table {
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   overflow: hidden;
+  display: table;
+}
+
+/* On narrow screens, let tables scroll horizontally instead of cramping */
+@media (max-width: 640px) {
+  .content table,
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .content table th,
+  .content table td,
+  article table th,
+  article table td {
+    white-space: normal;
+  }
 }
 
 .content table th,
