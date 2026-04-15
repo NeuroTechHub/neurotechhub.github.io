@@ -977,3 +977,44 @@ body.dark-theme .theme-box .hero-cta:hover {
     scroll-behavior: auto;
   }
 }
+
+/* Content tables (markdown-rendered) */
+.content table,
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  background-color: var(--card-bg, var(--bg-primary));
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.content table th,
+.content table td,
+article table th,
+article table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.content table thead th,
+article table thead th {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.content table tbody tr:last-child td,
+article table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.content table tbody tr:nth-child(even),
+article table tbody tr:nth-child(even) {
+  background-color: rgba(70, 114, 101, 0.06);
+}

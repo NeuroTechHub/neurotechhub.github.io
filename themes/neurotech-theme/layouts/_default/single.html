@@ -31,7 +31,7 @@
             {{ end }}
             
             {{ if .Params.event_date }}
-            <span>🗓️ {{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span>
+            <span>🗓️ {{ .Params.event_date | dateFormat "Jan 2, 2006" }}{{ with .Params.event_time }}, {{ . }}{{ end }}{{ with .Params.event_timezone }} {{ . }}{{ end }}</span>
             {{ end }}
         </div>
         
@@ -63,7 +63,7 @@
                     {{ if .Params.registration_link }}
                     <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
                        style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
-                       🎫 Register for this Talk
+                       🎫 Register for this Event
                     </a>
                     {{ end }}
                 {{ else }}
