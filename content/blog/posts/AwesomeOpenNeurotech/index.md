@@ -23,6 +23,8 @@ This is a list of open-source project, tools, and resources, maintained by the N
 
 - [OpenStim](https://github.com/Open-Stim/openstim) - A low-cost electrical stimulator for experimental stimulation electrophysiology based on the Arduino platform
 
+- [COSMIIC](https://cosmiic.org/) - An open-source, modular network of fully implantable neuromodulation devices, including hardware, software, and regulatory documentation, designed for pre-clinical and first-in-human research.
+
 # Open Data Repositories & Platforms
 
 - [OpenNeuro](https://openneuro.org/) - A free and open platform for validating and sharing BIDS-compliant MRI, PET, MEG, EEG, and iEEG data.
