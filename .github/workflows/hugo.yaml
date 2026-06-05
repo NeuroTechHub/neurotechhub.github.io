@@ -53,6 +53,11 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Sync AIMD bootcamp modules into static/learn/bootcamp
+        run: |
+          git clone --depth 1 https://github.com/NeuroTechHub/AIMD_bootcamp.git "${{ runner.temp }}/aimd-bootcamp"
+          mkdir -p static/learn/bootcamp
+          cp -R "${{ runner.temp }}/aimd-bootcamp/modules/." static/learn/bootcamp/
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

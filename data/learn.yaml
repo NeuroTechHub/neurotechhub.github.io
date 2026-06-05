@@ -1,0 +1,6 @@
+resources:
+  - title: "AIMD Bootcamp"
+    url: "/learn/bootcamp/"
+    # image: "images/learn/aimd-bootcamp.png"  # drop a thumbnail in static/images/learn/ to enable
+    summary: "Five browser-native modules that walk the whole AI-Medical-Devices loop: camera → vision model → stimulation → phosphene simulator → decoder. Runs end-to-end, no install."
+    meta: "5 modules · runs in the browser"
