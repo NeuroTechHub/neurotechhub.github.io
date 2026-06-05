@@ -3,6 +3,9 @@ public/
 resources/_gen/
 .hugo_build.lock
 
+# Synced from external repos (see scripts/sync-bootcamp.sh)
+static/learn/bootcamp/
+
 # macOS
 .DS_Store
 .AppleDouble
