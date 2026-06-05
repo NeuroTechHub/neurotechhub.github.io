@@ -54,29 +54,29 @@
 
         <!-- Talk-specific elements -->
         {{ if eq .Type "talks" }}
-        <div style="margin-top: 2rem;">
-            {{ if .Params.event_date }}
-                {{ $eventDate := time .Params.event_date }}
-                {{ $now := now }}
-                {{ if ge $eventDate $now }}
-                    <!-- Future event: show registration link -->
-                    {{ if .Params.registration_link }}
-                    <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
-                       style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
-                       🎫 Register for this Event
-                    </a>
-                    {{ end }}
-                {{ else }}
-                    <!-- Past event: show recording link -->
-                    {{ if .Params.recording_link }}
-                    <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
-                       style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
-                       📺 Watch Recording
-                    </a>
-                    {{ end }}
-                {{ end }}
+        {{ if and .Params.event_date (or .Params.registration_link .Params.recording_link) }}
+        <div
+            class="needs-classify"
+            data-event-cta
+            data-event-date="{{ .Params.event_date }}"
+            style="margin-top: 2rem;"
+        >
+            {{ if .Params.registration_link }}
+            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener"
+               data-show-when="upcoming"
+               style="display: inline-block; background-color: var(--color-accent); color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+               🎫 Register for this Event
+            </a>
+            {{ end }}
+            {{ if .Params.recording_link }}
+            <a href="{{ .Params.recording_link }}" target="_blank" rel="noopener"
+               data-show-when="past"
+               style="display: inline-block; background-color: #666; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin: 0.5rem;">
+               📺 Watch Recording
+            </a>
             {{ end }}
         </div>
+        {{ end }}
         {{ end }}
     </header>
     

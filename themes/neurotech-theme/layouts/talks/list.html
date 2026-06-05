@@ -47,8 +47,7 @@
     </div>
 
     <!-- Upcoming Talks Section -->
-    {{ $upcomingTalks := where .Pages ".Params.event_date" "ge" (now.Format
-    "2006-01-02") }} {{ if $upcomingTalks }}
+    {{ $sortedTalks := .Pages.ByParam "event_date" }}
     <div class="upcoming-section">
       <h2
         style="
@@ -59,24 +58,19 @@
         "
       ></h2>
 
-      <div class="grid grid-2" id="upcomingGrid">
-        {{ range first 3 ($upcomingTalks.ByParam "event_date") }} {{ partial
-        "talk-card-upcoming.html" . }} {{ end }}
-      </div>
-    </div>
-    {{ else }}
-    <div class="upcoming-section">
-      <h2
-        style="
-          font-size: 2rem;
-          margin-bottom: 2rem;
-          color: var(--color-white);
-          text-align: center;
-        "
-      ></h2>
       <div
+        class="grid grid-2 needs-classify"
+        id="upcomingGrid"
+        data-classify="upcoming"
+        data-classify-limit="3"
+        data-empty-state="upcomingEmpty"
+      >
+        {{ range $sortedTalks }} {{ partial "talk-card-upcoming.html" . }} {{ end }}
+      </div>
+      <div
+        id="upcomingEmpty"
         class="theme-box"
-        style="text-align: center; padding: 3rem; border-radius: 1rem"
+        style="display: none; text-align: center; padding: 3rem; border-radius: 1rem"
       >
         <h3 style="color: var(--text-primary); margin-bottom: 1rem">
           No talks coming up, if you want to organise one or suggest a topic,
@@ -93,11 +87,9 @@
         </a>
       </div>
     </div>
-    {{ end }}
 
     <!-- Past Talks Section -->
-    {{ $pastTalks := where .Pages ".Params.event_date" "lt" (now.Format
-    "2006-01-02") }} {{ if $pastTalks }}
+    {{ if $sortedTalks }}
     <div class="past-section" style="margin-top: 4rem">
       <h2
         style="
@@ -108,9 +100,13 @@
         "
       ></h2>
 
-      <div class="grid-past-talks" id="pastGrid">
-        {{ range first 6 ($pastTalks.ByParam "event_date") }} {{ partial
-        "talk-card-past.html" . }} {{ end }}
+      <div
+        class="grid-past-talks needs-classify"
+        id="pastGrid"
+        data-classify="past"
+        data-classify-limit="6"
+      >
+        {{ range $sortedTalks.Reverse }} {{ partial "talk-card-past.html" . }} {{ end }}
       </div>
     </div>
     {{ end }}
@@ -199,6 +195,9 @@
       let visibleCount = 0;
 
       talkCards.forEach((card) => {
+        // Skip cards the date-classifier has already removed from view.
+        if (card.dataset.classifierHidden === "true") return;
+
         const title = card.dataset.title;
         const summary = card.dataset.summary;
         const speaker = card.dataset.speaker;

@@ -1036,3 +1036,11 @@ article table tbody tr:last-child td {
 article table tbody tr:nth-child(even) {
   background-color: rgba(70, 114, 101, 0.06);
 }
+
+/* Talks classifier: hide cards/buttons until JS decides upcoming vs past. */
+.needs-classify {
+  visibility: hidden;
+}
+.talk-card[data-classifier-hidden="true"] {
+  display: none !important;
+}

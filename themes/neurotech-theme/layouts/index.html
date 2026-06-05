@@ -108,24 +108,28 @@
   </div>
 </section>
 
-{{ $upcomingTalks := where (where .Site.RegularPages "Type" "eq" "talks") ".Params.event_date" "ge" (now.Format "2006-01-02") }}
-{{ $pastTalks := where (where .Site.RegularPages "Type" "eq" "talks") ".Params.event_date" "lt" (now.Format "2006-01-02") }}
+{{ $allTalks := (where .Site.RegularPages "Type" "eq" "talks").ByParam "event_date" }}
 
-{{ if or $upcomingTalks $pastTalks }}
+{{ if $allTalks }}
 <section id="talks" class="section section-alt">
   <div class="container">
-    {{ if $upcomingTalks }}
     <h2 class="section-title">Talks</h2>
-    <div class="grid grid-2">
-      {{ range first 3 $upcomingTalks }}
+    <div
+      class="grid grid-2 needs-classify"
+      id="upcomingGrid"
+      data-classify="upcoming"
+      data-classify-limit="3"
+      data-empty-state="upcomingEmpty"
+    >
+      {{ range $allTalks }}
       {{ partial "talk-card-upcoming.html" . }}
       {{ end }}
     </div>
-    {{ else }}
-    <h2 class="section-title">Talks</h2>
     <div
+      id="upcomingEmpty"
       class="theme-box"
       style="
+        display: none;
         text-align: center;
         padding: 3rem;
         border-radius: 1rem;
@@ -145,16 +149,18 @@
         Propose a Talk
       </a>
     </div>
-    {{ end }}
 
-    {{ if $pastTalks }}
     <div style="height: 4rem"></div>
-    <div class="grid-past-talks">
-      {{ range first 2 $pastTalks }}
+    <div
+      class="grid-past-talks needs-classify"
+      id="pastGrid"
+      data-classify="past"
+      data-classify-limit="2"
+    >
+      {{ range $allTalks.Reverse }}
       {{ partial "talk-card-past.html" . }}
       {{ end }}
     </div>
-    {{ end }}
 
     <div style="text-align: center; padding: 2rem 0">
       <a href="{{ "/talks/" | relURL }}" class="hero-cta">View All Talks</a>
