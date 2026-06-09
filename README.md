@@ -50,7 +50,6 @@ hugo server --buildDrafts
 
 - **Website**: [neurotechhub.github.io](https://neurotechhub.github.io)
 - **GitHub**: [github.com/neurotechhub](https://github.com/neurotechhub)
-- **Discord**: [Join our community](https://discord.gg/FhZA5rB7Tq)
 - **Email**: contact@neurotechhub.org
 
 ## License
@@ -70,7 +69,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **General**: [GitHub Discussions](https://github.com/neurotechhub/website/discussions)
 - **Bug Reports**: [GitHub Issues](https://github.com/neurotechhub/website/issues)
-- **Chat**: [Discord Community](https://discord.gg/FhZA5rB7Tq)
 - **Email**: contact@neurotechhub.org
 
 ---

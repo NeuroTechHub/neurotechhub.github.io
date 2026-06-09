@@ -111,7 +111,6 @@ We will review it and post it when it's ready!
 
 - **General Questions**: Open a [GitHub Discussion](https://github.com/neurotechhub/website/discussions)
 - **Bug Reports**: Create an [Issue](https://github.com/neurotechhub/website/issues)
-- **Real-time Chat**: Join our [Discord](https://discord.gg/FhZA5rB7Tq)
 - **Email**: Contact us at contact [at] neurotechhub [dot] org
 
 ---
