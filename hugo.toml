@@ -19,8 +19,8 @@ theme = 'neurotech-theme'
     url = "/blog/"
     weight = 2
   [[menu.main]]
-    name = "Talks"
-    url = "/talks/"
+    name = "Events"
+    url = "/events/"
     weight = 3
   [[menu.main]]
     name = "About"

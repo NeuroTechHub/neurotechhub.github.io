@@ -1,9 +1,9 @@
 ---
-name: Talk Proposal
-title: "[TALK] Your Talk Title Here"
+name: Event Proposal
+title: "[EVENT] Your Event Title Here"
 ---
 
-## Talk Proposal
+## Event Proposal
 
 **Title**:
 
@@ -11,7 +11,7 @@ title: "[TALK] Your Talk Title Here"
 
 **Speaker(s)**:
 
-**Talk Type**: [ ] talk [ ] workshop [ ] seminar
+**Event Type**: [ ] talk [ ] workshop [ ] seminar
 
 **Reachability**: [ ] In-person [ ] Online [ ] Hybrid
 

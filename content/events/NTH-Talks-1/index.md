@@ -7,7 +7,7 @@ event_timezone: "CET"
 draft: false
 featured_image: "mind-reading-technology-poster.png"
 
-talk_type: "webinar"
+event_type: "webinar"
 location: "Online"
 summary: "Our first online webinar: Thirza Dado & Bouke van Balen on mind-reading technology, neural decoding, and whether BCIs can read minds — with live Q&A."
 

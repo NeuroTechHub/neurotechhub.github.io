@@ -7,11 +7,11 @@ event_date: '{{ now.Format "2006-01-02" }}'
 event_time: '{{ now.Format "15:04" }}' # Optional
 event_timezone: "UTC" # Optional
 draft: false
-# Featured image for the talk (place file in same folder as this index.md)
+# Featured image for the event (place file in same folder as this index.md)
 # Example: : "img.jpg" → looks for img.jpg in this folder
 featured_image: "" # Optional
 
-talk_type: "talk" # e.g., talk, workshop, seminar
+event_type: "talk" # e.g., talk, workshop, seminar
 location: ""
 summary: ""
 
@@ -23,7 +23,7 @@ recording_link: "" # Optional
 <!--
 Place your images in the same folder as this index.md, e.g.:
 
-content/talks/{{ .Name }}/
+content/events/{{ .Name }}/
   ├─ index.md
   ├─ img.jpg          ← featured image for cards/lists
   └─ speakers.jpg      ← additional images for content

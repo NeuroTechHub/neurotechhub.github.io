@@ -108,12 +108,12 @@
   </div>
 </section>
 
-{{ $allTalks := (where .Site.RegularPages "Type" "eq" "talks").ByParam "event_date" }}
+{{ $allEvents := (where .Site.RegularPages "Type" "eq" "events").ByParam "event_date" }}
 
-{{ if $allTalks }}
-<section id="talks" class="section section-alt">
+{{ if $allEvents }}
+<section id="events" class="section section-alt">
   <div class="container">
-    <h2 class="section-title">Talks</h2>
+    <h2 class="section-title">Events</h2>
     <div
       class="grid grid-2 needs-classify"
       id="upcomingGrid"
@@ -121,8 +121,8 @@
       data-classify-limit="3"
       data-empty-state="upcomingEmpty"
     >
-      {{ range $allTalks }}
-      {{ partial "talk-card-upcoming.html" . }}
+      {{ range $allEvents }}
+      {{ partial "event-card-upcoming.html" . }}
       {{ end }}
     </div>
     <div
@@ -137,33 +137,33 @@
       "
     >
       <h3 style="color: var(--text-primary); margin-bottom: 1rem">
-        No talks coming up, if you want to organise one or suggest a topic, please let us know!
+        No events coming up, if you want to organise one or suggest a topic, please let us know!
       </h3>
       <a
-        href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+        href="https://github.com/neurotechhub/website/issues/new?template=event-proposal.md"
         target="_blank"
         rel="noopener"
         class="hero-cta"
         style="margin-top: 1rem"
       >
-        Propose a Talk
+        Propose an Event
       </a>
     </div>
 
     <div style="height: 4rem"></div>
     <div
-      class="grid-past-talks needs-classify"
+      class="grid-past-events needs-classify"
       id="pastGrid"
       data-classify="past"
       data-classify-limit="2"
     >
-      {{ range $allTalks.Reverse }}
-      {{ partial "talk-card-past.html" . }}
+      {{ range $allEvents.Reverse }}
+      {{ partial "event-card-past.html" . }}
       {{ end }}
     </div>
 
     <div style="text-align: center; padding: 2rem 0">
-      <a href="{{ "/talks/" | relURL }}" class="hero-cta">View All Talks</a>
+      <a href="{{ "/events/" | relURL }}" class="hero-cta">View All Events</a>
     </div>
   </div>
 </section>

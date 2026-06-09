@@ -332,8 +332,8 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-/* Past talks grid - always maintain 3-column width */
-.grid-past-talks {
+/* Past events grid - always maintain 3-column width */
+.grid-past-events {
   display: grid;
   gap: var(--spacing-lg);
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -668,13 +668,13 @@ body.dark-theme .copyright p {
 
 /* Enhanced hover effects for blog and event cards */
 .post-card:hover,
-.talk-card:hover {
+.event-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.2);
 }
 
 .post-card:hover .card-title,
-.talk-card:hover .card-title {
+.event-card:hover .card-title {
   color: var(--color-accent);
 }
 
@@ -868,7 +868,7 @@ body.dark-theme .theme-box .hero-cta:hover {
     grid-template-columns: 1fr;
   }
 
-  .grid-past-talks {
+  .grid-past-events {
     grid-template-columns: 1fr;
   }
 
@@ -1037,10 +1037,10 @@ article table tbody tr:nth-child(even) {
   background-color: rgba(70, 114, 101, 0.06);
 }
 
-/* Talks classifier: hide cards/buttons until JS decides upcoming vs past. */
+/* Events classifier: hide cards/buttons until JS decides upcoming vs past. */
 .needs-classify {
   visibility: hidden;
 }
-.talk-card[data-classifier-hidden="true"] {
+.event-card[data-classifier-hidden="true"] {
   display: none !important;
 }

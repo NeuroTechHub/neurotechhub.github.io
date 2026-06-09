@@ -59,20 +59,20 @@ Your blog post body goes here
 Posts use **page bundles** - each post is a folder with an `index.md` and its images:
 
 ```
-content/blog/posts/my-post/
+content/blog/my-post/
   ├── index.md
   ├── image.jpg
   └── diagram.png
 ```
 
 1. Navigate to [github.com/NeuroTechHub/neurotechhub.github.io/](github.com/NeuroTechHub/neurotechhub.github.io/). Find the button that says **Fork** and click it. In the next screen, click **Create fork**. You now have a copy of our website on your GitHub account.
-2. Navigate to the `content/blog/posts` folder or go here [github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/posts/](github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/posts/) (replace YOURUSERNAME with your GitHub user name). You have to create a new folder for your post there.
+2. Navigate to the `content/blog` folder or go here [github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/](github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/) (replace YOURUSERNAME with your GitHub user name). You have to create a new folder for your post there.
 3. Click on the **Add file** button in the top right, and then click **Create new file**.
 4. Somewhere near the top it says `Name your file...`. Here you first need to write the name of the folder your post exists in. Write something like `this_is_my_post_title/`. The `/` at the end is important, it will create a folder. In the field that appears next, write `index.md`.
 5. Paste your post in the text field below. If you have images that you want to add (we'll add the files later), you have to reference them EXACTLY, even when the reference has capitals and the filename doesn't, it won't work.
 6. Click **Commit changes...** in the top right. A popup appears, you can optionally add text but leave the "Commit directly to the `main` branch" selected, click **Propose changes**. What this does is that it adds your blog text to your version of the website.
 7. To add images, press the **Add file** button again, this time click **Upload files**. Add the files to the next screen (drag and drop or click "choose your files"). And similar to the previous step, click **Commit changes**.
-8. Click **Contribute** on [github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/posts/](github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/posts/). Then click **Open pull request**. This creates a request to add your post to the main website which we will review.
+8. Click **Contribute** on [github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/](github.com/YOURUSERNAME/neurotechhub.github.io/tree/main/content/blog/). Then click **Open pull request**. This creates a request to add your post to the main website which we will review.
 9. You need to write a title for your pull request. Please also add a nice description for us to understand why you want this post on the website and why you think it is relevant. Click **Create pull request**.
 
 We will review it and post it when it's ready!
@@ -81,7 +81,7 @@ We will review it and post it when it's ready!
 
 1. install [Hugo](https://gohugo.io/installation/)
 2. fork and clone the repo
-3. cd into the repo and create a new folder: `/content/blog/posts/[your_post_name]`
+3. cd into the repo and create a new folder: `/content/blog/[your_post_name]`
 4. create an `index.md` and add images to this folder as well
 5. copy the content of `archetypes/blog.md` to `index.md` to have the correct frontmatter
 6. edit frontmatter and text
@@ -102,10 +102,10 @@ We will review it and post it when it's ready!
   .github/workflows/validate-content.sh
   ```
 
-## Propose a talk
+## Propose an event
 
-- Create an issue using our [Talk Proposal template](https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md)
-- We will work with you to develop, schedule and promote your talk
+- Create an issue using our [Event Proposal template](https://github.com/neurotechhub/website/issues/new?template=event-proposal.md)
+- We will work with you to develop, schedule and promote your event
 
 ## Troubleshooting
 

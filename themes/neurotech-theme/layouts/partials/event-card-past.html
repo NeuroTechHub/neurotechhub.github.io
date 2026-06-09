@@ -1,5 +1,5 @@
 <article
-  class="card talk-card past-event"
+  class="card event-card past-event"
   data-title="{{ .Title | lower }}"
   data-summary="{{ .Params.summary | default .Summary | lower }}"
   data-speaker="{{ .Params.speaker | lower }}"
@@ -29,7 +29,7 @@
     style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem"
   >
     <span class="tag" style="background-color: #666"
-      >{{ .Params.talk_type | title }}</span
+      >{{ .Params.event_type | title }}</span
     >
     <span class="card-meta" style="margin: 0"
       >{{ .Params.event_date | dateFormat "Jan 2, 2006" }}</span

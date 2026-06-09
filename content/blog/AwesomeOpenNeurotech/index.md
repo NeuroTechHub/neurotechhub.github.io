@@ -11,7 +11,7 @@ draft: False
 
 # List contributions
 
-This is a list of open-source project, tools, and resources, maintained by the NTH community. This list is non-exhaustive. If you are missing useful resources in the list, please suggest your contributions through the [github page](https://github.com/NeuroTechHub/neurotechhub.github.io/tree/main/content/blog/posts/AwesomeOpenNeurotech)!
+This is a list of open-source project, tools, and resources, maintained by the NTH community. This list is non-exhaustive. If you are missing useful resources in the list, please suggest your contributions through the [github page](https://github.com/NeuroTechHub/neurotechhub.github.io/tree/main/content/blog/AwesomeOpenNeurotech)!
 
 # Open Source Hardware
 

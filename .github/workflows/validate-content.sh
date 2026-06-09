@@ -62,10 +62,10 @@ for file in $(find content -name "*.md"); do
       echo "Missing date: field in blog post: $file"
       errors=$((errors + 1))
     fi
-  elif [[ "$file" == *"content/talks/"* ]]; then
-    # Talks/events need event_date: field
+  elif [[ "$file" == *"content/events/"* ]]; then
+    # Events need event_date: field
     if ! echo "$frontmatter" | grep -q "^event_date:"; then
-      echo "Missing event_date: field in talk/event: $file"
+      echo "Missing event_date: field in event: $file"
       errors=$((errors + 1))
     fi
   fi
@@ -92,16 +92,16 @@ for file in $(find content -name "index.md" -type f); do
   frontmatter=$(sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d')
   
   # Determine content type and archetype file
-  if [[ "$file" == *"content/blog/posts/"* ]]; then
+  if [[ "$file" == *"content/blog/"* ]]; then
     content_type="blog"
     archetype_file="archetypes/blog.md"
     expected_type="blog"
-  elif [[ "$file" == *"content/talks/events/"* ]]; then
-    content_type="talk"
-    archetype_file="archetypes/talks.md"
-    expected_type="talk"
+  elif [[ "$file" == *"content/events/"* ]]; then
+    content_type="event"
+    archetype_file="archetypes/events.md"
+    expected_type="event"
   else
-    # Skip files not in blog/posts or talks/events
+    # Skip files not in blog or events
     continue
   fi
 
@@ -137,7 +137,7 @@ if [ $errors -gt 0 ]; then
   echo "❌ Found $errors archetype compliance error(s)"
   echo "Ensure all required fields from the archetype are present exactly once."
   echo "Fields marked with '# Optional' in the archetype are not required."
-  echo "Run 'hugo new blog/posts/my-post' or 'hugo new talks/events/my-event' to generate properly structured content."
+  echo "Run 'hugo new blog/my-post' or 'hugo new events/my-event' to generate properly structured content."
   exit 1
 else
   echo "✓ All files comply with archetype requirements!"
