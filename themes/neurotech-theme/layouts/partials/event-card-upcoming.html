@@ -1,5 +1,5 @@
 <article
-  class="card talk-card"
+  class="card event-card"
   data-title="{{ .Title | lower }}"
   data-summary="{{ .Params.summary | default .Summary | lower }}"
   data-speaker="{{ .Params.speaker | lower }}"
@@ -38,7 +38,7 @@
   >
     <div style="display: flex; align-items: center; gap: 0.5rem">
       <span class="tag" style="background-color: var(--color-accent)"
-        >{{ .Params.talk_type | title }}</span
+        >{{ .Params.event_type | title }}</span
       >
       {{ if .Params.location }}
       <p style="color: var(--color-gray); font-size: 0.9rem; margin: 0">

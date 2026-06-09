@@ -11,7 +11,7 @@
     var limitAttr = grid.dataset.classifyLimit;
     var limit = limitAttr ? parseInt(limitAttr, 10) : Infinity;
     var today = todayISO();
-    var cards = Array.prototype.slice.call(grid.querySelectorAll(".talk-card"));
+    var cards = Array.prototype.slice.call(grid.querySelectorAll(".event-card"));
     var kept = 0;
     cards.forEach(function (card) {
       var d = card.dataset.eventDate;

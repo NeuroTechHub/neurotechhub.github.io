@@ -7,7 +7,7 @@ event_timezone: "CEST"
 draft: false
 featured_image: "aimd-banner.png"
 
-talk_type: "bootcamp"
+event_type: "bootcamp"
 location: "Pulse, TU Delft — Landbergstraat 19, 2628 CE Delft"
 summary: "Hands-on evening bootcamp on neural prosthetics pipelines — from data acquisition and signal processing to decoding, modeling, and closed-loop control. A NeuroTechHub pre-event to the AIMD Workshop 2026."
 

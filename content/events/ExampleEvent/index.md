@@ -3,7 +3,7 @@ title: "The Future of Neural Interfaces: Beyond Brain-Computer"
 speaker: "Prof. Alex Chen"
 event_date: "2026-01-10"
 location: "MIT Media Lab"
-talk_type: "keynote"
+event_type: "keynote"
 tags: ["keynote", "future-tech", "research"]
 summary: "A visionary talk exploring the next decade of neural interface technology, from therapeutic applications to human enhancement."
 registration_link: "https://example.com/register"

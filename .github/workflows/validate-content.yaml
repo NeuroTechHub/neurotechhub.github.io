@@ -28,7 +28,7 @@ jobs:
         # 1. Basic frontmatter presence and required fields
         # 2. Archetype field compliance (dynamically parsed from archetype files)
         #    - Only validates fields NOT marked with "# Optional"
-        # 3. Type field matches content type (blog/talk) if present
+        # 3. Type field matches content type (blog/event) if present
         # 4. Image references are valid
         # 5. No unused files in bundles
         # 6. Image file sizes are within limits

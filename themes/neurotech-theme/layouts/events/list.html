@@ -15,16 +15,16 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search talks..."
+          placeholder="Search events..."
           class="search-input"
         />
 
         <select id="tagFilter" class="filter-select">
           <option value="">All Topics</option>
-          {{ $talkTags := slice }} {{ range .Pages }} {{ range .Params.tags }}
-          {{ $talkTags = $talkTags | append . }} {{ end }} {{ end }} {{ range
-          (($talkTags | uniq) | sort) }} {{ $tag := . }} {{ $count := 0 }} {{
-          range $talkTags }} {{ if eq . $tag }} {{ $count = add $count 1 }} {{
+          {{ $eventTags := slice }} {{ range .Pages }} {{ range .Params.tags }}
+          {{ $eventTags = $eventTags | append . }} {{ end }} {{ end }} {{ range
+          (($eventTags | uniq) | sort) }} {{ $tag := . }} {{ $count := 0 }} {{
+          range $eventTags }} {{ if eq . $tag }} {{ $count = add $count 1 }} {{
           end }} {{ end }}
           <option value="{{ . }}">{{ . | title }} ({{ $count }})</option>
           {{ end }}
@@ -46,8 +46,8 @@
       </div>
     </div>
 
-    <!-- Upcoming Talks Section -->
-    {{ $sortedTalks := .Pages.ByParam "event_date" }}
+    <!-- Upcoming Events Section -->
+    {{ $sortedEvents := .Pages.ByParam "event_date" }}
     <div class="upcoming-section">
       <h2
         style="
@@ -65,7 +65,7 @@
         data-classify-limit="3"
         data-empty-state="upcomingEmpty"
       >
-        {{ range $sortedTalks }} {{ partial "talk-card-upcoming.html" . }} {{ end }}
+        {{ range $sortedEvents }} {{ partial "event-card-upcoming.html" . }} {{ end }}
       </div>
       <div
         id="upcomingEmpty"
@@ -73,23 +73,23 @@
         style="display: none; text-align: center; padding: 3rem; border-radius: 1rem"
       >
         <h3 style="color: var(--text-primary); margin-bottom: 1rem">
-          No talks coming up, if you want to organise one or suggest a topic,
+          No events coming up, if you want to organise one or suggest a topic,
           please let us know!
         </h3>
         <a
-          href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+          href="https://github.com/neurotechhub/website/issues/new?template=event-proposal.md"
           target="_blank"
           rel="noopener"
           class="hero-cta"
           style="margin-top: 1rem"
         >
-          Propose a Talk
+          Propose an Event
         </a>
       </div>
     </div>
 
-    <!-- Past Talks Section -->
-    {{ if $sortedTalks }}
+    <!-- Past Events Section -->
+    {{ if $sortedEvents }}
     <div class="past-section" style="margin-top: 4rem">
       <h2
         style="
@@ -101,12 +101,12 @@
       ></h2>
 
       <div
-        class="grid-past-talks needs-classify"
+        class="grid-past-events needs-classify"
         id="pastGrid"
         data-classify="past"
         data-classify-limit="6"
       >
-        {{ range $sortedTalks.Reverse }} {{ partial "talk-card-past.html" . }} {{ end }}
+        {{ range $sortedEvents.Reverse }} {{ partial "event-card-past.html" . }} {{ end }}
       </div>
     </div>
     {{ end }}
@@ -121,7 +121,7 @@
         color: var(--color-gray);
       "
     >
-      <h3>No talks found</h3>
+      <h3>No events found</h3>
       <p>Try adjusting your search or filter criteria.</p>
     </div>
 
@@ -136,7 +136,7 @@
       "
     >
       <h3 style="color: var(--text-primary); margin-bottom: 1rem">
-        Want to Give a Talk?
+        Want to Host an Event?
       </h3>
       <p
         style="
@@ -147,9 +147,9 @@
           margin-right: auto;
         "
       >
-        We're always looking for speakers to share their knowledge and insights
-        with our community. Whether you're a researcher, engineer, or industry
-        professional, we'd love to hear from you.
+        We're always looking for speakers and organisers to share their knowledge
+        and insights with our community. Whether you're a researcher, engineer,
+        or industry professional, we'd love to hear from you.
       </p>
       <div
         style="
@@ -160,12 +160,12 @@
         "
       >
         <a
-          href="https://github.com/neurotechhub/website/issues/new?template=talk-proposal.md"
+          href="https://github.com/neurotechhub/website/issues/new?template=event-proposal.md"
           target="_blank"
           rel="noopener"
           class="hero-cta"
         >
-          Propose a Talk
+          Propose an Event
         </a>
         <a
           href="https://discord.gg/FhZA5rB7Tq"
@@ -186,15 +186,15 @@
     const tagFilter = document.getElementById("tagFilter");
     const clearFiltersBtn = document.getElementById("clearFilters");
     const noResults = document.getElementById("noResults");
-    const talkCards = document.querySelectorAll(".talk-card");
+    const eventCards = document.querySelectorAll(".event-card");
 
-    function filterTalks() {
+    function filterEvents() {
       const searchTerm = searchInput.value.toLowerCase();
       const selectedTag = tagFilter.value.toLowerCase();
 
       let visibleCount = 0;
 
-      talkCards.forEach((card) => {
+      eventCards.forEach((card) => {
         // Skip cards the date-classifier has already removed from view.
         if (card.dataset.classifierHidden === "true") return;
 
@@ -232,12 +232,12 @@
     function clearAllFilters() {
       searchInput.value = "";
       tagFilter.value = "";
-      filterTalks();
+      filterEvents();
     }
 
     // Add event listeners
-    searchInput.addEventListener("input", filterTalks);
-    tagFilter.addEventListener("change", filterTalks);
+    searchInput.addEventListener("input", filterEvents);
+    tagFilter.addEventListener("change", filterEvents);
     clearFiltersBtn.addEventListener("click", clearAllFilters);
   });
 </script>

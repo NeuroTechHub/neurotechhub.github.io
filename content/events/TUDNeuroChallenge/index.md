@@ -5,7 +5,7 @@ event_date: "2025-06-18"
 draft: false
 featured_image: keynote-rainey_1.jpg
 
-talk_type: "challenge"
+event_type: "challenge"
 location: "YES!Delft, Molengraaffsingel 12, 2629 JD Delft"
 summary: "One-day, hands-on challenge to turn neurotech ideas into startup concepts — with keynotes, team sprints, and a jury pitch."
 

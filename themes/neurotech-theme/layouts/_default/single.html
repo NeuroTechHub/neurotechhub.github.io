@@ -52,8 +52,8 @@
         </div>
         {{ end }}
 
-        <!-- Talk-specific elements -->
-        {{ if eq .Type "talks" }}
+        <!-- Event-specific elements -->
+        {{ if eq .Type "events" }}
         {{ if and .Params.event_date (or .Params.registration_link .Params.recording_link) }}
         <div
             class="needs-classify"
