@@ -941,6 +941,10 @@ body.dark-theme .theme-box .hero-cta:hover {
 }
 
 .team-photo-container {
+  display: inline-block;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  line-height: 0;
   margin-bottom: var(--spacing-xs);
 }
 
@@ -949,7 +953,19 @@ body.dark-theme .theme-box .hero-cta:hover {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--color-accent);
+  filter: grayscale(1);
+}
+
+.team-photo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg);
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .team-name {

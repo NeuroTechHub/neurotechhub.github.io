@@ -1,4 +1,4 @@
-members:
+cofounders:
   - name: "Patricija Burgar"
     initials: "PB"
     image: "PB.jpg"
@@ -24,3 +24,25 @@ members:
     image: "SW.jpg"
     linkedin: "https://www.linkedin.com/in/secwolff/"
     # description: "Short description about this team member."
+
+contributors:
+  - name: "Lefteris Papadopoulos"
+    initials: "LP"
+    image: "LP.jpg"
+    # linkedin: ""
+    # description: ""
+  - name: "Jorge Sanmartin"
+    initials: "JS"
+    image: "JS.jpg"
+    # linkedin: ""
+    # description: ""
+  - name: "Radovan Vodila"
+    initials: "RV"
+    image: "RV.jpg"
+    # linkedin: ""
+    # description: ""
+  - name: "Milan ten Bosch"
+    initials: "MB"
+    image: "MB.jpg"
+    # linkedin: ""
+    # description: ""
