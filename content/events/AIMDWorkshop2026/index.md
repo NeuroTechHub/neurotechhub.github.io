@@ -21,6 +21,10 @@ registration_link: "https://www.aanmelder.nl/aimdworkshop2026/registration"
 
 The NeuroTech Bootcamp is a pre-event to the [Active Implantable Medical Devices (AIMD) Workshop 2026](https://www.aanmelder.nl/aimdworkshop2026/home), organized by **NeuroTechHub**. In a single interactive evening, participants get a guided tour of the full neural prosthetics pipeline — from **neural data acquisition** and **signal processing** to **decoding**, **modeling**, and **closed-loop control** — using the Python workflows, machine-learning libraries, and simulation tools that are standard across academia and industry.
 
+## Aftermovie
+
+{{< youtube j5zhsjlkgdM >}}
+
 ## When & where
 
 - **Date:** Wednesday, 3 June 2026
