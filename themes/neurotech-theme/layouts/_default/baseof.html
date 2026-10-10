@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}NTH - {{ .Site.Title }}{{ else }}NTH - {{ .Title }}{{ end }}</title>
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ $title := cond .IsHome (printf "%s – %s" .Site.Title .Site.Params.description) (printf "%s | %s" .Title .Site.Title) }}
+    {{ $description := .Description | default .Params.summary | default .Site.Params.description }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+    {{ if .IsHome }}
+    <!-- Tells Google the site name is "NeuroTechHub" (NTH is only an alias) -->
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "WebSite", "name": {{ .Site.Title }}, "alternateName": "NTH", "url": {{ .Site.BaseURL }}}
+    </script>
+    {{ end }}
     <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
